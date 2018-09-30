@@ -3,6 +3,7 @@ import {BrowserRouter,Route, Switch} from 'react-router-dom';
 import landingPage from './LandingPage'
 import login from './Login'
 import registro from './Registro'
+import Menu from './Menu'
 
 export default class Router extends Component {
   render() {
