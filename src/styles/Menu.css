@@ -1,0 +1,14 @@
+#containerMenu{
+    position: fixed;
+    top:0;
+    z-index: 99;
+    height: 75px !important;
+    padding-left: 0;
+}
+.navbar{
+    height: 100%;
+}
+.nav-item{
+    margin:0 5px;
+}
+
