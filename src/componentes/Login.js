@@ -11,7 +11,7 @@ export default class Login extends Component {
       <div class="login-form">
       <div class="main-div">
       <div class="panel">
-      <h1 className="h1Landing align-center">Tutero</h1>
+      <h1 className="h1Login align-center">Tutero</h1>
       
       
       <div class="dropdown">
