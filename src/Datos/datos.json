@@ -1,0 +1,27 @@
+[
+    {
+        "id" :0,
+        "pregunta": "¿Qué es Tutero",
+        "respuesta": "Tutero es una aplicación que te permitirá conectarte con estudiantes de últimos semestres, quienes te ayudarán resolviendo las dudas que puedas tener. Nuestros tutores son capacitados de manera tal que te podamos ayudar ante cualquier inquietud que tengas.",
+        "tituloImagen": "Programa una sesión!",
+        "subtituloImagen": "En Tutero puedes identificar tu tutor y agendar una cita.",
+        "recurso":"containerServicio1"
+    },
+    {
+        "id" :1,
+        "pregunta": "¿Qué más puedes hacer?",
+        "respuesta": "Nuestra base de datos te permitirá conocer las oportunidades que te brinda la Universidad. Puedes enterarte de eventos. Igualmente, tu interacción en la aplicación ayudará a enriquecer la base de datos para nuevos estudiantes",
+        "tituloImagen": "Sé un tutor",
+        "subtituloImagen": "En Tutero puedes convertirte en tutor. Frecuentemente lanzamos convocatorias.",
+        "recurso":"containerServicio2"
+    },
+    {
+        "id" :2,
+        "pregunta": "¿Qué hace un tutor?",
+        "respuesta": "Un tutor es alguien con conocimientos generales que te ayudará a resolver cualquier duda que tengas. Nuestra base de datos le permite al tutor estar bien informado y darte instrucciones precisas de acuerdo a la duda que tengas.",
+        "tituloImagen": "No esperes más!",
+        "subtituloImagen": "Regístrate en Tutero para disfrutar de nuestros servicios.",
+        "recurso":"containerServicio3"
+    }
+
+]

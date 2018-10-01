@@ -6,8 +6,12 @@
   
     font-size: 4.5rem;
     color:white;
+    margin-top:250px;
     
 
+}
+.h2Landing{
+    color:white;
 }
 #containerHeader{
     background-image: url("../recursos/workplace.jpg");
@@ -21,4 +25,7 @@
     height: 200px;
     margin-top: auto;
     margin-bottom: auto;
+}
+.btnLanding{
+    font-size: 2rem;
 }

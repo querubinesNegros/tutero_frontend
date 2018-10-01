@@ -1,0 +1,27 @@
+.containerDescripcion{
+    margin:50px 0;
+}
+#h1Descripcion{
+    line-height: 200px;
+}
+#pDescripcion{
+    line-height: 40px;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+#containerServicio1, #containerServicio2, #containerServicio3{
+    background-size: cover;
+    width: 100%;
+    height: 740px;
+    margin-top: 75px;
+
+}
+#containerServicio1{
+    background-image: url("../recursos/diary.jpg");
+}
+#containerServicio2{
+    background-image: url("../recursos/business.jpg");
+}
+#containerServicio3{
+    background-image: url("../recursos/paper.jpg");
+}
