@@ -1,25 +1,17 @@
 import React, { Component } from 'react'
 import Header from './Header';
+
 import Menu from './Menu';
-import Descripcion from './Descripcion'
+import Registro from './Registro'
+import { Switch, Route } from 'react-router-dom';
+
 
 export default class LandingPage extends Component {
   render() {
     return (
       <div>
+        <Menu/>
         <Header/>
-        {Object.keys(this.props.info).map
-        (
-            descripcion=>(
-                <Descripcion
-                    informacion={this.props.info[descripcion]}
-                    key={descripcion}
-                />
-            )
-        )
-        }
-        
-        
       </div>
     )
   }

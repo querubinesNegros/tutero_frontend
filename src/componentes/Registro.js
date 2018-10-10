@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import '../styles/login.css';
+import '../styles/Registro.css';
 import {Link} from 'react-router-dom'
+import Menu from './Menu';
 
-export default class Login extends Component {
+export default class Registro extends Component {
   render() {
     return (
       <div id="LoginForm">
+      <Menu/>
       <div class="container">
       <h1 class="form-heading">login Form</h1>
       <div class="login-form">
@@ -54,7 +56,7 @@ export default class Login extends Component {
 
     </form>
     </div>
-<p class="botto-text"> Designed by Sunil Rajput</p>
+
 </div></div>
 
 

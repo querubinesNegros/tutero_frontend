@@ -4,6 +4,7 @@
     z-index: 99;
     height: 75px !important;
     padding-left: 0;
+    width: 100%;
 }
 .navbar{
     height: 100%;
