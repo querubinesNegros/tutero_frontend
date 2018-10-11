@@ -1,0 +1,15 @@
+.h1Est {
+  padding-top: 50px;
+  font-weight:900;
+  font-size: xx-large;
+}
+
+.person-wrapper {
+  margin-bottom: 2em;
+}
+
+.profile-pic {
+  width: 50%;
+  border-radius: 50%;
+  padding-top: 0px;
+}

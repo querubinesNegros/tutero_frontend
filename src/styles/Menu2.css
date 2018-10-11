@@ -1,0 +1,14 @@
+
+
+.nav{
+    float: left;
+    list-style-type: none;
+    padding: 0; 
+    position: relative; 
+    left: 50%;
+}
+.item{
+    float: left;
+    position: relative; 
+    right: 50%;
+}

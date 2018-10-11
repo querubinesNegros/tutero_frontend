@@ -59,3 +59,14 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
     margin-top:50px;
     
 }
+
+.hola{
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
