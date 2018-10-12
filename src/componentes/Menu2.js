@@ -29,7 +29,7 @@ export default class Menu2 extends Component {
                   <li className="item">
                     <a class="nav-link" href="/disponibilidad">Disponibilidad</a>
                   </li>
-                  
+                  <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/">Logout</a>
                 </ul>
                 
               </div>

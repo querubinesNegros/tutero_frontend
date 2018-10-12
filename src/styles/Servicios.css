@@ -1,0 +1,23 @@
+.grid{
+    height: auto;
+    width: auto;
+
+    margin-top:50px;
+    text-align:center;
+    
+}
+
+.show-grid{
+    flex: 10;
+}
+.column{
+    bottom: 15px;
+    position: relative;
+}
+.column2{
+    padding-top: 150px;
+    position: relative;
+}
+.text{
+    justify-content: baseline;
+}
