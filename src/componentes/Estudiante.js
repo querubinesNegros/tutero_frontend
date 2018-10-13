@@ -3,9 +3,11 @@ import Menu2 from './Menu2';
 import {Link} from 'react-router-dom'
 import '../styles/estudiante.css';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
+import store from '../store';
 
 export default class Estudiante extends Component{
     render() {
+        console.log(store.getState())
         return (
             <div>
                 <Menu2/>
@@ -20,6 +22,7 @@ export default class Estudiante extends Component{
                         <h3>Frank</h3>
                         <h3>Correo: frank@unal.edu.co</h3>
                         <h3>Cel: 3152362451 </h3>
+                        <h3>El estudiante es :{store.getState().name} </h3>
                       </Col>
                       
                     </Row>

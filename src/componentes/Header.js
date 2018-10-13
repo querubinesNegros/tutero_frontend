@@ -8,7 +8,7 @@ export default class Header extends Component {
     return (
       <div id="containerHeader">
         <div className="row">
-          <div class ="col-6">
+          <div className ="col-6">
             <div className="col-12">
                 <h1 className="h1Landing align-middle">Tutero</h1>
             </div>

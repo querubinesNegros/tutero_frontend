@@ -1,8 +1,60 @@
 import React, { Component } from 'react'
 import '../styles/login.css';
 import {Link} from 'react-router-dom'
-
+import axios from 'axios';
+import swal from 'sweetalert2';
 export default class Login extends Component {
+
+  constructor() {
+    super();
+    this.state = { email: null, password: null};
+  }
+
+
+  handleSubmit = (e) =>{
+    e.preventDefault()
+/////////////////guarda el token localmente////////////
+   axios.post('http://localhost:3000/user_token', {
+     auth:{
+    email: this.state.email,
+    password: this.state.password
+   }
+    })
+    .then(function (token) {
+      console.log(token.data.jwt);
+      localStorage.setItem("jwtToken", token.data.jwt);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+    swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
+      swal.showLoading()
+    }});
+    setTimeout(function(){window.location = "http://localhost:3001/estudiante";}, 1000); 
+
+
+
+  }
+ 
+
+
+  setField (e) {
+    if(e.target.id === 'inputEmail'){
+      this.setState({
+        email: e.target.value
+      })
+      }
+      if(e.target.id === 'inputPassword'){
+      this.setState({
+        password: e.target.value
+      })
+      }
+      console.log(this.state.email);
+      console.log(this.state.password);
+    }
+
+
   render() {
     return (
       <div id="LoginForm">
@@ -20,7 +72,7 @@ export default class Login extends Component {
         <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
           <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Estudiante</a></li>
           <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Tutor</a></li>
-          <li role="presentation" class="divider"></li>
+          <li role="presentation" className="divider"></li>
           <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Admin</a></li>
           
         </ul>
@@ -32,22 +84,18 @@ export default class Login extends Component {
       <form id="Login">
 
         <div className="form-group">
-
-
-            <input type="email" className="form-control" id="inputEmail" placeholder="Email Address"/>
-
+            <input type="email" className="form-control" onChange={(e)=>this.setField(e)} id="inputEmail" placeholder="Email Address"/>
         </div>
 
         <div className="form-group">
 
-            <input type="password" className="form-control" id="inputPassword" placeholder="Password"/>
+            <input type="password" className="form-control" onChange={(e)=>this.setField(e)} id="inputPassword" placeholder="Password"/>
 
         </div>
         <div className="forgot">
         <a href="reset.html">Forgot password?</a>
         </div>
-        <Link to={'/estudiante'} className="btn btn-primary hola">Login</Link>
-
+        <button type="submit" onClick={this.handleSubmit} className="btn btn-primary hola"> Log in</button>
     </form>
     </div>
 
