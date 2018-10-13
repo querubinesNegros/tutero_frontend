@@ -28,10 +28,10 @@ export default class Router extends Component {
                 <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/registro" component={Registro}/>
                 <PrivateRoute   exact path="/estudiante" component={Estudiante}/>
-                <Route exact path="/servicios" component={Servicios}/>
-                <Route exact path="/disponibilidad" component={Disponibilidad}/>
-                <Route exact path="/historial" component={Historial}/>
-                <Route exact path="/recreacion" component={Recreacion}/>
+                <PrivateRoute exact path="/servicios" component={Servicios}/>
+                <PrivateRoute exact path="/disponibilidad" component={Disponibilidad}/>
+                <PrivateRoute exact path="/historial" component={Historial}/>
+                <PrivateRoute exact path="/recreacion" component={Recreacion}/>
             </Switch>
         </div>
         
