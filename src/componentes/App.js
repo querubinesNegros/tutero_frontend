@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import Router from './Router';
 import store from '../store';
+import baseURL from '../url';
 
 class App extends Component {
   
@@ -13,7 +14,7 @@ class App extends Component {
       };
   }
 obtenerDatos(loginParams){
-    return fetch(`http://localhost:3000/users/current`, {
+    return fetch(`${baseURL}/users/current`, {
        headers: new Headers({
       "Authorization": loginParams,
       "Content-Type":"application/json",

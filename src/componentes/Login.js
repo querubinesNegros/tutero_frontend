@@ -3,6 +3,8 @@ import '../styles/login.css';
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 import swal from 'sweetalert2';
+import baseURL from '../url';
+
 export default class Login extends Component {
 
   constructor() {
@@ -14,7 +16,7 @@ export default class Login extends Component {
   handleSubmit = (e) =>{
     e.preventDefault()
 /////////////////guarda el token localmente////////////
-   axios.post('http://localhost:3000/user_token', {
+   axios.post(`${baseURL}/user_token`, {
      auth:{
     email: this.state.email,
     password: this.state.password
