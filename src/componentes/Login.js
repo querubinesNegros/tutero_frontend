@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
-import baseURLFront from '../url';
+import baseURLFront from '../urlFront';
 
 export default class Login extends Component {
 
