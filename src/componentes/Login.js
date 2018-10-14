@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
+import baseURLFront from '../url';
 
 export default class Login extends Component {
 
@@ -33,7 +34,7 @@ export default class Login extends Component {
     swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
       swal.showLoading()
     }});
-    setTimeout(function(){window.location = "http://localhost:3001/estudiante";}, 1000); 
+    setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
 
 
 
