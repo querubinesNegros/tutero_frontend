@@ -36,11 +36,12 @@ export default class Perfil extends Component{
     
                            
                             <h3> <b>BIENVENIDO A</b> TU PERFIL <br /></h3> 
+                            <Image src="/person-3.jpg"  circle className="profile-pic2"/>
                             <div className="form-group">
                                        
                             <h4 className="s-property-title">Nombre de usuario:</h4>
                                         <label>{store.getState().name}</label>
-
+                                       
                             </div>
                             <div className="form-group">
                                 <h4 className="s-property-title">Correo electronico:</h4>

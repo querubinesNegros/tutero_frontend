@@ -8,3 +8,9 @@
 .form-group {
     margin-bottom: 15px;
 }
+
+.profile-pic2 {
+    width: 150px;
+    border-radius: 50%;
+    padding-top: 0px;
+  }
