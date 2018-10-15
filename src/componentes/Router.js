@@ -10,6 +10,7 @@ import Historial from './Historial';
 import Recreacion from './Recreacion';
 import Perfil from './Perfil';
 import store from '../store';
+import EdPerfil from './EstudianteEditarPerfil';
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
   <Route {...rest} render={(props) => (
@@ -34,6 +35,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/historial" component={Historial}/>
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
+                <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil}/>
             </Switch>
         </div>
         

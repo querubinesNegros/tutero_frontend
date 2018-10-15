@@ -40,7 +40,7 @@ export default class Perfil extends Component{
                             <div className="form-group">
                                        
                             <h4 className="s-property-title">Nombre de usuario:</h4>
-                                        <label>{store.getState().name}</label>
+                                        <label>{store.getState().name} {store.getState().lastname}</label>
                                        
                             </div>
                             <div className="form-group">
@@ -49,7 +49,14 @@ export default class Perfil extends Component{
    
                             </div> 
                             <div className="form-group">
+                                <h4 className="s-property-title">Celular:</h4>
+                                            <label>{store.getState().cellphone}</label>
+   
+                            </div> 
+                            
+                            <div className="form-group">
                                 <div className="form-group">
+                                <Link to='/estudiante/editarPerfil' className="btn btn-default">Editar perfil</Link>
                                 <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Logout</button>
 
                             </div>
