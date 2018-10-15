@@ -1,3 +1,3 @@
-const baseURL = 'https://mighty-hollows-51109.herokuapp.com'
+const baseURL = 'https://tuterob.herokuapp.com'
 
 export default baseURL

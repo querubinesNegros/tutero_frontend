@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../styles/Menu2.css';
 import swal from 'sweetalert2';
+import {Link} from 'react-router-dom';
 
 export default class Menu2 extends Component {
 
@@ -26,19 +27,19 @@ export default class Menu2 extends Component {
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="nav">
                   <li className="item">
-                    <a className="nav-link" href="/recreacion">Recreación</a>
+                    <Link to='/recreacion' className="nav-link">Recreación</Link>
                   </li>
                   <li className="item">
-                    <a className="nav-link" href="/historial">Historial</a>
+                    <Link to='/historial' className="nav-link">Historial</Link>
                   </li>
                   <li className="item">
-                    <a className="nav-link" href="/Estudiante">TUTERO</a>
+                    <Link to='/estudiante' className="nav-link">TUTERO</Link>
                   </li>
                   <li className="item">
-                    <a className="nav-link" href="/servicios">Servicios</a>
+                    <Link to='/servicios' className="nav-link">Servicios</Link>
                   </li>
                   <li className="item">
-                    <a className="nav-link" href="/disponibilidad">Disponibilidad</a>
+                    <Link to='/disponibilidad' className="nav-link">Disponibilidad</Link>
                   </li>
                   <button className="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" onClick={this.handleSubmit}>Logout</button>
                 </ul>

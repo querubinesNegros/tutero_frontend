@@ -2,27 +2,78 @@ import React, { Component } from 'react'
 import '../styles/Registro.css';
 import {Link} from 'react-router-dom'
 import Menu from './Menu';
+import axios from 'axios';
+import swal from 'sweetalert2';
+import baseURL from '../url';
+import baseURLFront from '../urlFront';
+
 
 export default class Registro extends Component {
+  
+  constructor() {
+    super();
+    this.state = { emailRegistro: null, passwordRegistro: null};
+  }
+
+  handleSubmit = (e) =>{
+    e.preventDefault()
+
+    const user = {
+      email: this.state.emailRegistro,
+      password: this.state.passwordRegistro
+    };
+
+   axios.post(`${baseURL}/users/create`, {user})
+    .then(function (res) {
+      console.log(res.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
+      swal.showLoading()
+    }});
+    swal({
+      text: "Se ha registrado satisfactoriamente. Inicie sesión",
+      }   );
+    setTimeout(function(){window.location = `${baseURLFront}`;}, 5000); 
+
+  }
+  setField (e) {
+    if(e.target.id === 'inputEmailRegistro'){
+      this.setState({
+        emailRegistro: e.target.value
+      })
+      }
+      if(e.target.id === 'inputPasswordRegistro'){
+      this.setState({
+        passwordRegistro: e.target.value
+      })
+      }
+      console.log(this.state.emailRegistro);
+      console.log(this.state.passwordRegistro);
+    }
+
+
   render() {
     return (
       <div id="LoginForm">
       <Menu/>
-      <div class="container">
-      <h1 class="form-heading">login Form</h1>
-      <div class="login-form">
-      <div class="main-div">
-      <div class="panel">
+      <div className="container">
+      <h1 className="form-heading">login Form</h1>
+      <div className="login-form">
+      <div className="main-div">
+      <div className="panel">
       <h1 className="h1Registro align-center">Tutero</h1>
       
       
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Usuario
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <div className="dropdown">
+        <button className="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Usuario
+        <span className="caret"></span></button>
+        <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Estudiante</a></li>
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tutor</a></li>
-          <li role="presentation" class="divider"></li>
+          <li role="presentation" className="divider"></li>
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Admin</a></li>
           
         </ul>
@@ -33,26 +84,26 @@ export default class Registro extends Component {
       </div>
       <form id="Login">
 
-        <div class="form-group">
+        <div className="form-group">
 
 
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email Address"/>
+            <input type="email" className="form-control" onChange={(e)=>this.setField(e)} id="inputEmailRegistro" placeholder="Email Address"/>
 
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
 
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password"/>
+            <input type="password" className="form-control" onChange={(e)=>this.setField(e)} id="inputPasswordRegistro" placeholder="Password"/>
 
         </div>
         
-        <div class="form-group">
+        <div className="form-group">
 
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password again"/>
+            <input type="password" className="form-control" id="inputPassword" placeholder="Password again"/>
 
         </div>
        
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit"  onClick={this.handleSubmit} className="btn btn-primary">Register</button>
 
     </form>
     </div>
