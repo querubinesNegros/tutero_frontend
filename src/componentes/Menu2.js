@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 export default class Menu2 extends Component {
 
-
+/*
   handleSubmit = (e) =>{
     e.preventDefault();
     localStorage.removeItem('jwtToken')
@@ -14,7 +14,7 @@ export default class Menu2 extends Component {
      }});
     setTimeout(function(){window.location.reload()},1000);
   }
- 
+*/ 
   render() {
     return (
         <div id="containerNav">  
@@ -41,7 +41,14 @@ export default class Menu2 extends Component {
                   <li className="item">
                     <Link to='/disponibilidad' className="nav-link">Disponibilidad</Link>
                   </li>
-                  <button className="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" onClick={this.handleSubmit}>Logout</button>
+                  
+                  <div className="button navbar-right">
+                        <div className="dealer-face">
+                          <Link  to="/Perfil">
+                            <img src="/person-1.jpg" width= "30px" alt ="" className="img-circle"/> 
+                            </Link>          
+                          </div>
+                  </div>
                 </ul>
                 
               </div>
