@@ -8,23 +8,29 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 
 export default class NuevoAdmin extends Component{
-   constructor() {
-    super();
-        this.state = { name: null, lastname: null, email: null, cellphone: null, userable_type: null, userable_id: null};
+   state = {
+
+   }
+
+    componentDidMount(){
+    	axios.post(`${baseURL}/admins`,{})
+    		.then( (res) => {
+      		this.setState({userable_id:res.data.id});
+    	})
+    	.catch( (error) => {
+      		console.log(error);
+    	});
+
+    	console.log(this.state);
+    	
+
     }
-    
+  
     handleSubmit = (e) =>{
         e.preventDefault();
 
 
-        var self = this;
-        axios.post(`${baseURL}/admins`,{})
-    		.then(function (res) {
-      		self.setState({userable_id:res.data.id});
-    	})
-    	.catch(function (error) {
-      		console.log(error);
-    	});
+        
 
     	console.log(this.state);
     	const user ={
@@ -37,13 +43,14 @@ export default class NuevoAdmin extends Component{
             'userable_id':this.state.userable_id
 
         };
-       	//axios.post(`${baseURL}/users/create`, {user})
-		//	    .then(function (res) {
-		//	      console.log(res.data);
-		//	    })
-		//	    .catch(function (error) {
-		//	      console.log(error);
-		//	    });
+        console.log(user);
+       	axios.post(`${baseURL}/users/create`, {user})
+			    .then(function (res) {
+			      console.log(res.data);
+			    })
+			    .catch(function (error) {
+			      console.log(error);
+			    });
  		console.log(user);
         
         
@@ -78,6 +85,8 @@ export default class NuevoAdmin extends Component{
       console.log(this.state.email);
       console.log(this.state.cellphone);
     }
+
+
 
   render() {
     return (
