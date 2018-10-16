@@ -56,10 +56,10 @@ export default class Perfil extends Component{
                             
                             <div className="form-group">
                                 <div className="form-group">
-                                <Link to='/estudiante/editarPerfil' className="btn btn-default">Editar perfil</Link>
-                                <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Logout</button>
+                                    <Link to='/estudiante/editarPerfil' className="btn btn-default">Editar perfil</Link>
+                                    <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Logout</button>
 
-                            </div>
+                                </div>
                             </div>
                         </div>
                                   

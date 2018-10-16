@@ -11,6 +11,10 @@ import Recreacion from './Recreacion';
 import Perfil from './Perfil';
 import store from '../store';
 import EdPerfil from './EstudianteEditarPerfil';
+import Admin from './Admin';
+import CrearPost from './CrearPost';
+import Cambia from './CambiaRolUser';
+import NuevoAdmin from './NuevoAdmin';
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
   <Route {...rest} render={(props) => (
@@ -36,6 +40,11 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
                 <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil}/>
+                <PrivateRoute exact path="/admin" component={Admin}/>
+                <PrivateRoute exact path="/admin/crear_post" component={CrearPost}/>
+                <PrivateRoute exact path="/admin/cambiar_rol" component={Cambia}/>
+                <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
+                
             </Switch>
         </div>
         

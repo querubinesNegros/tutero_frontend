@@ -18,7 +18,6 @@ export default class Estudiante extends Component{
       .then(res => {
         const tutor = res.data.data[0];
         this.setState({tutor});
-        console.log(this.state+" dentro de componentDidMount");
 
       })
       .catch(function (error) {
@@ -27,8 +26,6 @@ export default class Estudiante extends Component{
   }
     
     render() {
-        console.log(store.getState())
-        
         return (
             <div>
                 <Menu2/>

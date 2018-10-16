@@ -5,6 +5,7 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
 import baseURLFront from '../urlFront';
+import store from '../store';
 
 export default class Login extends Component {
 
@@ -31,16 +32,38 @@ export default class Login extends Component {
       console.log(error);
     });
 
-    swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
-      swal.showLoading()
-    }});
-    setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
+    var str = this.state.email;
+    var res1 = str.split(".");
+    console.log(res1);
+    
 
+    axios.post(`${baseURL}/users/type`,{
+      email: this.state.email
+    })
+      .then(res => {
+        const type = res.data.data[0];
+        console.log(type);
 
+        swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
+          swal.showLoading()
+         }});
+        if (type === "Tutor") {
+          setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 1000); 
+        }else if(type === "Admin"){
+          setTimeout(function(){window.location = `${baseURLFront}/admin`;}, 1000); 
+        }
+        else{
+          setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
+        }
+      })
+      .catch(function (error) {
+      console.log(error);
+    });
+    
 
   }
  
-
+  
 
   setField (e) {
     if(e.target.id === 'inputEmail'){

@@ -36,7 +36,7 @@ export default class Registro extends Component {
     swal({
       text: "Se ha registrado satisfactoriamente. Inicie sesión",
       }   );
-    setTimeout(function(){window.location = `${baseURLFront}`;}, 5000); 
+    setTimeout(function(){window.location = `${baseURLFront}`;}, 20000); 
 
   }
   setField (e) {
