@@ -12,7 +12,7 @@ export default class Registro extends Component {
   
   constructor() {
     super();
-    this.state = { emailRegistro: null, passwordRegistro: null};
+    this.state = { emailRegistro: null, passwordRegistro: null, name: null, lastname: null};
   }
 
   handleSubmit = (e) =>{
@@ -20,7 +20,9 @@ export default class Registro extends Component {
 
     const user = {
       email: this.state.emailRegistro,
-      password: this.state.passwordRegistro
+      password: this.state.passwordRegistro,
+      name: this.state.name,
+      lastname: this.state.lastname
     };
 
    axios.post(`${baseURL}/users/create`, {user})
@@ -36,7 +38,7 @@ export default class Registro extends Component {
     swal({
       text: "Se ha registrado satisfactoriamente. Inicie sesión",
       }   );
-    setTimeout(function(){window.location = `${baseURLFront}`;}, 20000); 
+    setTimeout(function(){window.location = `${baseURLFront}`;}, 1000); 
 
   }
   setField (e) {
@@ -50,8 +52,20 @@ export default class Registro extends Component {
         passwordRegistro: e.target.value
       })
       }
+      if(e.target.id === 'inputName'){
+        this.setState({
+          name: e.target.value
+        })
+      }
+      if(e.target.id === 'inputLastname'){
+        this.setState({
+          lastname: e.target.value
+        })
+      }
       console.log(this.state.emailRegistro);
       console.log(this.state.passwordRegistro);
+      console.log(this.state.name);
+      console.log(this.state.lastname);
     }
 
 
@@ -71,10 +85,10 @@ export default class Registro extends Component {
         <button className="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Usuario
         <span className="caret"></span></button>
         <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Estudiante</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tutor</a></li>
+          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Estudiante</a></li>
+          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Tutor</a></li>
           <li role="presentation" className="divider"></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Admin</a></li>
+          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Admin</a></li>
           
         </ul>
       </div>
@@ -86,8 +100,18 @@ export default class Registro extends Component {
 
         <div className="form-group">
 
+          <input type="name" className="form-control" onChange={(e)=>this.setField(e)} id="inputName" placeholder="Nombre"/>
 
-            <input type="email" className="form-control" onChange={(e)=>this.setField(e)} id="inputEmailRegistro" placeholder="Email Address"/>
+        </div>
+        <div className="form-group">
+
+          <input type="lastname" className="form-control" onChange={(e)=>this.setField(e)} id="inputLastname" placeholder="Apellido"/>
+
+        </div>
+        <div className="form-group">
+
+
+            <input type="email" className="form-control" onChange={(e)=>this.setField(e)} id="inputEmailRegistro" placeholder="e-mail"/>
 
         </div>
 
