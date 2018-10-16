@@ -13,7 +13,7 @@ import store from '../store';
 import EdPerfil from './EstudianteEditarPerfil';
 import Admin from './Admin';
 import CrearPost from './CrearPost';
-import Cambia from './CambiaRolUser';
+import GetUsers from './ObtenerUsers';
 import NuevoAdmin from './NuevoAdmin';
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
@@ -42,7 +42,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil}/>
                 <PrivateRoute exact path="/admin" component={Admin}/>
                 <PrivateRoute exact path="/admin/crear_post" component={CrearPost}/>
-                <PrivateRoute exact path="/admin/cambiar_rol" component={Cambia}/>
+                <PrivateRoute exact path="/admin/obtener_users" component={GetUsers}/>
                 <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
                 
             </Switch>

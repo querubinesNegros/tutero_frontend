@@ -13,7 +13,7 @@ export default class NuevoAdmin extends Component{
    }
 
     componentDidMount(){
-    	axios.post(`${baseURL}/admins`,{})
+    	/*axios.post(`${baseURL}/admins`,{})
     		.then( (res) => {
       		this.setState({userable_id:res.data.id});
     	})
@@ -23,7 +23,7 @@ export default class NuevoAdmin extends Component{
 
     	console.log(this.state);
     	
-
+*/
     }
   
     handleSubmit = (e) =>{
@@ -39,8 +39,7 @@ export default class NuevoAdmin extends Component{
             'lastname': this.state.lastname,
             'email': this.state.email,
             'cellphone': this.state.cellphone,
-            'userable_type': 'Admin',
-            'userable_id':this.state.userable_id
+            'userable_type': 'Admin'
 
         };
         console.log(user);

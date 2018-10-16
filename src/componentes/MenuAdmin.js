@@ -32,7 +32,7 @@ handleSubmit = (e) =>{
                     <Link to='/admin/crear_post' className="nav-link">Crear post</Link>
                   </li>
                   <li className="item">
-                    <Link to='/admin/cambiar_rol' className="nav-link">Cambiar rol</Link>
+                    <Link to='/admin/obtener_users' className="nav-link">Obtener usuarios</Link>
                   </li>
                   <li className="item">
                     <Link to='/admin/nuevo' className="nav-link">Agregar admin</Link>
