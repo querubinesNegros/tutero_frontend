@@ -11,20 +11,6 @@ export default class NuevoAdmin extends Component{
    state = {
 
    }
-
-    componentDidMount(){
-    	/*axios.post(`${baseURL}/admins`,{})
-    		.then( (res) => {
-      		this.setState({userable_id:res.data.id});
-    	})
-    	.catch( (error) => {
-      		console.log(error);
-    	});
-
-    	console.log(this.state);
-    	
-*/
-    }
   
     handleSubmit = (e) =>{
         e.preventDefault();
@@ -39,7 +25,8 @@ export default class NuevoAdmin extends Component{
             'lastname': this.state.lastname,
             'email': this.state.email,
             'cellphone': this.state.cellphone,
-            'userable_type': 'Admin'
+            'userable_type': 'Admin',
+            'password': this.state.password
 
         };
         console.log(user);
@@ -79,6 +66,11 @@ export default class NuevoAdmin extends Component{
         cellphone: e.target.value
       })
       }
+      if(e.target.id === 'password'){
+      this.setState({
+        password: e.target.value
+      })
+      }
       console.log(this.state.name);
       console.log(this.state.lastname);
       console.log(this.state.email);
@@ -99,23 +91,28 @@ export default class NuevoAdmin extends Component{
                 <div className="form-group">
                            
                 	<h4 className="s-property-title">Nombre:</h4>
-                    <input type="text" id="nameEdit" onChange={(e)=>this.setField(e)}  placeholder={store.getState().name}></input>
+                    <input type="text" id="nameEdit" onChange={(e)=>this.setField(e)}  ></input>
                            
                 </div>
                 <div className="form-group">
                            
                 	<h4 className="s-property-title">Apellido:</h4>
-                    <input type="text" id="lastnameEdit" onChange={(e)=>this.setField(e)} placeholder={store.getState().lastname}></input>
+                    <input type="text" id="lastnameEdit" onChange={(e)=>this.setField(e)} ></input>
                            
                 </div>
                 <div className="form-group">
                     <h4 className="s-property-title">Correo electronico:</h4>
-                    <input type="text" id="emailEdit" onChange={(e)=>this.setField(e)} placeholder={store.getState().email}></input>
+                    <input type="text" id="emailEdit" onChange={(e)=>this.setField(e)} ></input>
+
+                </div> 
+                <div className="form-group">
+                    <h4 className="s-property-title">Correo electronico:</h4>
+                    <input type="password" id="password" onChange={(e)=>this.setField(e)} ></input>
 
                 </div> 
                 <div className="form-group">
                     <h4 className="s-property-title">Celular:</h4>
-                    <input type="text" id="cellphoneEdit" onChange={(e)=>this.setField(e)} placeholder={store.getState().cellphone}></input>
+                    <input type="text" id="cellphoneEdit" onChange={(e)=>this.setField(e)} ></input>
 
                 </div> 
                 

@@ -10,12 +10,28 @@ import swal from 'sweetalert2';
 export default class ObtenerUsers extends Component{
   
   state = {
-  	tutor : []
+  	tutor : [],
+  	arr: []
   }
-  handleSubmit = (e) =>{
-    e.preventDefault()
 
-    axios.get(`${baseURL}/users`)
+  componentDidMount(){
+  	
+    axios.get(`${baseURL}/users/pages`)
+      .then(res => {
+        const pages = res.data.data;
+        console.log(pages);
+        var i;
+        var arr = [];
+		for (i = 1; i <= pages; i++) {
+    		arr[i] = i;
+		}
+        this.setState({arr});
+      })
+      .catch(error =>{
+      console.log(error);
+    });
+
+    axios.get(`${baseURL}/users/page/1`)
       .then(res => {
         const tutor = res.data.data;
         console.log(tutor);
@@ -28,6 +44,22 @@ export default class ObtenerUsers extends Component{
 
   }
 
+  setField (e) {
+    if(e.target.id === 'selectPage'){
+    	console.log(e.target.value);
+      axios.get(`${baseURL}/users/page/${e.target.value}`)
+      .then(res => {
+        const tutor = res.data.data;
+        console.log(tutor);
+        this.setState({tutor});
+      })
+      .catch(error =>{
+      console.log(error);
+    });
+      }
+      
+    }
+
 
   render() {
   	console.log(this.state);
@@ -38,11 +70,16 @@ export default class ObtenerUsers extends Component{
           		<div className="row">
 					
 					<div className="col-md-12 text-center">
-                    	
-                    	
-                    	<button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Actualiza datos</button>
+                    	                    	                    	       
+                    	<h3> Escoge la página </h3>
+                    	<select id="selectPage" onChange={(e)=>this.setField(e)}>
+                    	{this.state.arr.map(home => 
+						    <option value={home}>{home}</option>
+						)}
+						</select>
 
                 	</div>
+
                 	<div className="col-md-12 mt-3">
                     	
                     	<table className="table">
