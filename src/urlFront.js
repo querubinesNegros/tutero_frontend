@@ -1,3 +1,3 @@
-const baseURLFront = 'http://localhost:3001'
+const baseURLFront = 'https://tuterof.herokuapp.com'
 
 export default baseURLFront
