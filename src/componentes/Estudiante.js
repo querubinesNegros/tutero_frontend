@@ -8,15 +8,20 @@ import baseURL from '../url';
 import axios from 'axios';
 
 export default class Estudiante extends Component{
-    state = {
-        tutor : []
-    }
+    constructor() {
+        super();
+        this.state = {
+            tutor : { name: "Sin", lastname: "Tutor asignado"}
+        };
+      }
+    
 
     componentDidMount() {
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
     axios.get(`${baseURL}/users/mytutor`)
       .then(res => {
         const tutor = res.data.data[0];
+        if(res.data.data[0]!== undefined)
         this.setState({tutor});
 
       })

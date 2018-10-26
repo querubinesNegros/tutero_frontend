@@ -24,9 +24,21 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       : <Redirect to='/' />
   )} />
 )
+// Ruta privada para Admin 
+const PrivateRouteAdmin = ({ component: Component, ...rest }) => (
+
+  <Route {...rest} render={(props) => (
+     
+    store.getState().aut === true && store.getState().type === "Admin"
+      ? <Component {...props} />
+      : <Redirect to='/' />
+  )} />
+)
+
 export default class Router extends Component {
   
     render() {
+      
     return (
       <BrowserRouter>
         <div>

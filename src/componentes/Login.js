@@ -6,6 +6,7 @@ import swal from 'sweetalert2';
 import baseURL from '../url';
 import baseURLFront from '../urlFront';
 import store from '../store';
+import firebase from 'firebase'
 
 export default class Login extends Component {
 
@@ -81,6 +82,75 @@ export default class Login extends Component {
     }
 
 
+
+
+
+
+    googleResponse = (response) => {
+      response.preventDefault()
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+     
+     console.log(result.additionalUserInfo.profile.email);
+     const body = {
+      email : result.additionalUserInfo.profile.email
+    };
+
+   axios.post(`${baseURL}/socials`, body)
+    .then(function (res) {
+      console.log(res.data.jwt);
+      localStorage.setItem("jwtToken", res.data.jwt);
+
+      var str = result.additionalUserInfo.profile.email;
+    var res1 = str.split(".");
+    console.log(res1);
+    
+
+    axios.post(`${baseURL}/users/type`,{
+      email: result.additionalUserInfo.profile.email
+    })
+      .then(res => {
+        const type = res.data.data[0];
+        console.log(type);
+
+        swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
+          swal.showLoading()
+         }});
+        if (type === "Tutor") {
+          setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 1000); 
+        }else if(type === "Admin"){
+          setTimeout(function(){window.location = `${baseURLFront}/admin`;}, 1000); 
+        }
+        else{
+          setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
+        }
+      })
+      .catch(function (error) {
+      console.log(error);
+    });
+    
+
+
+
+
+
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+  }).catch(function(error) {
+   
+  });
+    };
+    
+
+
+
+
+
+
   render() {
     return (
       <div id="LoginForm">
@@ -122,6 +192,7 @@ export default class Login extends Component {
         <a href="reset.html">Forgot password?</a>
         </div>
         <button type="submit" onClick={this.handleSubmit} className="btn btn-primary hola"> Log in</button>
+        <button className="login-social" onClick={this.googleResponse}><i className="fa fa-google-plus"></i>&nbsp;Gmail</button>  &nbsp;
     </form>
     </div>
 
