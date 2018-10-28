@@ -17,7 +17,7 @@ export default class Servicios extends Component{
                             <div className="column">
                                 <h1>Grupos de Estudio</h1>
                                 <a href="/person-3.jpg" target="_blank">
-                                <img src="/person-3.jpg" class="img-fluid" alt="Responsive image"></img>
+                                <img src="/person-3.jpg" className="img-fluid" alt="Responsive image"></img>
                                 </a>
                                 <p className="text">Los grupos de estudio, son grupos donde estudiantes se reunen junto con profesores para invertigar sobre un tema de interés y profundizar en él</p>
                             </div>
@@ -26,7 +26,7 @@ export default class Servicios extends Component{
                             <div className="column">
                                 <h1>Grupos de Estudio</h1>
                                 <a href="/person-3.jpg" target="_blank">
-                                <img src="/person-3.jpg" class="img-fluid" alt="Responsive image"></img>
+                                <img src="/person-3.jpg" className="img-fluid" alt="Responsive image"></img>
                                 </a>
                                 <p className="text">Los grupos de estudio, son grupos donde estudiantes se reunen junto con profesores para invertigar sobre un tema de interés y profundizar en él</p>
                             </div>
@@ -35,7 +35,7 @@ export default class Servicios extends Component{
                             <div className="column">
                                 <h1>Grupos de Estudio</h1>
                                 <a href="/person-3.jpg" target="_blank">
-                                <img src="/person-3.jpg" class="img-fluid" alt="Responsive image"></img>
+                                <img src="/person-3.jpg" className="img-fluid" alt="Responsive image"></img>
                                 </a>
                                 <p className="text">Los grupos de estudio, son grupos donde estudiantes se reunen junto con profesores para invertigar sobre un tema de interés y profundizar en él</p>
                             </div>
@@ -48,7 +48,7 @@ export default class Servicios extends Component{
                             <div className="column2">
                                 <h1>Grupos de Estudio</h1>
                                 <a href="/person-3.jpg" target="_blank">
-                                <img src="/person-3.jpg" class="img-fluid" alt="Responsive image"></img>
+                                <img src="/person-3.jpg" className="img-fluid" alt="Responsive image"></img>
                                 </a>
                                 <p className="text">Los grupos de estudio, son grupos donde estudiantes se reunen junto con profesores para invertigar sobre un tema de interés y profundizar en él</p>
                             </div>
@@ -58,7 +58,7 @@ export default class Servicios extends Component{
                             <div className="column2">
                                 <h1>Grupos de Estudio</h1>
                                 <a href="/person-3.jpg" target="_blank">
-                                <img src="/person-3.jpg" class="img-fluid" alt="Responsive image"></img>
+                                <img src="/person-3.jpg" className="img-fluid" alt="Responsive image"></img>
                                 </a>
                                 <p className="text">Los grupos de estudio, son grupos donde estudiantes se reunen junto con profesores para invertigar sobre un tema de interés y profundizar en él</p>
                             </div>
@@ -68,7 +68,7 @@ export default class Servicios extends Component{
                             <div className="column2">
                                 <h1>Grupos de Estudio</h1>
                                 <a href="/person-3.jpg" target="_blank">
-                                <img src="/person-3.jpg" class="img-fluid" alt="Responsive image"></img>
+                                <img src="/person-3.jpg" className="img-fluid" alt="Responsive image"></img>
                                 </a>
                                 <p className="text">Los grupos de estudio, son grupos donde estudiantes se reunen junto con profesores para invertigar sobre un tema de interés y profundizar en él</p>
                             </div>

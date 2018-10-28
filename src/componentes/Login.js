@@ -7,6 +7,8 @@ import baseURL from '../url';
 import baseURLFront from '../urlFront';
 import store from '../store';
 import firebase from 'firebase'
+import  { Fa,Button } from 'mdbreact';
+
 
 export default class Login extends Component {
 
@@ -192,7 +194,9 @@ export default class Login extends Component {
         <a href="reset.html">Forgot password?</a>
         </div>
         <button type="submit" onClick={this.handleSubmit} className="btn btn-primary hola"> Log in</button>
-        <button className="login-social" onClick={this.googleResponse}><i className="fa fa-google-plus"></i>&nbsp;Gmail</button>  &nbsp;
+        
+        <Button onClick={this.googleResponse} social="gplus"><Fa icon="google-plus" className="pr-1"/> Gmail</Button>
+        
     </form>
     </div>
 
