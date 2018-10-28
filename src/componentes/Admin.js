@@ -76,9 +76,7 @@ export default class Admin extends Component{
       			<div className="col-md-8" id="divAddAdmin">
 
       			</div>
-            <iframe src="http://localhost:3000/uploads/pdf/path/37/pdffake.pdf"
-              width="800px"
-              height="600px"/>
+            
       		</div>
       
     
