@@ -32,9 +32,31 @@ export default class CrearPost extends Component{
       description: this.state.description
     };
     console.log(post);
+
+    var bodyFormData = new FormData();
+    bodyFormData.append('path', this.state.file); 
+    bodyFormData.append('name', this.state.file.name); 
+    bodyFormData.append('type', "pdf"); 
+
+    
+
    axios.post(`${baseURL}/posts`, {post})
-    .then(function (res) {
+    .then(res => {
       console.log(res.data);
+      console.log("post");
+      const id = res.data.post.id;
+
+      axios({
+            method: 'post',
+            url: `${baseURL}/posts/${id}/fileps`,
+            data: bodyFormData,
+            config: { headers: {'Content-Type': 'multipart/form-data' }}
+            })
+      .then(res => {
+        
+        console.log(res);
+        console.log("res2");
+      })
     })
     .catch(function (error) {
       console.log(error);

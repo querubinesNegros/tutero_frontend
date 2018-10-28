@@ -45,6 +45,22 @@ export default class Servicios extends Component{
         });
     }
 
+    setField (e) {
+    if(e.target.id === 'selectPage'){
+        console.log(e.target.value);
+      axios.get(`${baseURL}/posts/page/${e.target.value}`)
+      .then(res => {
+        const posts = res.data.posts;
+        console.log(res);
+        this.setState({posts});
+      })
+      .catch(error =>{
+      console.log(error);
+    });
+      }
+      
+    }
+
     render() {
         return (
             
