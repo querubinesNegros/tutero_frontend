@@ -76,6 +76,7 @@ export default class Admin extends Component{
       			<div className="col-md-8" id="divAddAdmin">
 
       			</div>
+            
       		</div>
       
     

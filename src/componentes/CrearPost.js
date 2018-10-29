@@ -15,7 +15,9 @@ export default class CrearPost extends Component{
   componentDidMount() {
     axios.get(`${baseURL}/class_posts`)
       .then(res => {
-        const classposts = res.data.data;
+        const classposts = res.data.class_posts;
+        console.log(res);
+        console.log("res");
         this.setState({ classposts });
       })
   }
@@ -30,9 +32,31 @@ export default class CrearPost extends Component{
       description: this.state.description
     };
     console.log(post);
+
+    var bodyFormData = new FormData();
+    bodyFormData.append('path', this.state.file); 
+    bodyFormData.append('name', this.state.file.name); 
+    bodyFormData.append('type', "pdf"); 
+
+    
+
    axios.post(`${baseURL}/posts`, {post})
-    .then(function (res) {
+    .then(res => {
       console.log(res.data);
+      console.log("post");
+      const id = res.data.post.id;
+
+      axios({
+            method: 'post',
+            url: `${baseURL}/posts/${id}/fileps`,
+            data: bodyFormData,
+            config: { headers: {'Content-Type': 'multipart/form-data' }}
+            })
+      .then(res => {
+        
+        console.log(res);
+        console.log("res2");
+      })
     })
     .catch(function (error) {
       console.log(error);
@@ -63,6 +87,42 @@ export default class CrearPost extends Component{
       console.log(this.state.description);
     }
 
+    onSubmit=(e)=>{
+        e.preventDefault();
+        var bodyFormData = new FormData();
+        bodyFormData.append('path', this.state.file); 
+
+          axios({
+            method: 'post',
+            url: `${baseURL}/pdfs`,
+            data: bodyFormData,
+            config: { headers: {'Content-Type': 'multipart/form-data' }}
+            })
+            .then(function (response) {
+                //handle success
+                console.log(response);
+                swal({title:'Se ha subido correctamente', timer:1000, showConfirmButton:false, onOpen: () =>{
+                    swal.showLoading()
+                   }});
+            })
+            .catch(function (response) {
+                //handle error
+                console.log(response);
+            });
+
+    }
+
+
+
+
+    onChange=(e)=>{
+      let files = e.target.files
+    //console.warn("datafile",files[0])
+      this.setState({file:files[0]});
+    }
+
+
+
 
   render() {
     return (
@@ -90,6 +150,10 @@ export default class CrearPost extends Component{
                         <h4 className="s-property-title">Descripción</h4>
                         <textarea id="descriptionPostCreate" onChange={(e)=>this.setField(e)}></textarea>
                                    
+                    </div>
+                    <div className="form-group">
+                        <h4 className="s-property-title">Sube un archivo</h4>       
+                        <input type="file" name ="file" onChange={this.onChange}/>
                     </div>
               
                         

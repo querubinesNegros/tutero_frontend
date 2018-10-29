@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import '../styles/login.css';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
 import baseURLFront from '../urlFront';
 import store from '../store';
-import firebase from 'firebase'
+import firebase from 'firebase';
 import  { Fa,Button } from 'mdbreact';
-
 
 export default class Login extends Component {
 
@@ -194,9 +193,7 @@ export default class Login extends Component {
         <a href="reset.html">Forgot password?</a>
         </div>
         <button type="submit" onClick={this.handleSubmit} className="btn btn-primary hola"> Log in</button>
-        
         <Button onClick={this.googleResponse} social="gplus"><Fa icon="google-plus" className="pr-1"/> Gmail</Button>
-        
     </form>
     </div>
 

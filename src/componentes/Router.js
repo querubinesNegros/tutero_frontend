@@ -15,7 +15,7 @@ import Admin from './Admin';
 import CrearPost from './CrearPost';
 import GetUsers from './ObtenerUsers';
 import NuevoAdmin from './NuevoAdmin';
-import pdfs from './pdfs';
+import Servicio from './Servicio';
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
   <Route {...rest} render={(props) => (
@@ -53,6 +53,8 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
                 <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil}/>
+                <PrivateRoute path="/servicio/:id" component={Servicio}/>
+
                 <PrivateRoute exact path="/admin" component={Admin}/>
                 <PrivateRoute exact path="/admin/crear_post" component={CrearPost}/>
                 <PrivateRoute exact path="/admin/obtener_users" component={GetUsers}/>

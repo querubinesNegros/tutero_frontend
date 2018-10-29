@@ -19,7 +19,7 @@ export default class ObtenerUsers extends Component{
     axios.get(`${baseURL}/users/pages`)
       .then(res => {
         const pages = res.data.data;
-        console.log(pages);
+        console.log(res);
         var i;
         var arr = [];
 		for (i = 1; i <= pages; i++) {
@@ -33,7 +33,7 @@ export default class ObtenerUsers extends Component{
 
     axios.get(`${baseURL}/users/page/1`)
       .then(res => {
-        const tutor = res.data.data;
+        const tutor = res.data.profiles;
         console.log(tutor);
         this.setState({tutor});
       })
@@ -49,8 +49,8 @@ export default class ObtenerUsers extends Component{
     	console.log(e.target.value);
       axios.get(`${baseURL}/users/page/${e.target.value}`)
       .then(res => {
-        const tutor = res.data.data;
-        console.log(tutor);
+        const tutor = res.data.profiles;
+        console.log(res);
         this.setState({tutor});
       })
       .catch(error =>{
