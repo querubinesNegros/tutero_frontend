@@ -65,7 +65,8 @@ export default class CrearPost extends Component{
       bodyFormData.append('path', this.state.file); 
       bodyFormData.append('name', this.state.file.name); 
       bodyFormData.append('type', "pdf"); 
-
+      console.log("se hizo bodyformdata");
+      console.log(bodyFormData);
     }
 
    axios.post(`${baseURL}/posts`, {post})
@@ -74,7 +75,8 @@ export default class CrearPost extends Component{
       console.log("post");
       const id = res.data.post.id;
 
-      if(bodyFormData.path != null){
+      if(bodyFormData.get('path') != null){
+        console.log("se hizo bodyformdata en axios");
         axios({
               method: 'post',
               url: `${baseURL}/posts/${id}/fileps`,
