@@ -93,6 +93,7 @@ export default class Login extends Component {
       firebase.auth().signInWithPopup(provider).then(function(result) {
      
      console.log(result.additionalUserInfo.profile.email);
+     console.log(result.additionalUserInfo.profile.picture);
      const body = {
       email : result.additionalUserInfo.profile.email
     };
@@ -123,7 +124,7 @@ export default class Login extends Component {
           setTimeout(function(){window.location = `${baseURLFront}/admin`;}, 1000); 
         }
         else{
-          setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
+          setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 100000); 
         }
       })
       .catch(function (error) {

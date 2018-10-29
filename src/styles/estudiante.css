@@ -2,6 +2,7 @@
   padding-top: 50px;
   font-weight:900;
   font-size: xx-large;
+  color: #fff;
 }
 
 .person-wrapper {
@@ -12,4 +13,53 @@
   width: 50%;
   border-radius: 50%;
   padding-top: 0px;
+}
+
+.col-md-6{
+  text-align: center;
+}
+
+header,
+#view {
+  height: 100%;
+  background-image: url("../recursos/workplace.jpg");
+  background-repeat: 'no-repeat'; 
+  background-size: 'cover';
+  background-position: 'center center';
+}
+
+@media (max-width: 740px) {
+  html,
+  body,
+  header,
+  .view {
+    height: 100vh;
+  }
+}
+
+.top-nav-collapse {
+  background-color: #78909c !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+@media (max-width: 991px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #78909c !important;
+  }
+}
+
+h1 {
+  letter-spacing: 8px;
+}
+
+h5 {
+  letter-spacing: 3px;
+}
+
+.hr-light {
+  border-top: 3px solid #fff;
+  width: 80px;
 }
