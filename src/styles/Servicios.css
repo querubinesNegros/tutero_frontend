@@ -21,3 +21,9 @@
 .text{
     justify-content: baseline;
 }
+
+#selectPage{
+    padding: 0px;
+    block-size: 15%;
+    
+}

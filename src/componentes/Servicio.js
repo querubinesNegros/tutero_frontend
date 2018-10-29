@@ -30,15 +30,16 @@ export default class Servicio extends Component{
         return (
             <div id="containerSer">
                 <Menu2/>
-                <h1>{this.props.location.state.name}</h1>
-                <p>{this.props.location.state.description}</p>
+                <Grid>
+                    <h1>{this.props.location.state.name}</h1>
+                    <p>{this.props.location.state.description}</p>
 
-                {this.state.urls.map(home => 
-                    <iframe src={`${baseURL}${home.filepable.path.url}`}
-                        width="800px"
-                        height="600px"/>
-                )}
-                 
+                    {this.state.urls.map(home => 
+                        <iframe src={`${baseURL}${home.filepable.path.url}`}
+                            width="800px"
+                            height="600px"/>
+                    )}
+                </Grid> 
             </div>
         )
     }
