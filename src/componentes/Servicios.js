@@ -67,13 +67,16 @@ export default class Servicios extends Component{
             <div id="containerSer">
                 
                 <Menu2/>
-                <h3> Escoge la página </h3>
-                        <select id="selectPage" onChange={(e)=>this.setField(e)}>
-                        {this.state.arr.map(home => 
-                            <option value={home}>{home}</option>
-                        )}
-                        </select>
+                
                 <Grid className="grid">
+                    <Row className="show-grid text-center">
+                        <h3> Escoge la página </h3>
+                            <select id="selectPage" onChange={(e)=>this.setField(e)}>
+                            {this.state.arr.map(home => 
+                                <option value={home}>{home}</option>
+                            )}
+                            </select>
+                    </Row>
                     <Row className="show-grid text-center">
                         
                     

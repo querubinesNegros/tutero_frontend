@@ -81,13 +81,13 @@ export default class EstudianteEditarPerfil extends Component{
                             <div className="form-group">
                                        
                             <h4 className="s-property-title">Nombre:</h4>
-                                        <input type="text" id="nameEdit" onChange={(e)=>this.setField(e)}  placeholder={store.getState().name}></input>
+                                        <input type="text" id="nameEdit" onChange={(e)=>this.setField(e)} value={store.getState().name} placeholder={store.getState().name}></input>
                                        
                             </div>
                             <div className="form-group">
                                        
                             <h4 className="s-property-title">Apellido:</h4>
-                                        <input type="text" id="lastnameEdit" onChange={(e)=>this.setField(e)} placeholder={store.getState().lastname}></input>
+                                        <input type="text" id="lastnameEdit" onChange={(e)=>this.setField(e)} value= {store.getState().lastname}placeholder={store.getState().lastname}></input>
                                        
                             </div>
                             
