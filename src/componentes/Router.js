@@ -60,6 +60,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/admin/obtener_users" component={GetUsers}/>
                 <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
                 
+                
             </Switch>
         </div>
         

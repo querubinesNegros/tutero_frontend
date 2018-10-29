@@ -13,7 +13,7 @@ export default class EstudianteEditarPerfil extends Component{
     
     constructor() {
     super();
-        this.state = { id: null, name: null, lastname: null, email: null, cellphone: null};
+        this.state = { id: null, name: null, lastname: null, cellphone: null};
     }
     
     handleSubmit = (e) =>{
@@ -24,7 +24,6 @@ export default class EstudianteEditarPerfil extends Component{
             'id': this.state.id,
             'name': this.state.name,
             'lastname': this.state.lastname,
-            'email': this.state.email,
             'cellphone': this.state.cellphone
         };
         console.log(user);
@@ -51,11 +50,6 @@ export default class EstudianteEditarPerfil extends Component{
         lastname: e.target.value
       })
       }
-      if(e.target.id === 'emailEdit'){
-      this.setState({
-        email: e.target.value
-      })
-      }
       if(e.target.id === 'cellphoneEdit'){
       this.setState({
         cellphone: e.target.value
@@ -63,7 +57,6 @@ export default class EstudianteEditarPerfil extends Component{
       }
       console.log(this.state.name);
       console.log(this.state.lastname);
-      console.log(this.state.email);
       console.log(this.state.cellphone);
     }
 
@@ -97,11 +90,7 @@ export default class EstudianteEditarPerfil extends Component{
                                         <input type="text" id="lastnameEdit" onChange={(e)=>this.setField(e)} placeholder={store.getState().lastname}></input>
                                        
                             </div>
-                            <div className="form-group">
-                                <h4 className="s-property-title">Correo electronico:</h4>
-                                            <input type="text" id="emailEdit" onChange={(e)=>this.setField(e)} placeholder={store.getState().email}></input>
-   
-                            </div> 
+                            
                             <div className="form-group">
                                 <h4 className="s-property-title">Celular:</h4>
                                             <input type="text" id="cellphoneEdit" onChange={(e)=>this.setField(e)} placeholder={store.getState().cellphone}></input>

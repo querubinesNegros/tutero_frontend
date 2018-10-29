@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Menu2 from './Menu2';
 import axios from 'axios';
 import swal from 'sweetalert2';
+import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
+import '../styles/Historial.css';
 export default class Historial extends Component{
 
     onSubmit=(e)=>{
@@ -44,11 +46,29 @@ file:files[0]
         return (
             <div>
                 <Menu2/>
-                <h1>Estas en Historial</h1>
+                <Grid>
+                    <Row className="show-grid text-center">
+                        <Col xs={6} sm={4}>
 
-                <button type="submit" className="btn btn-primary" onClick ={this.onSubmit}><i className="fa fa-envelope-o"  ></i> Crear recurso</button>
-                <input type="file" name ="file" onChange={this.onChange}/>
+                        </Col>
+                        <Col xs={6} sm={4} className="person-wrapper">
+                            <h1 className="h1His">Registros</h1>
+
+                            <br></br>
+                            <input type="file" name ="file" onChange={this.onChange}/>  
+                            <br></br>
+                            <br></br>
+
+                            <button type="submit" className="btn btn-primary" onClick ={this.onSubmit}><i className="fa fa-envelope-o"  ></i> Crear recurso</button>
+                        </Col>
+
+                    
+                    </Row>
+                </Grid>
+                
             </div>
+
+            
         )
     }
 }
