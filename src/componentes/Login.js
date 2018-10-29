@@ -18,49 +18,55 @@ export default class Login extends Component {
 
 
   handleSubmit = (e) =>{
-    e.preventDefault()
-/////////////////guarda el token localmente////////////
-   axios.post(`${baseURL}/user_token`, {
-     auth:{
-    email: this.state.email,
-    password: this.state.password
-   }
-    })
-    .then(function (token) {
-      console.log(token.data.jwt);
-      localStorage.setItem("jwtToken", token.data.jwt);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    e.preventDefault();
 
     var str = this.state.email;
     var res1 = str.split(".");
     console.log(res1);
     
 
-    axios.post(`${baseURL}/users/type`,{
-      email: this.state.email
-    })
-      .then(res => {
-        const type = res.data.data[0];
-        console.log(type);
 
-        swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
-          swal.showLoading()
-         }});
-        if (type === "Tutor") {
-          setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 1000); 
-        }else if(type === "Admin"){
-          setTimeout(function(){window.location = `${baseURLFront}/admin`;}, 1000); 
-        }
-        else{
-          setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
-        }
-      })
-      .catch(function (error) {
-      console.log(error);
+    const auth = {
+      email: this.state.email,
+    password: this.state.password
+    }
+    const email = this.state.email;
+   axios.post(`${baseURL}/user_token`, {auth})
+    .then(function (token) {
+      console.log(token.data.jwt);
+      localStorage.setItem("jwtToken", token.data.jwt);
+
+
+        axios.post(`${baseURL}/users/type`,{email})
+        .then(res => {
+          const type = res.data.data[0];
+          console.log(type);
+
+          swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
+            swal.showLoading()
+           }});
+          if (type === "Tutor") {
+            setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 1000); 
+          }else if(type === "Admin"){
+            setTimeout(function(){window.location = `${baseURLFront}/admin`;}, 1000); 
+          }
+          else{
+            setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
+          }
+        })
+        .catch(function (error) {
+        console.log(error);
+      });
+
+    })
+    .catch(function (error) {
+      swal('Email o contraseña equivocada. Vuelva a intentar');
+  
     });
+
+    
+
+    
     
 
   }
