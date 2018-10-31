@@ -1,8 +1,15 @@
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css'; 
+import 'mdbreact/dist/css/mdb.css';
 import React, { Component } from 'react';
 import '../styles/App.css';
 import Router from './Router';
 import store from '../store';
 import baseURL from '../url';
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css'; 
+import 'mdbreact/dist/css/mdb.css';
+
 
 class App extends Component {
   
@@ -10,7 +17,15 @@ class App extends Component {
       super(props);
 
       this.state = {
-        s_users : []
+        s_users : {  profile: {
+          id: 0,
+          name: "",
+          lastname: "",
+          email: "",
+          cellphone: "",
+          userable_type: "",
+          userable_id: 0
+      }}
       };
   }
 obtenerDatos(loginParams){
@@ -33,27 +48,23 @@ obtenerDatos(loginParams){
     if (localStorage.getItem('jwtToken')) {
       this.obtenerDatos(localStorage.getItem('jwtToken')).then((users) => {
         this.setState({ s_users: users })
-      })
-     
-    
-      
-      
+      })      
       }
   }
   render() {
-    //console.log(this.state.s_users)
+    //Verifica que esté el token en el localstorage
     if (localStorage.getItem('jwtToken')) {
+      console.log(this.state.s_users)
         store.dispatch({
           type: "ADD_TO_STORE",
-          
           career_id: this.state.s_users.career_id,
-          cellphone: this.state.s_users.cellphone,
-          email: this.state.s_users.email,
-          id: this.state.s_users.id,
-          lastname: this.state.s_users.lastname,
-          name: this.state.s_users.name,
-          userable_id: this.state.s_users.userable_id,
-          userable_type: this.state.s_users.userable_type,
+          cellphone: this.state.s_users.profile.cellphone,
+          email: this.state.s_users.profile.email,
+          id: this.state.s_users.profile.id,
+          lastname: this.state.s_users.profile.lastname,
+          name: this.state.s_users.profile.name,
+          userable_id: this.state.s_users.profile.userable_id,
+          userable_type: this.state.s_users.profile.userable_type,
           aut: true
     })
     }

@@ -15,6 +15,7 @@ import Admin from './Admin';
 import CrearPost from './CrearPost';
 import GetUsers from './ObtenerUsers';
 import NuevoAdmin from './NuevoAdmin';
+import Servicio from './Servicio';
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
   <Route {...rest} render={(props) => (
@@ -24,9 +25,21 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       : <Redirect to='/' />
   )} />
 )
+// Ruta privada para Admin 
+const PrivateRouteAdmin = ({ component: Component, ...rest }) => (
+
+  <Route {...rest} render={(props) => (
+     
+    store.getState().aut === true && store.getState().type === "Admin"
+      ? <Component {...props} />
+      : <Redirect to='/' />
+  )} />
+)
+
 export default class Router extends Component {
   
     render() {
+      
     return (
       <BrowserRouter>
         <div>
@@ -40,10 +53,13 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
                 <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil}/>
+                <PrivateRoute path="/servicio/:id" component={Servicio}/>
+
                 <PrivateRoute exact path="/admin" component={Admin}/>
                 <PrivateRoute exact path="/admin/crear_post" component={CrearPost}/>
                 <PrivateRoute exact path="/admin/obtener_users" component={GetUsers}/>
                 <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
+                
                 
             </Switch>
         </div>

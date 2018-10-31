@@ -15,7 +15,9 @@ export default class CrearPost extends Component{
   componentDidMount() {
     axios.get(`${baseURL}/class_posts`)
       .then(res => {
-        const classposts = res.data.data;
+        const classposts = res.data.class_posts;
+        console.log(res);
+        console.log("res");
         this.setState({ classposts });
       })
   }
@@ -30,9 +32,68 @@ export default class CrearPost extends Component{
       description: this.state.description
     };
     console.log(post);
+    var error = "";
+
+    if(isNaN(post.class_post_id)){
+      error = "Debe escoger un tipo de post";
+      console.log(error);
+      swal(error);
+      return;
+    }
+    if(post.name == null){
+      error = "Debe colocar un nombre";
+      console.log(error);
+      swal(error);
+      return;
+    }
+    if(post.description == null){
+      error = "Debe colocar una descripción";
+      console.log(error);
+      swal(error);
+      return;
+    }
+    if(post.name.length > 255){
+      error = "El título no puede tener más de 255 caracteres";
+      console.log(error);
+      swal(error);
+      return;
+    }
+
+    var bodyFormData = new FormData();
+    console.log(this.state);
+    if(this.state.file != null){
+      bodyFormData.append('path', this.state.file); 
+      bodyFormData.append('name', this.state.file.name); 
+      bodyFormData.append('type', "pdf"); 
+      console.log("se hizo bodyformdata");
+      console.log(bodyFormData);
+    }
+
    axios.post(`${baseURL}/posts`, {post})
-    .then(function (res) {
+    .then(res => {
       console.log(res.data);
+      console.log("post");
+      const id = res.data.post.id;
+
+      if(bodyFormData.get('path') != null){
+        console.log("se hizo bodyformdata en axios");
+        axios({
+              method: 'post',
+              url: `${baseURL}/posts/${id}/fileps`,
+              data: bodyFormData,
+              config: { headers: {'Content-Type': 'multipart/form-data' }}
+              })
+        .then(res => {
+          
+          console.log(res);
+          console.log("res2");
+          swal({title:'Se ha creado el post', timer:3000, showConfirmButton:false});
+          setTimeout(function(){window.location.reload()}, 3000);
+        })
+      }
+
+
+      
     })
     .catch(function (error) {
       console.log(error);
@@ -63,6 +124,14 @@ export default class CrearPost extends Component{
       console.log(this.state.description);
     }
 
+    onChange=(e)=>{
+      let files = e.target.files
+    //console.warn("datafile",files[0])
+      this.setState({file:files[0]});
+    }
+
+
+
 
   render() {
     return (
@@ -77,7 +146,7 @@ export default class CrearPost extends Component{
                     <div className="form-group">
                                        
                         <h4 className="s-property-title">Nombre:</h4>
-                                    <input type="text" id="namePostCreate" onChange={(e)=>this.setField(e)} ></input>
+                        <input type="text" id="namePostCreate" onChange={(e)=>this.setField(e)} ></input>
                                    
                     </div>
                     	<h4 className="s-property-title">Tipo de post</h4>
@@ -90,6 +159,10 @@ export default class CrearPost extends Component{
                         <h4 className="s-property-title">Descripción</h4>
                         <textarea id="descriptionPostCreate" onChange={(e)=>this.setField(e)}></textarea>
                                    
+                    </div>
+                    <div className="form-group">
+                        <h4 className="s-property-title">Sube un archivo</h4>       
+                        <input type="file" name ="file" id ="file" onChange={this.onChange}/>
                     </div>
               
                         

@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import Menu2 from './Menu2';
 import '../styles/Recreacion.css';
 import { Jumbotron, Grid, Row, Col, Image, Button,Carousel } from 'react-bootstrap';
-const pStyle = {
-  
-  };
+
 
 export default class Recreacion extends Component{
     render() {
@@ -30,11 +28,11 @@ export default class Recreacion extends Component{
                             <img className="d-block w-100" src="/baloncesto.png" alt="Third slide"></img>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <a className="carousel-control-prev" role="button" data-slide="prev">
                             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span className="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <a className="carousel-control-next" role="button" data-slide="next">
                             <span className="carousel-control-next-icon" aria-hidden="true"></span>
                             <span className="sr-only">Next</span>
                         </a>
