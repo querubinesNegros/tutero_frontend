@@ -74,7 +74,7 @@ export default class EstudianteEditarPerfil extends Component{
         }
 
         console.log(user);
-        /*
+        
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.patch(`${baseURL}/users/${this.state.id}`, {user})
             .then((response) => {
@@ -86,7 +86,7 @@ export default class EstudianteEditarPerfil extends Component{
 
 
         setTimeout(function(){window.location = `${baseURLFront}/perfil`;}, 30000); 
-    */
+    
     }
     setField (e) {
     if(e.target.id === 'passActual'){
