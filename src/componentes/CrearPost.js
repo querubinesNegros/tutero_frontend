@@ -60,7 +60,7 @@ export default class CrearPost extends Component{
     }
 
     var bodyFormData = new FormData();
-
+    console.log(this.state);
     if(this.state.file != null){
       bodyFormData.append('path', this.state.file); 
       bodyFormData.append('name', this.state.file.name); 
@@ -87,11 +87,11 @@ export default class CrearPost extends Component{
           
           console.log(res);
           console.log("res2");
+          swal({title:'Se ha creado el post', timer:3000, showConfirmButton:false});
+          setTimeout(function(){window.location.reload()}, 3000);
         })
       }
 
-      swal({title:'Se ha creado el post', timer:3000, showConfirmButton:false});
-      setTimeout(function(){window.location.reload()}, 3000);
 
       
     })
