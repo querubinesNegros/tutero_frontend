@@ -39,8 +39,8 @@ export default class EstudianteEditarPerfil extends Component{
     handleSubmit = (e) =>{
         
         e.preventDefault();
-        var user = {id: null, password: null, cellphone: null};
-        user.id = store.getState().id;
+        var user = {};
+        
 
         if($('#cellphoneEditDiv').css('display')=='none' && $('#passEditDiv').css('display')=='none'){
             swal("No se puede procesar la petición. Llene alguno de los campos.");
@@ -73,10 +73,11 @@ export default class EstudianteEditarPerfil extends Component{
             user.password = this.state.passEdit;
         }
 
-        console.log(user);
+        console.log({user});
+        console.log(localStorage);
         
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
-        axios.patch(`${baseURL}/users/${this.state.id}`, {user})
+        axios.patch(`${baseURL}/users/${store.getState().id}`, {user})
             .then((response) => {
                    console.log(response);
             })
@@ -85,7 +86,7 @@ export default class EstudianteEditarPerfil extends Component{
             });
 
 
-        setTimeout(function(){window.location = `${baseURLFront}/perfil`;}, 30000); 
+        setTimeout(function(){window.location = `${baseURLFront}/perfil`;}, 3000); 
     
     }
     setField (e) {
