@@ -100,7 +100,7 @@ export default class Registro extends Component {
         axios.post(`${baseURL}/users/create`, {user})
           .then(function (res) {
             console.log(res.data);
-            swal({title:'Se ha creado el admin', timer:3000, showConfirmButton:false});
+            swal({title:'Se ha creado el usuario', timer:3000, showConfirmButton:false});
             setTimeout(function(){window.location.reload()}, 3000);
           })
           .catch(function (error) {
