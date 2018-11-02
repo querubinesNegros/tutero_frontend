@@ -60,12 +60,13 @@ export default class CrearPost extends Component{
     }
 
     var bodyFormData = new FormData();
-
+    console.log(this.state);
     if(this.state.file != null){
       bodyFormData.append('path', this.state.file); 
       bodyFormData.append('name', this.state.file.name); 
       bodyFormData.append('type', "pdf"); 
-
+      console.log("se hizo bodyformdata");
+      console.log(bodyFormData);
     }
 
    axios.post(`${baseURL}/posts`, {post})
@@ -74,7 +75,8 @@ export default class CrearPost extends Component{
       console.log("post");
       const id = res.data.post.id;
 
-      if(bodyFormData.path != null){
+      if(bodyFormData.get('path') != null){
+        console.log("se hizo bodyformdata en axios");
         axios({
               method: 'post',
               url: `${baseURL}/posts/${id}/fileps`,
@@ -85,11 +87,11 @@ export default class CrearPost extends Component{
           
           console.log(res);
           console.log("res2");
+          swal({title:'Se ha creado el post', timer:3000, showConfirmButton:false});
+          setTimeout(function(){window.location.reload()}, 3000);
         })
       }
 
-      swal({title:'Se ha creado el post', timer:3000, showConfirmButton:false});
-      setTimeout(function(){window.location.reload()}, 3000);
 
       
     })

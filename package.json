@@ -2,9 +2,14 @@
   "name": "tutero_front",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.12.0",
+    "npm": "6.4.1"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "firebase": "^5.5.5",
+    "jquery": "^3.3.1",
     "mdbreact": "^4.8.2",
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
