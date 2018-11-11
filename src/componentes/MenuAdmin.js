@@ -37,6 +37,9 @@ handleSubmit = (e) =>{
                   <li className="item">
                     <Link to='/admin/nuevo' className="nav-link">Agregar admin</Link>
                   </li>
+                  <li className="item">
+                    <Link to='/admin/estadisticas' className="nav-link">Estadisticas</Link>
+                  </li>
                   
                   <li className="item">
      

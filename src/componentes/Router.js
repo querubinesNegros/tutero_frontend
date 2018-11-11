@@ -16,6 +16,8 @@ import CrearPost from './CrearPost';
 import GetUsers from './ObtenerUsers';
 import NuevoAdmin from './NuevoAdmin';
 import Servicio from './Servicio';
+import Estadisticas from './Estadisticas'
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
   <Route {...rest} render={(props) => (
@@ -59,6 +61,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/admin/crear_post" component={CrearPost}/>
                 <PrivateRoute exact path="/admin/obtener_users" component={GetUsers}/>
                 <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
+                <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas}/>
                 
                 
             </Switch>
