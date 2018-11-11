@@ -6,8 +6,14 @@ import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
-
+import { logPageView } from '../analytics';
 export default class Admin extends Component{
+
+  constructor(){
+    super();
+    logPageView();
+  }
+
    state = {
     classposts: []
   }

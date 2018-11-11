@@ -2,9 +2,16 @@ import React, { Component } from 'react'
 import Menu2 from './Menu2';
 import '../styles/Recreacion.css';
 import { Jumbotron, Grid, Row, Col, Image, Button,Carousel } from 'react-bootstrap';
+import { logPageView } from '../analytics';
 
 
 export default class Recreacion extends Component{
+
+    constructor(){
+        super();
+        logPageView();
+    }
+
     render() {
         return (
             <div>

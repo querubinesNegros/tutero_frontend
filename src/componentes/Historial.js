@@ -4,8 +4,13 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 import '../styles/Historial.css';
-export default class Historial extends Component{
+import { logPageView } from '../analytics';
 
+export default class Historial extends Component{
+    constructor(){
+        super();
+        logPageView();
+    }
     onSubmit=(e)=>{
         e.preventDefault();
     var bodyFormData = new FormData();

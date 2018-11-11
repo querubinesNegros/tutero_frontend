@@ -8,11 +8,15 @@ import Estudiante from './Estudiante'
 import Perfil from './Perfil'
 import baseURL from '../url';
 import axios from 'axios';
+import { logPageView } from '../analytics';
     
 
 
 export default class Servicios extends Component{
-
+    constructor(){
+        super();
+        logPageView();
+    }
     state = {
         posts: [],
         arr: []

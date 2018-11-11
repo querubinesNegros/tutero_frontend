@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import '../styles/Menu2.css';
 import swal from 'sweetalert2';
 import {Link} from 'react-router-dom';
+import { logPageView } from '../analytics';
 
 export default class MenuAdmin extends Component {
+  constructor(){
+    super();
+    logPageView();
+  }
 
 handleSubmit = (e) =>{
         e.preventDefault();

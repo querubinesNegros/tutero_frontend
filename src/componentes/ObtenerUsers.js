@@ -6,9 +6,15 @@ import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
+import { logPageView } from '../analytics';
 
 export default class ObtenerUsers extends Component{
   
+  constructor(){
+    super();
+    logPageView();
+  }
+
   state = {
   	tutor : [],
   	arr: []

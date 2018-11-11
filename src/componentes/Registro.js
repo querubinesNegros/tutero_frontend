@@ -6,105 +6,162 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
 import baseURLFront from '../urlFront';
+import { logPageView } from '../analytics';
 
 
 export default class Registro extends Component {
-  
-  constructor() {
+
+  constructor(){
     super();
-    this.state = { emailRegistro: null, passwordRegistro: null, name: null, lastname: null, password_confimation: null, userable_type: "Student", pbm: null , stratus: null , age: null};
+    logPageView();
   }
+  
+  
+  state = {
+    careers : []
+   }
 
-  handleSubmit = (e) =>{
-    e.preventDefault()
-
-    const body = {
-      user :{
-      email: this.state.emailRegistro,
-      password: this.state.passwordRegistro,
-      password_confirmation: this.state.password_confirmation,
-      name: this.state.name,
-      lastname: this.state.lastname,
-      userable_type: this.state.userable_type,
-      },
-      student:{
-      pbm: this.state.pbm,
-      stratus: this.state.stratus,
-      age: this.state.age
-      }
-    };
-
-   axios.post(`${baseURL}/users/create`, body)
-    .then(function (res) {
-      console.log(res.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-    swal({title:'Cargando...', timer:10000, showConfirmButton:false, onOpen: () =>{
-      swal.showLoading()
-    }});
-    swal({
-      text: "Se ha registrado satisfactoriamente. Inicie sesión",
-      }   );
-    setTimeout(function(){window.location = `${baseURLFront}`;}, 10000); 
-
-  }
-  setField (e) {
-    if(e.target.id === 'inputEmailRegistro'){
-      this.setState({
-        emailRegistro: e.target.value
-      })
-      }
-      if(e.target.id === 'inputPasswordRegistro'){
-      this.setState({
-        passwordRegistro: e.target.value
-      })
-      }
-      if(e.target.id === 'inputName'){
-        this.setState({
-          name: e.target.value
-        })
-      }
-      if(e.target.id === 'inputLastname'){
-        this.setState({
-          lastname: e.target.value
-        })
-      }
-      if(e.target.id === 'inputPassword_confirmation'){
-        this.setState({
-          password_confirmation: e.target.value
-        })
-      }
-      if(e.target.id === 'inputPbm'){
-        this.setState({
-          pbm: e.target.value
-        })
-      }
-      if(e.target.id === 'inputStratus'){
-        this.setState({
-          stratus: e.target.value
-        })
-      }
-      if(e.target.id === 'inputAge'){
-        this.setState({
-          age: e.target.value
-        })
-      }
-      //console.log(this.state.emailRegistro);
-      //console.log(this.state.passwordRegistro);
-      //console.log(typeof(this.state.name));
-     // console.log(typeof(this.state.lastname));
-     // console.log(typeof(this.state.password_confirmation));
-      console.log(this.state.pbm);
-     // console.log(this.state.student.pbm);
-      console.log(this.state.age);
+    componentDidMount(){
+      axios.get(`${baseURL}/careers`)
+          .then(res => {
+            console.log(res.data);
+            const careers = res.data.careers;
+            this.setState({careers});
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
+
+    handleSubmit = (e) =>{
+        e.preventDefault();
+
+
+        
+
+      console.log(this.state);
+      const user ={
+            
+            'name': this.state.name,
+            'lastname': this.state.lastname,
+            'email': this.state.email,
+            'cellphone': this.state.cellphone,
+            //'userable_type':,
+            'password': this.state.password,
+            'confirmPassword':this.state.confirmPassword,
+            'career_id':this.state.career
+
+        };
+        console.log(user);
+        var error = "";  
+        if(user.name == null){
+          error = "Debe colocar un nombre";
+          console.log(error);
+          swal(error);
+          return;
+        }
+        if(user.lastname == null){
+          error = "Debe colocar un apellido";
+          console.log(error);
+          swal(error);
+          return;
+        }
+        if(user.email == null){
+          error = "Debe colocar un correo";
+          console.log(error);
+          swal(error);
+          return;
+        }
+        if(user.password == null){
+          error = "Debe colocar una contraseña";
+          console.log(error);
+          swal(error);
+          return;
+        }
+        if(user.name.length > 50 || user.name.length<2  ){
+          error = "El nombre no puede tener más de 50 caracteres o menos de 2";
+          console.log(error);
+          swal(error);
+          return;
+        }
+        if(user.lastname.length > 50 || user.lastname.length<2){
+          error = "El apellido no puede tener más de 50 caracteres o menos de 2";
+          console.log(error);
+          swal(error);
+          return;
+        }
+        if(user.password.length > 50 || user.password.length<8){
+          error = "La contraseña no puede tener más de 50 caracteres o menos de 8";
+          console.log(error);
+          swal(error);
+          return;
+        }
+        if(user.password!=user.confirmPassword){
+          error = "Las contraseñas no coninciden";
+          console.log(error);
+          swal(error);
+          return;
+        }
+
+        axios.post(`${baseURL}/users/create`, {user})
+          .then(function (res) {
+            console.log(res.data);
+            swal({title:'Se ha creado el usuario', timer:1000, showConfirmButton:false});
+            setTimeout(function(){window.location = `${baseURLFront}/`;}, 1000);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    console.log(user);
+
+    }
+    setField (e) {
+    if(e.target.id === 'nameEdit'){
+      this.setState({
+        name: e.target.value
+      })
+      }
+      if(e.target.id === 'lastnameEdit'){
+      this.setState({
+        lastname: e.target.value
+      })
+      }
+      if(e.target.id === 'emailEdit'){
+      this.setState({
+        email: e.target.value
+      })
+      }
+      if(e.target.id === 'cellphoneEdit'){
+      this.setState({
+        cellphone: e.target.value
+      })
+      }
+      if(e.target.id === 'password'){
+      this.setState({
+        password: e.target.value
+      })
+      }
+      if(e.target.id === 'confirmPassword'){
+      this.setState({
+        confirmPassword: e.target.value
+      })
+      }
+      if(e.target.id === 'selectCareer'){
+      this.setState({
+        career: e.target.value
+      })
+      }
+      console.log(this.state.name);
+      console.log(this.state.lastname);
+      console.log(this.state.email);
+      console.log(this.state.cellphone);
+      console.log(this.state.career);
+    }
+
 
 
   render() {
     return (
-      
       <div id="LoginForm">
       <Menu/>
       <div className="container">
@@ -113,7 +170,8 @@ export default class Registro extends Component {
       <div className="main-div">
       <div className="panel">
       <h1 className="h1Registro align-center">Tutero</h1>
-    
+      
+      
       <div className="dropdown">
         <button className="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Usuario
         <span className="caret"></span></button>
@@ -125,69 +183,61 @@ export default class Registro extends Component {
           
         </ul>
       </div>
-      <br></br>
-      
-      <p>Please enter your email and password</p>
-      </div>
-      <form id="Login">
+      <br></br>          
+                                                
+                <div className="form-group">
+                           
+                  <h4 className="s-property-title">Nombre:</h4>
+                    <input type="text" id="nameEdit" onChange={(e)=>this.setField(e)}  ></input>
+                           
+                </div>
+                <div className="form-group">
+                           
+                  <h4 className="s-property-title">Apellido:</h4>
+                    <input type="text" id="lastnameEdit" onChange={(e)=>this.setField(e)} ></input>
+                           
+                </div>
+                <div className="form-group">
+                    <h4 className="s-property-title">Correo electronico:</h4>
+                    <input type="email" id="emailEdit" onChange={(e)=>this.setField(e)} ></input>
 
-        <div className="form-group">
+                </div> 
+                <div className="form-group">
+                    <h4 className="s-property-title">Password:</h4>
+                    <input type="password" id="password" onChange={(e)=>this.setField(e)} ></input>
 
-          <input type="name" className="form-control" onChange={(e)=>this.setField(e)} id="inputName" placeholder="Nombre"/>
+                </div> 
+                <div className="form-group">
+                    <h4 className="s-property-title">Confirm password:</h4>
+                    <input type="password" id="confirmPassword" onChange={(e)=>this.setField(e)} ></input>
 
-        </div>
-        <div className="form-group">
+                </div>
 
-          <input type="lastname" className="form-control" onChange={(e)=>this.setField(e)} id="inputLastname" placeholder="Apellido"/>
+                <div className="form-group">
+                    <h4 className="s-property-title">Carrera</h4>
+                      <select id="selectCareer" onChange={(e)=>this.setField(e)}>
+                        {this.state.careers.map(home => <option key={home.id} value={home.id}>{home.name}</option>)}
+                      
+                      </select>
+                </div>
+                <div className="form-group">
+                    <h4 className="s-property-title">Celular:</h4>
+                    <input type="text" id="cellphoneEdit" onChange={(e)=>this.setField(e)} ></input>
 
-        </div>
+                </div> 
+                
+                <div className="form-group">
+                    <div className="form-group">
+                      <Link to='/perfil' className="btn btn-default">Cancelar</Link>
+                      <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Guardar</button>
 
-        <div className="form-group">
-
-          <input type="number" className="form-control" onChange={(e)=>this.setField(e)} id="inputPbm" placeholder="Pbm"/>
-          
-        </div>
-
-        <div className="form-group">
-
-          <input type="stratus" className="form-control" onChange={(e)=>this.setField(e)} id="inputStratus" placeholder="Estrato"/>
-
-        </div>
-
-        <div className="form-group">
-
-          <input type="number" className="form-control" onChange={(e)=>this.setField(e)} id="inputAge" placeholder="Edad"/>
-
-        </div>
-        
-
-        <div className="form-group">
-
-            <input type="email" className="form-control" onChange={(e)=>this.setField(e)} id="inputEmailRegistro" placeholder="e-mail"/>
-
-        </div>
-
-        <div className="form-group">
-
-            <input type="password" className="form-control" onChange={(e)=>this.setField(e)} id="inputPasswordRegistro" placeholder="Password"/>
-
-        </div>
-        
-        <div className="form-group">
-
-            <input type="password" className="form-control" onChange={(e)=>this.setField(e)} id="inputPassword_confirmation" placeholder="Password again"/>
-
-        </div>
-       
-        <button type="submit"  onClick={this.handleSubmit} className="btn btn-primary">Register</button>
-
-    </form>
+                  </div>
+                </div>
+            </div>
     </div>
-
-</div></div>
-
-
-</div>
+    </div>
+    </div>
+    </div>
     )
   }
 }

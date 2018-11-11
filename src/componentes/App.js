@@ -9,13 +9,13 @@ import baseURL from '../url';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
 import 'mdbreact/dist/css/mdb.css';
-
+import { initGA } from '../analytics';
 
 class App extends Component {
   
     constructor(props) {
       super(props);
-
+      initGA();
       this.state = {
         s_users : {  profile: {
           id: 0,
@@ -23,9 +23,10 @@ class App extends Component {
           lastname: "",
           email: "",
           cellphone: "",
+          
           userable_type: "",
           userable_id: 0
-      }}
+      }, career_id: ""}
       };
   }
 obtenerDatos(loginParams){
@@ -45,13 +46,16 @@ obtenerDatos(loginParams){
 
 
   componentWillMount(){
+    console.log(this.state.s_users)
     if (localStorage.getItem('jwtToken')) {
       this.obtenerDatos(localStorage.getItem('jwtToken')).then((users) => {
         this.setState({ s_users: users })
       })      
       }
+    console.log(this.state.s_users)
   }
   render() {
+
     //Verifica que esté el token en el localstorage
     if (localStorage.getItem('jwtToken')) {
       console.log(this.state.s_users)

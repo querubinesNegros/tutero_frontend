@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import '../styles/Header.css';
 import {Link} from 'react-router-dom'
 import Login from './Login'
+import { logPageView } from '../analytics';
 
 export default class Header extends Component {
+  constructor(){
+    super();
+    logPageView();
+  }
   render() {
     return (
       <div id="containerHeader">

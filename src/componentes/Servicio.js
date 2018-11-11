@@ -4,10 +4,15 @@ import '../styles/Servicios.css';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 import baseURL from '../url';
 import axios from 'axios';
+import { logPageView } from '../analytics';
 
 
 export default class Servicio extends Component{
 
+    constructor(){
+        super();
+        logPageView();
+    }
     state = {
         urls : []
     }

@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import '../styles/Descripcion.css'
+import { logPageView } from '../analytics';
 
 export default class Descripcion extends Component {
+  constructor(){
+    super();
+    logPageView();
+  }
   render() {
     const {pregunta,respuesta,recurso,tituloImagen, subtituloImagen} = this.props.informacion;
     return (

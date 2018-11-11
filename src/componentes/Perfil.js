@@ -7,8 +7,15 @@ import store from '../store';
 import '../styles/Perfil.css';
 import baseURL from '../url';
 import axios from 'axios';
+import { logPageView } from '../analytics';
+
 
 export default class Perfil extends Component{
+
+    constructor(){
+        super();
+        logPageView();
+    }
     
     handleSubmit = (e) =>{
         e.preventDefault();

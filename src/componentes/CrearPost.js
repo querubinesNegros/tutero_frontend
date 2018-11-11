@@ -6,8 +6,14 @@ import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
+import { logPageView } from '../analytics';
 
 export default class CrearPost extends Component{
+  constructor(){
+    super();
+    logPageView();
+  }
+
    state = {
     classposts: []
   }
@@ -32,13 +38,42 @@ export default class CrearPost extends Component{
       description: this.state.description
     };
     console.log(post);
+    var error = "";
+
+    if(isNaN(post.class_post_id)){
+      error = "Debe escoger un tipo de post";
+      console.log(error);
+      swal(error);
+      return;
+    }
+    if(post.name == null){
+      error = "Debe colocar un nombre";
+      console.log(error);
+      swal(error);
+      return;
+    }
+    if(post.description == null){
+      error = "Debe colocar una descripción";
+      console.log(error);
+      swal(error);
+      return;
+    }
+    if(post.name.length > 255){
+      error = "El título no puede tener más de 255 caracteres";
+      console.log(error);
+      swal(error);
+      return;
+    }
 
     var bodyFormData = new FormData();
-    bodyFormData.append('path', this.state.file); 
-    bodyFormData.append('name', this.state.file.name); 
-    bodyFormData.append('type', "pdf"); 
-
-    
+    console.log(this.state);
+    if(this.state.file != null){
+      bodyFormData.append('path', this.state.file); 
+      bodyFormData.append('name', this.state.file.name); 
+      bodyFormData.append('type', "pdf"); 
+      console.log("se hizo bodyformdata");
+      console.log(bodyFormData);
+    }
 
    axios.post(`${baseURL}/posts`, {post})
     .then(res => {
@@ -46,17 +81,25 @@ export default class CrearPost extends Component{
       console.log("post");
       const id = res.data.post.id;
 
-      axios({
-            method: 'post',
-            url: `${baseURL}/posts/${id}/fileps`,
-            data: bodyFormData,
-            config: { headers: {'Content-Type': 'multipart/form-data' }}
-            })
-      .then(res => {
-        
-        console.log(res);
-        console.log("res2");
-      })
+      if(bodyFormData.get('path') != null){
+        console.log("se hizo bodyformdata en axios");
+        axios({
+              method: 'post',
+              url: `${baseURL}/posts/${id}/fileps`,
+              data: bodyFormData,
+              config: { headers: {'Content-Type': 'multipart/form-data' }}
+              })
+        .then(res => {
+          
+          console.log(res);
+          console.log("res2");
+          swal({title:'Se ha creado el post', timer:3000, showConfirmButton:false});
+          setTimeout(function(){window.location.reload()}, 3000);
+        })
+      }
+
+
+      
     })
     .catch(function (error) {
       console.log(error);
@@ -87,34 +130,6 @@ export default class CrearPost extends Component{
       console.log(this.state.description);
     }
 
-    onSubmit=(e)=>{
-        e.preventDefault();
-        var bodyFormData = new FormData();
-        bodyFormData.append('path', this.state.file); 
-
-          axios({
-            method: 'post',
-            url: `${baseURL}/pdfs`,
-            data: bodyFormData,
-            config: { headers: {'Content-Type': 'multipart/form-data' }}
-            })
-            .then(function (response) {
-                //handle success
-                console.log(response);
-                swal({title:'Se ha subido correctamente', timer:1000, showConfirmButton:false, onOpen: () =>{
-                    swal.showLoading()
-                   }});
-            })
-            .catch(function (response) {
-                //handle error
-                console.log(response);
-            });
-
-    }
-
-
-
-
     onChange=(e)=>{
       let files = e.target.files
     //console.warn("datafile",files[0])
@@ -137,7 +152,7 @@ export default class CrearPost extends Component{
                     <div className="form-group">
                                        
                         <h4 className="s-property-title">Nombre:</h4>
-                                    <input type="text" id="namePostCreate" onChange={(e)=>this.setField(e)} ></input>
+                        <input type="text" id="namePostCreate" onChange={(e)=>this.setField(e)} ></input>
                                    
                     </div>
                     	<h4 className="s-property-title">Tipo de post</h4>
@@ -153,7 +168,7 @@ export default class CrearPost extends Component{
                     </div>
                     <div className="form-group">
                         <h4 className="s-property-title">Sube un archivo</h4>       
-                        <input type="file" name ="file" onChange={this.onChange}/>
+                        <input type="file" name ="file" id ="file" onChange={this.onChange}/>
                     </div>
               
                         

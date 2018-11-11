@@ -6,6 +6,7 @@ import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
+import { logPageView } from '../analytics';
 
 
 export default class Estudiante extends Component{
@@ -14,6 +15,7 @@ export default class Estudiante extends Component{
         this.state = {
             tutor : { name: "Sin", lastname: "Tutor asignado"}
         };
+        logPageView();
       }
     
 
