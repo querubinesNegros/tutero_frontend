@@ -29,10 +29,10 @@ export default class Estadisticas extends Component {
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
+                labels: Object.getOwnPropertyNames(data),
                 datasets: [{
                     label: '# of Votes',
-                    data: data,
+                    data: Object.values(data),
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
