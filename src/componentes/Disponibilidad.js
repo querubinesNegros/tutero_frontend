@@ -17,9 +17,10 @@ export default class Disponibilidad extends Component{
     constructor() {
         super();
             this.state = {schedules:[], options:[]};
-        }
         logPageView();
-
+        }
+        
+    
     componentDidMount(){
         
         axios.get(`${baseURL}/users/${store.getState().id}/student/schedules`)
