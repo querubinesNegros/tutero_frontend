@@ -174,7 +174,7 @@ export default class EstudianteEditarPerfil extends Component{
                                 <Link to='/perfil' className="btn btn-default">Cancelar</Link>
                                 <button type="submit" className="btn btn-default" id="submit" onClick={this.handleSubmit}>Guardar</button>
 
-                            </div>
+                                </div>
                             </div>
                         </div>
                                   

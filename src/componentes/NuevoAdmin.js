@@ -6,6 +6,7 @@ import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
+import baseURLFront from '../urlFront'
 
 export default class NuevoAdmin extends Component{
    state = {
