@@ -42,15 +42,26 @@ export default class EstudianteEditarPerfil extends Component{
         
         e.preventDefault();
         var user = {};
-        
+        var aux = {id:store.getState().id,password:this.state.passActual};
 
         if($('#cellphoneEditDiv').css('display')=='none' && $('#passEditDiv').css('display')=='none'){
             swal("No se puede procesar la petición. Llene alguno de los campos.");
-            console.log("ambos none");
             return;
         }
+        axios.post(`${baseURL}/users/cmp_psw`, aux)
+            .then((response) => {
+                   if (!response.data){
+                        swal("No se puede procesar la petición. Contraseña actual equivocada.");
+                        return ;
+                   }
+                   
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
         if($('#cellphoneEditDiv').css('display')!='none'){
-            console.log("pass none");
+            
             if(this.state.cellphone==null || this.state.cellphone==""){
 
                 swal("No se puede procesar la petición. Ingrese su nuevo celular");
@@ -59,7 +70,7 @@ export default class EstudianteEditarPerfil extends Component{
             user.cellphone = this.state.cellphone;
         }
         if($('#passEditDiv').css('display')!='none'){
-            console.log("cellphone none");
+           
             if(this.state.passActual==null || this.state.passActual==""){
                 swal("No se puede procesar la petición. Ingrese su contraseña actual");
                 return;
@@ -74,14 +85,11 @@ export default class EstudianteEditarPerfil extends Component{
             }
             user.password = this.state.passEdit;
         }
-
-        console.log({user});
-        console.log(localStorage);
         
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.patch(`${baseURL}/users/${store.getState().id}`, {user})
             .then((response) => {
-                   console.log(response);
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -112,10 +120,7 @@ export default class EstudianteEditarPerfil extends Component{
         cellphone: e.target.value
       })
       }
-      console.log(this.state.passActual);
-      console.log(this.state.passEdit);
-      console.log(this.state.confirmPassEdit);
-      console.log(this.state.cellphone);
+  
     }
 
     render() {
@@ -171,7 +176,7 @@ export default class EstudianteEditarPerfil extends Component{
                                 <Link to='/perfil' className="btn btn-default">Cancelar</Link>
                                 <button type="submit" className="btn btn-default" id="submit" onClick={this.handleSubmit}>Guardar</button>
 
-                            </div>
+                                </div>
                             </div>
                         </div>
                                   

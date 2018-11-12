@@ -7,14 +7,13 @@ import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
+import baseURLFront from '../urlFront'
 
 export default class NuevoAdmin extends Component{
-
   constructor(){
     super();
     logPageView();
   }
-  
    state = {
     careers : []
    }
