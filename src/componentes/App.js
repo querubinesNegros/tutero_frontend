@@ -66,7 +66,7 @@ obtenerDatos(loginParams){
           email: this.state.s_users.profile.email,
           id: this.state.s_users.profile.id,
           lastname: this.state.s_users.profile.lastname,
-          name: this.state.s_users.profile.name,
+          name: this.state.s_users.profile.name,  
           userable_id: this.state.s_users.profile.userable_id,
           userable_type: this.state.s_users.profile.userable_type,
           aut: true
@@ -82,3 +82,4 @@ obtenerDatos(loginParams){
 }
 
 export default App;
+  

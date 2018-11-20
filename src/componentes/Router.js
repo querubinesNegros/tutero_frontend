@@ -6,6 +6,8 @@ import Registro from './Registro';
 import Estudiante from './Estudiante';
 import Servicios from './Servicios';
 import Disponibilidad from './Disponibilidad';
+import Disp from './Disp';
+
 import Historial from './Historial';
 import Recreacion from './Recreacion';
 import Perfil from './Perfil';
@@ -50,7 +52,7 @@ export default class Router extends Component {
                 <Route exact path="/registro" component={Registro}/>
                 <PrivateRoute   exact path="/estudiante" component={Estudiante}/>
                 <PrivateRoute exact path="/servicios" component={Servicios}/>
-                <PrivateRoute exact path="/disponibilidad" component={Disponibilidad}/>
+                <PrivateRoute  exact path="/disponibilidad"   component={Disp}/>
                 <PrivateRoute exact path="/historial" component={Historial}/>
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
