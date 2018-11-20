@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Schedule.css';
+import store from '../store';
+import baseURL from '../url';
+import axios from 'axios';
 
 class Disp extends Component {
     constructor(){
@@ -11,25 +14,66 @@ class Disp extends Component {
             text : [],
             hov : "active",
             day : "",
-            hour: ""
+            hour: "",
+            schedules: []
         };
         
     }
-    componentWillReceiveProps(nextProps){
-        if (nextProps.location.state === 'desiredState') {
-          alert(nextProps.location.state)
-        }
-      }
+    
     componentDidMount (){
         var i;
         for (i = 0; i< 97 ; i++){ this.state.ref_hour[i] = React.createRef();
          this.state.hover[i] = "active" ;
-         console.log(this.state.hover[i])
+         //console.log(this.state.hover[i])
          this.state.text[i] = "----------" ;
         } 
     }
-        handleClick (param, e ){
-            alert(param);
+    handleClick (param, e ){
+        alert(param);
+        if (this.state.text[param] == "agregar" ){
+            this.state.schedules.push(param);
+            this.state.text[param] = "remover"
+
+        }else if (this.state.text[param] == "remover" ){
+            this.state.schedules.shift(param);
+            this.state.text[param] = "agregar"
+        }
+        this.setState({hov: "tSte"});
+        console.log(this.state.schedules)
+    }
+    getSchedule ( e ){
+         var i;
+         var item;
+         for (i = 0; i< 97 ; i++){ this.state.ref_hour[i] = React.createRef();
+         this.state.hover[i] = "active" ;
+        // console.log(this.state.hover[i])
+         this.state.text[i] = "----------" ;
+        }
+        this.state.schedules = [];
+        this.setState({hov: "tSte"});
+        
+        console.log(`${baseURL}/users/${store.getState().id}/student/schedules`)
+        axios.defaults.headers.common['Authorization'] =  localStorage.getItem('jwtToken');
+        axios.get(`${baseURL}/users/${store.getState().id}/student/schedules`)
+            .then((response) => {
+                const schedulesdata = response.data.schedules;
+                this.setState({schedules: schedulesdata});
+                console.log(schedulesdata);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.setState({hov: "tSte"});
+        alert(this.state.schedules.length);
+        
+        for ( i = 0; i < this.state.schedules.length; i++){
+            item = this.state.schedules[i]
+            this.state.hover[item] = "bussy" ;
+        // console.log(this.state.hover[i])
+            this.state.text[item] = "disponible" ;
+        }
+        this.setState({hov: "tSte"});
+        
     }
     onHoverHourEnter(param, e){
         const days = ["Lunes", "Martes", "Miercoles", "Jueves" , "Viernes" , "Sabado"] ;
@@ -43,6 +87,8 @@ class Disp extends Component {
         
         if (this.state.text[param] == "----------") {
             texts = "agregar";
+        }else if(this.state.text[param] == "disponible"){
+            texts = "remover";
         }
         this.state.text[param] = texts;
         this.setState({hov: "tSte" , day: days[n], hour: h  })
@@ -50,10 +96,15 @@ class Disp extends Component {
     }
     onHoverHourLeave(param, e){
         let texts;
-        this.state.hover[param] = "active"; 
-        //this.state.text[param] = "----------"
         if (this.state.text[param] == "agregar") {
             texts = "----------";
+            this.state.hover[param] = "active"; 
+        
+        }
+        if (this.state.text[param] == "remover") {
+            texts = "disponible";
+            this.state.hover[param] = "bussy"; 
+        
         }
         this.state.text[param] = texts;
         this.setState({hov: "passive",  day: "", hour: 0}) 
@@ -83,17 +134,17 @@ class Disp extends Component {
             for (i = 0; i < 6; i++ ){
                 k = i*16+j;
                 hour_html_array[j] = <view>{hour_html_array[j]} <li ><span className={hover_background[k]}   onMouseEnter = {this.onHoverHourEnter.bind(this, k)} onMouseLeave= {this.onHoverHourLeave.bind(this, k) } onClick = {this.handleClick.bind(this, k)}  >  {this.state.text[k]} </span> </li></view>
-                console.log(k + " , " + i  + " , "  + j  )
+                //console.log(k + " , " + i  + " , "  + j  )
             }
         }
         
         
         return (
         <div>
-            <div  className =  "month">
             
-                 <h4> Horario disponibilidad</h4>
-                 
+            <div  className =  "month">
+            <button  className="btn btn-default sbutton"   onClick={this.handleSubmit}>REALIZAR CAMBIOS</button>   
+            <button  className="btn btn-default sbutton"   onClick = {this.getSchedule.bind(this, 2)}>MOSTRAR</button>
                  <ul>
                     <li>Dia - Hora </li>
                     <li>{name_day} - {hour} </li>

@@ -48,13 +48,14 @@ export default class Registro extends Component {
             'cellphone': this.state.cellphone,
             //'userable_type':,
             'password': this.state.password,
-            'confirmPassword':this.state.confirmPassword,
-            'career_id':this.state.career
-
+            'password_confirmation':this.state.confirmPassword,
+            'career_id':this.state.career,
+            'userable_type': 'Student'
         };
+        
         console.log(user);
         var error = "";  
-        if(user.name == null){
+        if(user.name == null){  
           error = "Debe colocar un nombre";
           console.log(error);
           swal(error);
@@ -96,7 +97,7 @@ export default class Registro extends Component {
           swal(error);
           return;
         }
-        if(user.password!=user.confirmPassword){
+        if(user.password!=user.password_confirmation){
           error = "Las contraseñas no coninciden";
           console.log(error);
           swal(error);

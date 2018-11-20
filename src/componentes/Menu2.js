@@ -39,7 +39,7 @@ export default class Menu2 extends Component {
                     <Link to='/servicios' className="nav-link">Servicios</Link>
                   </li>
                   <li className="item">
-                    <Link to= {{pathname: '/disponibilidad' ,   state: "desiredState"}}  className="nav-link">Disponibilidad</Link>
+                    <Link to= {{pathname: '/disponibilidad/' }}  className="nav-link">Disponibilidad</Link>
                   </li>
                   
                   <div className="button navbar-right">
