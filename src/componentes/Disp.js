@@ -29,7 +29,7 @@ class Disp extends Component {
         } 
     }
     handleClick (param, e ){
-        alert(param);
+        
         if (this.state.text[param] == "agregar" ){
             this.state.schedules.push(param);
             this.state.text[param] = "remover"
@@ -40,6 +40,20 @@ class Disp extends Component {
         }
         this.setState({hov: "tSte"});
         console.log(this.state.schedules)
+    }
+    setSchedule(e){
+         
+        const ids ={schedule_ids: this.state.schedules}
+        axios.defaults.headers.common['Authorization'] =  localStorage.getItem('jwtToken');
+        axios.post(`${baseURL}/users/${store.getState().id}/student/schedules` , {ids}).then((response) => {
+            const schedulesdata = response.data.schedules;
+            this.setState({schedules: schedulesdata});
+            console.log(response.data.schedules);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
     }
     getSchedule ( e ){
          var i;
@@ -57,22 +71,28 @@ class Disp extends Component {
         axios.get(`${baseURL}/users/${store.getState().id}/student/schedules`)
             .then((response) => {
                 const schedulesdata = response.data.schedules;
-                this.setState({schedules: schedulesdata});
-                console.log(schedulesdata);
+           
+                for(i = 0; i<schedulesdata.length ; i++ ){
+                    this.state.schedules.push(schedulesdata[i].id);
+                }
+                this.setState({hov: "tSte"});
+               // this.setState({schedules: schedulesdata});
+                console.log(this.state.schedules);
+                for ( i = 0; i < this.state.schedules.length; i++){
+                    item = this.state.schedules[i]
+                    this.state.hover[item] = "bussy" ;
+                // console.log(this.state.hover[i]) 
+                    this.state.text[item] = "disponible" ;
+                }
+                this.setState({hov: "tSte"});
             })
             .catch(function (error) {
                 console.log(error);
             });
-        this.setState({hov: "tSte"});
-        alert(this.state.schedules.length);
         
-        for ( i = 0; i < this.state.schedules.length; i++){
-            item = this.state.schedules[i]
-            this.state.hover[item] = "bussy" ;
-        // console.log(this.state.hover[i])
-            this.state.text[item] = "disponible" ;
-        }
         this.setState({hov: "tSte"});
+        
+        
         
     }
     onHoverHourEnter(param, e){
@@ -120,7 +140,7 @@ class Disp extends Component {
         }
         else if (this.state.hour < 10){
            hour = "0" + this.state.hour + ":00 am" ;            
-        }else if (this.state.hour >= 10  && this.state.hour < 13 ){
+        }else if (this.state.hour >= 10  && this.state.hour < 13 ){ 
             hour = this.state.hour + ":00 am" ;
         }else if(this.state.hour >= 13){
             hour = this.state.hour-12 + ":00 pm" ;
@@ -143,8 +163,8 @@ class Disp extends Component {
         <div>
             
             <div  className =  "month">
-            <button  className="btn btn-default sbutton"   onClick={this.handleSubmit}>REALIZAR CAMBIOS</button>   
-            <button  className="btn btn-default sbutton"   onClick = {this.getSchedule.bind(this, 2)}>MOSTRAR</button>
+            <button  className="btn btn-default sbutton"   onClick={this.setSchedule.bind(this)}>REALIZAR CAMBIOS</button>   
+            <button  className="btn btn-default sbutton"   onClick = {this.getSchedule.bind(this)}>MOSTRAR</button>
                  <ul>
                     <li>Dia - Hora </li>
                     <li>{name_day} - {hour} </li>
