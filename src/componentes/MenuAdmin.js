@@ -31,6 +31,11 @@ handleSubmit = (e) =>{
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="nav">
                   <li className="item">
+                    <Link to='/admin' className="nav-link">
+                      <img src="/logo.jpeg" width= "50px" alt ="" className="img-circle"/>
+                    </Link>
+                  </li>
+                  <li className="item">
                     <Link to='/admin' className="nav-link">Perfil</Link>
                   </li>
                   <li className="item">

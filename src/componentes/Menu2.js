@@ -33,7 +33,9 @@ export default class Menu2 extends Component {
                     <Link to='/historial' className="nav-link">Historial</Link>
                   </li>
                   <li className="item">
-                    <Link to='/estudiante' className="nav-link">TUTERO</Link>
+                    <Link to='/estudiante' className="nav-link">
+                      <img src="/logo.jpeg" width= "50px" alt ="" className="img-circle"/>
+                    </Link>
                   </li>
                   <li className="item">
                     <Link to='/servicios' className="nav-link">Servicios</Link>

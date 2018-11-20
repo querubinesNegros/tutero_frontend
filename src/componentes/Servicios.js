@@ -77,7 +77,7 @@ export default class Servicios extends Component{
                         <h3> Escoge la página </h3>
                             <select id="selectPage" onChange={(e)=>this.setField(e)}>
                             {this.state.arr.map(home => 
-                                <option value={home}>{home}</option>
+                                <option key={home} value={home}>{home}</option>
                             )}
                             </select>
                     </Row>

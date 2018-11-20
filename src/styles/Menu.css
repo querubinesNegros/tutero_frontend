@@ -13,3 +13,8 @@
     margin:0 5px;
 }
 
+.img-circle{
+    
+    border-radius: 50%;
+    padding-top: 0px;
+}
