@@ -1,0 +1,14 @@
+#cajasT{
+    margin: 10px 0 0 10px;
+    background-color: white;
+    Width: 600px;
+    height: 200px;
+}
+
+#containerCab{
+    background-image: url("../recursos/people.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 740px;
+    background-color: rgba(0,0,255,0);
+}
