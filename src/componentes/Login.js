@@ -99,67 +99,71 @@ export default class Login extends Component {
       response.preventDefault()
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider).then(function(result) {
+      console.log(result.additionalUserInfo.profile.hd);
+      console.log(result.additionalUserInfo.profile.email);
+      console.log(result.additionalUserInfo.profile.picture);
      
-     console.log(result.additionalUserInfo.profile.email);
-     console.log(result.additionalUserInfo.profile.picture);
      const body = {
-      email : result.additionalUserInfo.profile.email
-    };
+        email : result.additionalUserInfo.profile.email
+     };
+     var error = "";
 
-   axios.post(`${baseURL}/socials`, body)
-    .then(function (res) {
-      console.log(res.data.jwt);
-      localStorage.setItem("jwtToken", res.data.jwt);
-
-      var str = result.additionalUserInfo.profile.email;
-    var res1 = str.split(".");
-    console.log(res1);
-    
-
-    axios.post(`${baseURL}/users/type`,{
-      email: result.additionalUserInfo.profile.email
-    })
-      .then(res => {
-        const type = res.data.data[0];
-        console.log(type);
-
-        swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
-          swal.showLoading()
-         }});
-        if (type === "Tutor") {
-          setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 1000); 
-        }else if(type === "Admin"){
-          setTimeout(function(){window.location = `${baseURLFront}/admin`;}, 1000); 
-        }
-        else{
-          setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
-        }
+     if (result.additionalUserInfo.profile.hd == "unal.edu.co"){
+      axios.post(`${baseURL}/socials`, body)
+      .then(function (res) {
+        console.log(res.data.jwt);
+        localStorage.setItem("jwtToken", res.data.jwt);
+  
+        var str = result.additionalUserInfo.profile.email;
+      var res1 = str.split(".");
+      console.log(res1);
+      
+  
+      axios.post(`${baseURL}/users/type`,{
+        email: result.additionalUserInfo.profile.email
       })
-      .catch(function (error) {
-      console.log(error);
-    });
+        .then(res => {
+          const type = res.data.data[0];
+          console.log(type);
+
+          swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
+            swal.showLoading()
+          }});
+          if (type === "Tutor") {
+            setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 1000); 
+          }else if(type === "Admin"){
+            setTimeout(function(){window.location = `${baseURLFront}/admin`;}, 1000); 
+          }
+          else{
+            setTimeout(function(){window.location = `${baseURLFront}/estudiante`;}, 1000); 
+          }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+        
+         })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }else{
+        error = "Debe ingresar con correo de la Universidad Nacional";
+        console.log(error);
+        swal(error);
+        return;
+      }
+      })
+      .catch(function(error) {
+        
+      });
+
+    }; 
     
 
 
 
 
-
-
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
     
-  }).catch(function(error) {
-   
-  });
-    };
-    
-
-
-
-
-
 
   render() {
     return (
