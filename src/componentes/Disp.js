@@ -4,6 +4,7 @@ import '../styles/Schedule.css';
 import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
+import Menu2 from './Menu2';
 
 class Disp extends Component {
     constructor(){
@@ -161,7 +162,7 @@ class Disp extends Component {
         
         return (
         <div>
-            
+            <Menu2/>
             <div  className =  "month">
             <button  className="btn btn-default sbutton"   onClick={this.setSchedule.bind(this)}>REALIZAR CAMBIOS</button>   
             <button  className="btn btn-default sbutton"   onClick = {this.getSchedule.bind(this)}>MOSTRAR</button>
