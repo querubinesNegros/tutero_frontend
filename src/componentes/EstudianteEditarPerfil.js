@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Menu2 from './Menu2';
+import Footer from './Footer';
 import {Link} from 'react-router-dom'
 import swal from 'sweetalert2';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
@@ -135,12 +136,12 @@ export default class EstudianteEditarPerfil extends Component{
                         <div className="container">
                             
                                         
-                            <h1 className="page-title">Edita tu perfil: <span className="orange strong">{store.getState().name}</span></h1>               
+                            <h1 className="page-title">Edita tu perfil: <span className="h1">{store.getState().name}</span></h1>               
                                    
     
                            
                             
-                            <Image src="/person-3.jpg"  circle className="profile-pic2"/><br></br>
+                            <Image src="/person-3.jpg"  circle className="img-fluid rounded-circle hoverable"/><br></br>
                             <p>Todos los campos que despliegues son obligatorios. Si no quieres editar todo, oculta con el botón aquel campo que no quieres editar.</p>
                             <button type="button" id="passEditButton">Edita tu contraseña:</button> 
                             <div id="passEditDiv" >
@@ -184,7 +185,7 @@ export default class EstudianteEditarPerfil extends Component{
                         
                     
                     
-               
+                <Footer/>
             </div>   
             
         )

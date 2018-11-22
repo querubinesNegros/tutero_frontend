@@ -11,6 +11,7 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import { initGA } from '../analytics';
 
+
 class App extends Component {
   
     constructor(props) {
@@ -76,6 +77,7 @@ obtenerDatos(loginParams){
     return (
       <div >
         <Router/>
+        
       </div>
     );
   }

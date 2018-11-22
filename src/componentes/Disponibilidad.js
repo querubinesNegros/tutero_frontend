@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Menu2 from './Menu2';
+import Footer from './Footer';
 import store from '../store';
 import baseURL from '../url';
 import baseURLFront from '../urlFront';
@@ -134,6 +135,7 @@ export default class Disponibilidad extends Component{
         console.log(this.state);
         return (
             <div>
+                
                 <Menu2/>
                 <div className="container mt-3">
                     <div className="row">
@@ -210,9 +212,10 @@ export default class Disponibilidad extends Component{
 						    		</tr>)}
 						  </tbody>
 						</table>
-                    
+                        
                 </div>
-                
+           
+            <Footer/>
             </div>
         )
     }

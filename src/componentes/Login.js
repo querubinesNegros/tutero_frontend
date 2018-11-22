@@ -169,7 +169,7 @@ export default class Login extends Component {
     return (
       <div id="LoginForm">
       <div className="container">
-      <h1 className="form-heading">login Form</h1>
+      
       <div className="login-form">
       <div className="main-div">
       <div className="panel">

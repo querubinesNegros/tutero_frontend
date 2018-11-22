@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Menu2 from './Menu2';
+import Footer from './Footer';
 import '../styles/Servicios.css';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
@@ -98,6 +99,8 @@ export default class Servicios extends Component{
                     </Row>
 
                 </Grid>
+                
+                <Footer/>
                 
             </div>
             

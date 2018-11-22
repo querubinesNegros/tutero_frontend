@@ -11,6 +11,13 @@ export default class Header extends Component {
     logPageView();
   }
   render() {
+  
+      var styles = {
+        margin: '20px',
+        width: '150px',
+        height: '150px',
+      }
+     
     return (
       <div id="containerHeader">
         <div className="row">
@@ -19,7 +26,7 @@ export default class Header extends Component {
             <div className="col-12 container">
                 <h1 className="h1Landing align-middle">Tutero</h1>
                 
-                <Image src="/logo.jpeg"  circle className="profile-pic2"/>
+                <Image src="/logo.jpeg" style={styles} circle className="img-fluid rounded-circle hoverable"/>
                 <br></br>
                 <br></br>
                 <Link to={'/registro'} className="btn btn-primary btnLanding" > Regístrate </Link>

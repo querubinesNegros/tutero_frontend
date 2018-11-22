@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Menu2 from './Menu2';
+import Footer from './Footer';
 import {Link} from 'react-router-dom'
 import swal from 'sweetalert2';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
@@ -38,12 +39,12 @@ export default class Perfil extends Component{
                         <div className="container">
                             
                                                             
-                            <h1 className="page-title">Bienvenido : <span className="orange strong">{store.getState().name}</span></h1>               
+                            <h1 className="page-title">Bienvenido : <span className="h1">{store.getState().name}</span></h1>               
                                    
     
                            
                             <h3> <b>BIENVENIDO A</b> TU PERFIL <br /></h3> 
-                            <Image src="/person-3.jpg"  circle className="profile-pic2"/>
+                            <Image src="/person-3.jpg"  circle className="img-fluid rounded-circle hoverable"/>
                             <div className="form-group">
                                        
                             <h4 className="s-property-title">Nombre de usuario:</h4>
@@ -74,7 +75,7 @@ export default class Perfil extends Component{
                         
                     
                     
-               
+                 <Footer/>
             </div>   
             
         )

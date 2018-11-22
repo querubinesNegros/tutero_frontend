@@ -18,7 +18,9 @@ import CrearPost from './CrearPost';
 import GetUsers from './ObtenerUsers';
 import NuevoAdmin from './NuevoAdmin';
 import Servicio from './Servicio';
-import Estadisticas from './Estadisticas'
+import Estadisticas from './Estadisticas';
+import Footer from './Footer';
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
 
@@ -67,6 +69,7 @@ export default class Router extends Component {
                 
                 
             </Switch>
+            
         </div>
         
       </BrowserRouter>

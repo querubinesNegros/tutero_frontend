@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Menu2 from './Menu2';
+import Footer from './Footer';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
@@ -70,7 +71,7 @@ file:files[0]
                     
                     </Row>
                 </Grid>
-                
+                <Footer/>
             </div>
 
             
