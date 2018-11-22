@@ -70,6 +70,7 @@ obtenerDatos(loginParams){
           name: this.state.s_users.profile.name,  
           userable_id: this.state.s_users.profile.userable_id,
           userable_type: this.state.s_users.profile.userable_type,
+          pict: {url:this.state.s_users.profile.pict},
           aut: true
     })
     }

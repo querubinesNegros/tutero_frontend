@@ -26,7 +26,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   
   <Route {...rest} render={(props) => (
      
-    (store.getState().aut === true) && (store.getState().userable_type !==null)
+    (store.getState().aut === true)
     
       ? <Component {...props} />
       : <Redirect to='/' />
