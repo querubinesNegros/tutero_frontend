@@ -37,7 +37,7 @@ export default class Menu2 extends Component {
           <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/estudiante' className="nav-link">
-                      <img src="/logo.jpeg" width= "50px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                      <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                     </Link>
             </NavbarBrand>
             <NavbarToggler onClick={ this.onClick } />
@@ -58,7 +58,7 @@ export default class Menu2 extends Component {
               </NavbarNav>
               <NavbarNav right>
                   <Link  to="/Perfil">
-                    <img src="/person-1.jpg" width= "50px" alt ="" className="img-fluid rounded-circle hoverable"/> 
+                    <img src={localStorage.getItem('picture')} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/> 
                   </Link>
                   <NavItem>
                   </NavItem>

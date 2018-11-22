@@ -27,6 +27,7 @@ export default class Estudiante extends Component{
     axios.get(`${baseURL}/users/mytutor`)
       .then(res => {
         const tutor = res.data.data[0];
+        console.log(tutor);
         if(res.data.data[0]!== undefined)
         this.setState({tutor});
 

@@ -9,6 +9,7 @@ import store from '../store';
 import firebase from 'firebase';
 import  { Fa,Button } from 'mdbreact';
 import { logPageView } from '../analytics';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 
 export default class Login extends Component {
 
@@ -102,9 +103,14 @@ export default class Login extends Component {
       console.log(result.additionalUserInfo.profile.hd);
       console.log(result.additionalUserInfo.profile.email);
       console.log(result.additionalUserInfo.profile.picture);
+      localStorage.setItem("picture", result.additionalUserInfo.profile.picture);
      
      const body = {
-        email : result.additionalUserInfo.profile.email
+        email : result.additionalUserInfo.profile.email,
+        name : result.additionalUserInfo.profile.given_name,
+        lastname : result.additionalUserInfo.profile.family_name,
+        userable_type : "Student",
+        image : result.additionalUserInfo.profile.picture
      };
      var error = "";
 
@@ -176,17 +182,16 @@ export default class Login extends Component {
       <h1 className="h1Login align-center">Tutero</h1>
       
       
-      <div className="dropdown">
-        <button className="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Usuario
-        <span className="caret"></span></button>
-        <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
-          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Estudiante</a></li>
-          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Tutor</a></li>
-          <li role="presentation" className="divider"></li>
-          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Admin</a></li>
-          
-        </ul>
-      </div>
+      <Dropdown>
+        <DropdownToggle caret color="default">
+          Usuario
+        </DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem href="#">Estudiante</DropdownItem>
+          <DropdownItem href="#">Tutor</DropdownItem>
+          <DropdownItem href="#">Something else here</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
       <br></br>
       
       <p>Please enter your email and password</p>

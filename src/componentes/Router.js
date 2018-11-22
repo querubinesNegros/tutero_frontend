@@ -23,10 +23,11 @@ import Footer from './Footer';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-
+  
   <Route {...rest} render={(props) => (
      
-    store.getState().aut === true
+    (store.getState().aut === true) && (store.getState().userable_type !==null)
+    
       ? <Component {...props} />
       : <Redirect to='/' />
   )} />

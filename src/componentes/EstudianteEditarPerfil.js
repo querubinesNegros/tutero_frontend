@@ -141,7 +141,7 @@ export default class EstudianteEditarPerfil extends Component{
     
                            
                             
-                            <Image src="/person-3.jpg"  circle className="img-fluid rounded-circle hoverable"/><br></br>
+                            <Image src={localStorage.getItem('picture')}  circle className="img-fluid rounded-circle hoverable"/><br></br>
                             <p>Todos los campos que despliegues son obligatorios. Si no quieres editar todo, oculta con el botón aquel campo que no quieres editar.</p>
                             <button type="button" id="passEditButton">Edita tu contraseña:</button> 
                             <div id="passEditDiv" >
