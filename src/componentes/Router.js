@@ -21,6 +21,9 @@ import Servicio from './Servicio';
 import Estadisticas from './Estadisticas';
 import AboutUs from './AboutUs'
 import Footer from './Footer';
+import PerfilTutor from './PerfilTutor';
+import DisponibilidadTutor from './DisponibilidadTutor';
+import TutoriasTutor from './TutoriasTutor'
 
 
 
@@ -71,7 +74,9 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
                 <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas}/>
                 
-                
+                <PrivateRoute exact path="/tutor" component={PerfilTutor}/>
+                <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor}/>
+                <PrivateRoute exact path="/tutor/tutorias" component={TutoriasTutor}/>
             </Switch>
             
         </div>
