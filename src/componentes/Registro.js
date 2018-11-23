@@ -7,6 +7,7 @@ import swal from 'sweetalert2';
 import baseURL from '../url';
 import baseURLFront from '../urlFront';
 import { logPageView } from '../analytics';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 
 
 export default class Registro extends Component {
@@ -48,13 +49,14 @@ export default class Registro extends Component {
             'cellphone': this.state.cellphone,
             //'userable_type':,
             'password': this.state.password,
-            'confirmPassword':this.state.confirmPassword,
-            'career_id':this.state.career
-
+            'password_confirmation':this.state.confirmPassword,
+            'career_id':this.state.career,
+            'userable_type': 'Student'
         };
+        
         console.log(user);
         var error = "";  
-        if(user.name == null){
+        if(user.name == null){  
           error = "Debe colocar un nombre";
           console.log(error);
           swal(error);
@@ -96,7 +98,7 @@ export default class Registro extends Component {
           swal(error);
           return;
         }
-        if(user.password!=user.confirmPassword){
+        if(user.password!=user.password_confirmation){
           error = "Las contraseñas no coninciden";
           console.log(error);
           swal(error);
@@ -172,17 +174,16 @@ export default class Registro extends Component {
       <h1 className="h1Registro align-center">Tutero</h1>
       
       
-      <div className="dropdown">
-        <button className="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Usuario
-        <span className="caret"></span></button>
-        <ul className="dropdown-menu" role="menu" aria-labelledby="menu1">
-          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Estudiante</a></li>
-          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Tutor</a></li>
-          <li role="presentation" className="divider"></li>
-          <li role="presentation"><a role="menuitem" tabIndex="-1" href="#">Admin</a></li>
-          
-        </ul>
-      </div>
+      <Dropdown>
+        <DropdownToggle caret color="default">
+          Usuario
+        </DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem href="#">Estudiante</DropdownItem>
+          <DropdownItem href="#">Tutor</DropdownItem>
+          <DropdownItem href="#">Something else here</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
       <br></br>          
                                                 
                 <div className="form-group">

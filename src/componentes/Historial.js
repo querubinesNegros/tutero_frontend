@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Menu2 from './Menu2';
+import Footer from './Footer';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
@@ -35,7 +36,9 @@ export default class Historial extends Component{
             });
 
 }
-
+getPickerValue = (value) => {
+    console.log(value);
+}
 
 
 
@@ -48,13 +51,15 @@ file:files[0]
 }
 
     render() {
+        
         return (
             <div>
                 <Menu2/>
+
                 <Grid>
                     <Row className="show-grid text-center">
                         <Col xs={6} sm={4}>
-
+                        
                         </Col>
                         <Col xs={6} sm={4} className="person-wrapper">
                             <h1 className="h1His">Registros</h1>
@@ -70,7 +75,7 @@ file:files[0]
                     
                     </Row>
                 </Grid>
-                
+                <Footer/>
             </div>
 
             

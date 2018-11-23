@@ -1,10 +1,23 @@
 import React, { Component } from 'react'
 import '../styles/Menu2.css';
 import swal from 'sweetalert2';
-import {Link} from 'react-router-dom';
+import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa } from 'mdbreact';
+import { BrowserRouter as Router,Link } from 'react-router-dom';
 
 export default class Menu2 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        collapse: false,
+    };
+    this.onClick = this.onClick.bind(this);
+  }
 
+  onClick(){
+  this.setState({
+      collapse: !this.state.collapse,
+    });
+  }
 /*
   handleSubmit = (e) =>{
     e.preventDefault();
@@ -16,46 +29,45 @@ export default class Menu2 extends Component {
   }
 */ 
   render() {
+    const bgPink = {backgroundColor: '#424242'}
+    
     return (
-        <div id="containerNav">  
-            <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-              
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-            
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="nav">
-                  <li className="item">
-                    <Link to='/recreacion' className="nav-link">Recreación</Link>
-                  </li>
-                  <li className="item">
-                    <Link to='/historial' className="nav-link">Historial</Link>
-                  </li>
-                  <li className="item">
-                    <Link to='/estudiante' className="nav-link">
-                      <img src="/logo.jpeg" width= "50px" alt ="" className="img-circle"/>
-                    </Link>
-                  </li>
-                  <li className="item">
-                    <Link to='/servicios' className="nav-link">Servicios</Link>
-                  </li>
-                  <li className="item">
-                    <Link to='/disponibilidad' className="nav-link">Disponibilidad</Link>
-                  </li>
-                  
-                  <div className="button navbar-right">
-                        <div className="dealer-face">
-                          <Link  to="/Perfil">
-                            <img src="/person-1.jpg" width= "30px" alt ="" className="img-circle"/> 
-                            </Link>          
-                          </div>
-                  </div>
-                </ul>
-                
-              </div>
-            </nav>
+        <div>
           
+          <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
+            <NavbarBrand>
+                    <Link to='/estudiante' className="nav-link">
+                      <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                    </Link>
+            </NavbarBrand>
+            <NavbarToggler onClick={ this.onClick } />
+            <Collapse isOpen = { this.state.collapse } navbar>
+              <NavbarNav left>
+                <NavItem>
+                  <Link to='/recreacion' className="nav-link">Recreación</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to='/historial' className="nav-link">Historial</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to='/servicios' className="nav-link">Servicios</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to= {{pathname: '/disponibilidad/' }}  className="nav-link">Disponibilidad</Link>
+                </NavItem>
+              </NavbarNav>
+              <NavbarNav right>
+                  <Link  to="/Perfil">
+                    <img src={localStorage.getItem('picture')} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/> 
+                  </Link>
+                  <NavItem>
+                  </NavItem>
+                  <NavItem>
+                  </NavItem>
+              </NavbarNav>
+            </Collapse>
+          </Navbar>
+                  
         </div>
 
     )

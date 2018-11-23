@@ -4,16 +4,22 @@
     z-index: 99;
     height: 75px !important;
     padding-left: 0;
-    width: 100%;
-    background-color: rgba(0,0,255,0);
     display: flex;
     opacity: 1;
 }
 .navbar{
     height: 100%;
 }
+.navbar-toggler{
+    height: 100%;
+    background-color: white;
+}
 .nav-item{
-    margin:0 20px;
+    padding-top: 2px;
+    margin:0 5px;
+    border: 1px solid;
+    border-radius: .25rem;
+    border-color: 	#A9A9A9;
 }
 
 .img-circle{

@@ -17,7 +17,9 @@ export default class Menu extends Component {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
                 <Link to={'/'}>
+                <center>
                   <img src="/logo.jpeg" width= "50px" alt ="" className="img-circle"/>  
+                  </center>
                 </Link>
               </li>
               <li className="nav-item active">

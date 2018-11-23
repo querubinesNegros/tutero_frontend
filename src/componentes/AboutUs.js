@@ -15,11 +15,11 @@ export default class AboutUs extends Component {
     
     return (
       <div>
-        <div  id="containerMenu">
+        <div  id="menuAbout">
 
         <nav className="navbar navbar-expand-lg navbar-light">
         
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
@@ -27,7 +27,9 @@ export default class AboutUs extends Component {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
                 <Link to={'/'}>
+                <center>
                   <img src="/logo.jpeg" width= "50px" alt ="" className="img-circle"/>  
+                   </center>
                 </Link>
               </li>
               <li className="nav-item active">
@@ -67,7 +69,10 @@ export default class AboutUs extends Component {
           <div className="col-6">
           <div className="col-12 container">
             <div id="cajasT">
-                <div classname="align-center"> MISION</div>
+                <div classname="align-center"> MISION
+                <br></br>
+                Nuestra mision es transformar la experiencia de cada estudiante nuevo dentro de la institucion en la mejor posible, teniendo en cuenta variables como la vida academica, economica y social del usuario en cuestion.
+                </div>
                 
             
             </div>
@@ -75,7 +80,10 @@ export default class AboutUs extends Component {
             <br></br>
             
             <div id="cajasT">
-                <div classname="align-center"> VISION</div>
+                <div classname="align-center"> VISION
+                <br></br>
+                Nuestra mision es transformar la experiencia de cada estudiante nuevo dentro de la institucion en la mejor posible, teniendo en cuenta variables como la vida academica, economica y social del usuario en cuestion.
+                </div>
             
                 
             

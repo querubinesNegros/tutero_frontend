@@ -6,6 +6,8 @@ import Registro from './Registro';
 import Estudiante from './Estudiante';
 import Servicios from './Servicios';
 import Disponibilidad from './Disponibilidad';
+import Disp from './Disp';
+
 import Historial from './Historial';
 import Recreacion from './Recreacion';
 import Perfil from './Perfil';
@@ -18,12 +20,16 @@ import NuevoAdmin from './NuevoAdmin';
 import Servicio from './Servicio';
 import Estadisticas from './Estadisticas';
 import AboutUs from './AboutUs'
+import Footer from './Footer';
+
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-
+  
   <Route {...rest} render={(props) => (
      
-    store.getState().aut === true
+    (store.getState().aut === true)
+    
       ? <Component {...props} />
       : <Redirect to='/' />
   )} />
@@ -52,7 +58,7 @@ export default class Router extends Component {
                 <Route exact path="/aboutus" component={AboutUs}/>
                 <PrivateRoute   exact path="/estudiante" component={Estudiante}/>
                 <PrivateRoute exact path="/servicios" component={Servicios}/>
-                <PrivateRoute exact path="/disponibilidad" component={Disponibilidad}/>
+                <PrivateRoute  exact path="/disponibilidad/"   component={Disp}/>
                 <PrivateRoute exact path="/historial" component={Historial}/>
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
@@ -67,6 +73,7 @@ export default class Router extends Component {
                 
                 
             </Switch>
+            
         </div>
         
       </BrowserRouter>

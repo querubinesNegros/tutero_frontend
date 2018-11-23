@@ -6,7 +6,7 @@
   
     font-size: 4.5rem;
     color:white;
-    margin-top:250px;
+    margin-top:150px;
     
 
 }
@@ -20,9 +20,7 @@
     height: 740px;
     background-color: rgba(0,0,255,0);
 }
-.row{
-    height: 200px;
-}
+
 .btnLanding{
     font-size: 2rem;
 }
