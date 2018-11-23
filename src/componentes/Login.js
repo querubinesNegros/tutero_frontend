@@ -15,7 +15,7 @@ export default class Login extends Component {
 
   constructor() {
     super();
-    this.state = { email: null, password: null};
+    this.state = { email: null, password: null, value: "Student"};
     logPageView();
   }
 
@@ -98,18 +98,20 @@ export default class Login extends Component {
 
     googleResponse = (response) => {
       response.preventDefault()
+      
       var provider = new firebase.auth.GoogleAuthProvider();
+      let value = this.state.value
       firebase.auth().signInWithPopup(provider).then(function(result) {
       console.log(result.additionalUserInfo.profile.hd);
       console.log(result.additionalUserInfo.profile.email);
       console.log(result.additionalUserInfo.profile.picture);
       localStorage.setItem("picture", result.additionalUserInfo.profile.picture);
-     
+    
      const body = {
         email : result.additionalUserInfo.profile.email,
         name : result.additionalUserInfo.profile.given_name,
         lastname : result.additionalUserInfo.profile.family_name,
-        userable_type : "Student",
+        userable_type : value,
         image : result.additionalUserInfo.profile.picture
      };
      var error = "";
@@ -165,7 +167,13 @@ export default class Login extends Component {
 
     }; 
     
-
+    cambiarEstado=(e)=>{
+      if(e.target.id==="basic"){
+        console.log(e.target.value)
+      this.setState({value: e.target.value});
+      } 
+     
+  }
 
 
 
@@ -182,16 +190,20 @@ export default class Login extends Component {
       <h1 className="h1Login align-center">Tutero</h1>
       
       
-      <Dropdown>
-        <DropdownToggle caret color="default">
+      {/*<Dropdown>
+        <DropdownToggle caret color="default" onChange={this.cambiarEstado}>
           Usuario
         </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem href="#">Estudiante</DropdownItem>
-          <DropdownItem href="#">Tutor</DropdownItem>
-          <DropdownItem href="#">Something else here</DropdownItem>
+        <DropdownMenu   >
+          <DropdownItem value="Student">Estudiante</DropdownItem>
+          <DropdownItem value="Tutor">Tutor</DropdownItem>
         </DropdownMenu>
-      </Dropdown>
+      </Dropdown>*/}
+      <select id="basic" className="selectpicker show-tick form-control" onChange={this.cambiarEstado} >
+                      <option value ="Student">Estudiante</option>
+                      <option value ="Tutor">Tutor</option>
+                      
+                    </select>
       <br></br>
       
       <p>Please enter your email and password</p>

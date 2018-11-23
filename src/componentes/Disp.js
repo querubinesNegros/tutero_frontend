@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Footer from './Footer';
 import '../styles/Schedule.css';
 import store from '../store';
 import baseURL from '../url';
@@ -219,7 +220,7 @@ class Disp extends Component {
                
                
             </ul>
-
+            <Footer/>
         </div>
                         
         );

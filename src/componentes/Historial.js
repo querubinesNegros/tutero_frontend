@@ -36,7 +36,9 @@ export default class Historial extends Component{
             });
 
 }
-
+getPickerValue = (value) => {
+    console.log(value);
+}
 
 
 
@@ -49,13 +51,15 @@ file:files[0]
 }
 
     render() {
+        
         return (
             <div>
                 <Menu2/>
+
                 <Grid>
                     <Row className="show-grid text-center">
                         <Col xs={6} sm={4}>
-
+                        
                         </Col>
                         <Col xs={6} sm={4} className="person-wrapper">
                             <h1 className="h1His">Registros</h1>
