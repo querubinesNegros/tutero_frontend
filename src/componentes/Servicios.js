@@ -82,13 +82,13 @@ export default class Servicios extends Component{
                             )}
                             </select>
                     </Row>
-                    <Row className="show-grid text-center">
+                    <Row className="show-grid text-center" >
                         
                     
                             
-                                {this.state.posts.map(home => <Col xs={12} sm={4}>
+                                {this.state.posts.map(home => <Col xs={12} sm={4} id="servUnique">
                                     <h1>{home.name}</h1>
-                                    <p className="text">{home.description}</p>
+                                    <p id="textServ" className="text">{home.description}</p>
                                     <Link to={{pathname:`/servicio/${home.id}`, state:home}} >Servicio</Link>
                                     </Col>
                                 )}

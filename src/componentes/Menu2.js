@@ -29,7 +29,7 @@ export default class Menu2 extends Component {
   }
 */ 
   render() {
-    const bgPink = {backgroundColor: '#424242'}
+    const bgPink = {backgroundColor: '#45526e'}
     
     return (
         <div>

@@ -8,6 +8,7 @@ import baseURL from '../url';
 import baseURLFront from '../urlFront';
 import { logPageView } from '../analytics';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
+import {Image} from 'react-bootstrap';
 
 
 export default class Registro extends Component {
@@ -166,7 +167,7 @@ export default class Registro extends Component {
     return (
       <div id="LoginForm">
       <Menu/>
-      <div className="container">
+      <div className="container" id="containerRegistro">
       <h1 className="form-heading">login Form</h1>
       <div className="login-form">
       <div className="main-div">
@@ -181,7 +182,6 @@ export default class Registro extends Component {
         <DropdownMenu>
           <DropdownItem href="#">Estudiante</DropdownItem>
           <DropdownItem href="#">Tutor</DropdownItem>
-          <DropdownItem href="#">Something else here</DropdownItem>
         </DropdownMenu>
       </Dropdown>
       <br></br>          

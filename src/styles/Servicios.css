@@ -10,6 +10,17 @@
 .show-grid{
     flex: 10;
 }
+
+#textServ{
+
+    background-color: #33BEFF
+}
+#servUnique{
+    background-color: #33BEFF;
+    padding: 5px;
+    border: 2px solid;
+}
+
 .column{
     bottom: 15px;
     position: relative;
