@@ -7,6 +7,7 @@ import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
+import Footer from './Footer';
 
 export default class ObtenerUsers extends Component{
   
@@ -119,7 +120,7 @@ export default class ObtenerUsers extends Component{
 
                 </div>
             </div>
-
+        <Footer/>
 		</div>
     )
   }

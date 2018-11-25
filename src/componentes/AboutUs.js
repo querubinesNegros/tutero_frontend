@@ -5,6 +5,7 @@ import '../styles/AboutUs.css';
 import { Switch, Route } from 'react-router-dom';
 import { logPageView } from '../analytics';
 import {Image} from 'react-bootstrap';
+import Footer from './Footer';
 
 export default class AboutUs extends Component {
   constructor(){
@@ -61,8 +62,6 @@ export default class AboutUs extends Component {
                 <br></br>
                 <br></br>
                 <br></br>
-
-                <h2 className="h2Landing">Conoce un poco mas acerca de nosotros</h2>
             </div>
             
           </div> 
@@ -103,7 +102,7 @@ export default class AboutUs extends Component {
         </div>
       </div>
       
-      
+      <Footer/>
       </div>
     )
   }

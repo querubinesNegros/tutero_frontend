@@ -59,9 +59,9 @@ export default class Router extends Component {
                 <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/registro" component={Registro}/>
                 <Route exact path="/aboutus" component={AboutUs}/>
-                <PrivateRoute   exact path="/estudiante" component={Estudiante}/>
+                <PrivateRoute exact path="/estudiante" component={Estudiante}/>
                 <PrivateRoute exact path="/servicios" component={Servicios}/>
-                <PrivateRoute  exact path="/disponibilidad/"   component={Disp}/>
+                <PrivateRoute exact path="/disponibilidad/"   component={Disp}/>
                 <PrivateRoute exact path="/historial" component={Historial}/>
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
