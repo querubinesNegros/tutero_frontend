@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row, Footer } from "mdbreact";
-
+import {Link } from 'react-router-dom';
 class FooterPagePro extends React.Component {
   render() {
     return (
@@ -9,7 +9,7 @@ class FooterPagePro extends React.Component {
           <Row className="text-center text-md-left mt-3 pb-3">
             <Col md="3" lg="3" xl="3" className="mx-auto mt-3">
               <h6 className="text-uppercase mb-4 font-weight-bold">
-                Company name
+                TUTERO
               </h6>
               <p>
                 Here you can use rows and columns here to organize your footer
@@ -23,16 +23,22 @@ class FooterPagePro extends React.Component {
                 Useful links
               </h6>
               <p>
-                <a href="#!">Your Account</a>
+                <Link to='/estudiante'>Inicio</Link>
               </p>
               <p>
-                <a href="#!">Become an Affiliate</a>
+                <Link to='/recreacion'>Recreación</Link>
               </p>
               <p>
-                <a href="#!">Shipping Rates</a>
+                <Link to='/historial'>Historial</Link>
               </p>
               <p>
-                <a href="#!">Help</a>
+                <Link to='/servicios'>Servicios</Link>
+              </p>
+              <p>
+                <Link to= {{pathname: '/disponibilidad/' }}>Disponibilidad</Link>
+              </p>
+              <p>
+                <Link  to="/Perfil">Perfil</Link>
               </p>
             </Col>
             <hr className="w-100 clearfix d-md-none" />
