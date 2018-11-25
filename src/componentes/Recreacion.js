@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Menu2 from './Menu2';
 import Footer from './Footer';
 import '../styles/Recreacion.css';
-import { Jumbotron, Grid, Row, Col, Image, Button,Carousel } from 'react-bootstrap';
+import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 import { logPageView } from '../analytics';
-
+import { Carousel, CarouselInner, CarouselItem } from "mdbreact";
 
 export default class Recreacion extends Component{
 
@@ -17,35 +17,19 @@ export default class Recreacion extends Component{
         return (
             <div>
                 <Menu2/>
-                <Grid className="gridRec">
-                    <h1>Y en tus ratos libres...</h1>
-                    <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-                        <ol className="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div className="carousel-inner">
-                            <div className="carousel-item active">
-                            <img className="d-block w-100" src="/baloncesto.png" alt="First slide"></img>
-                            </div>
-                            <div className="carousel-item">
-                            <img className="d-block w-100" src="/baloncesto.png" alt="Second slide"></img>
-                            </div>
-                            <div className="carousel-item">
-                            <img className="d-block w-100" src="/baloncesto.png" alt="Third slide"></img>
-                            </div>
-                        </div>
-                        <a className="carousel-control-prev" role="button" data-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span className="sr-only">Previous</span>
-                        </a>
-                        <a className="carousel-control-next" role="button" data-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span className="sr-only">Next</span>
-                        </a>
-                    </div>
-                </Grid>
+                <Carousel activeItem={1} length={3} showControls={true} showIndicators={true} thumbnails className="z-depth-1">
+                    <CarouselInner>
+                    <CarouselItem itemId="1">
+                        <img className="d-block w-100" src="http://bienestar.bogota.unal.edu.co/ADJUNTOS/c56_2609181224_adj_cvc.jpg" alt="First slide" />
+                    </CarouselItem>
+                    <CarouselItem itemId="2">
+                        <img className="d-block w-100" src="http://bienestar.bogota.unal.edu.co/ADJUNTOS/e8a_2708181236_adj_cvc.png" alt="Second slide" />
+                    </CarouselItem>
+                    <CarouselItem itemId="3">
+                        <img className="d-block w-100" src="/karaoke.png" alt="Third slide" />
+                    </CarouselItem>
+                    </CarouselInner>
+                </Carousel>
                 <Footer/>
             </div>
         )
