@@ -44,6 +44,9 @@ handleSubmit = (e) =>{
                   <li className="item">
                     <Link to='/tutor/tutorias' className="nav-link">Tutorias</Link>
                   </li>
+                  <li className="item">
+                    <Link to='/tutor/certificados' className="nav-link">Certificados</Link>
+                  </li>
                   
                   <li className="item">
      

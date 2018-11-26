@@ -23,6 +23,7 @@ import Footer from './Footer';
 import PerfilTutor from './PerfilTutor';
 import DisponibilidadTutor from './DisponibilidadTutor';
 import TutoriasTutor from './TutoriasTutor'
+import CertificadosTutor from './CertificadosTutor'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -74,6 +75,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/tutor" component={PerfilTutor}/>
                 <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor}/>
                 <PrivateRoute exact path="/tutor/tutorias" component={TutoriasTutor}/>
+                <PrivateRoute exact path="/tutor/certificados" component={CertificadosTutor}/>
             </Switch>
             
         </div>
