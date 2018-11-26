@@ -5,7 +5,6 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
 import baseURLFront from '../urlFront';
-import store from '../store';
 import firebase from 'firebase';
 import  { Fa,Button } from 'mdbreact';
 import { logPageView } from '../analytics';
