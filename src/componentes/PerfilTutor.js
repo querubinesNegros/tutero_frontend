@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import MenuTutor from './MenuTutor'
+import MenuTutor from './MenuTutor';
+import FooterTutor from './FooterTutor'
 
 export default class PerfilTutor extends Component {
   render() {
@@ -7,6 +8,7 @@ export default class PerfilTutor extends Component {
       <div>
         <MenuTutor/>
         Desde perfil tutor.
+        <FooterTutor/>
       </div>
     )
   }

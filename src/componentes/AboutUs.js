@@ -5,48 +5,49 @@ import '../styles/AboutUs.css';
 import { Switch, Route } from 'react-router-dom';
 import { logPageView } from '../analytics';
 import {Image} from 'react-bootstrap';
-import Footer from './Footer';
+import FooterLanding from './FooterLanding';
+import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa } from 'mdbreact';
+
 
 export default class AboutUs extends Component {
-  constructor(){
-    super();
-    logPageView();
+  constructor(props) {
+    super(props);
+    this.state = {
+        collapse: false,
+    };
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(){
+  this.setState({
+      collapse: !this.state.collapse,
+    });
   }
   render() {
+    const bgPink = {backgroundColor: '#45526e'}
     
     return (
       <div>
         <div  id="menuAbout">
-
-        <nav className="navbar navbar-expand-lg navbar-light">
         
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <Link to={'/'}>
-                <center>
-                  <img src="/logo.jpeg" width= "50px" alt ="" className="img-circle"/>  
-                   </center>
-                </Link>
-              </li>
-              <li className="nav-item active">
-                <Link to={'/'}>
-                  <font size="5">HOME</font>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={'/registro'}>
-                  <font size="5">REGISTRO</font>
-                </Link>
-              </li>
-            </ul>
-            
-          </div>
-        </nav>
+        <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
+            <NavbarBrand>
+                    <Link to='/' className="nav-link">
+                      <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                    </Link>
+            </NavbarBrand>
+            <NavbarToggler onClick={ this.onClick } />
+            <Collapse isOpen = { this.state.collapse } navbar>
+              <NavbarNav left>
+                <NavItem>
+                  <Link to='/' className="nav-link">Home</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to='/registro' className="nav-link">Registro</Link>
+                </NavItem>
+              </NavbarNav>
+            </Collapse>
+          </Navbar>
       </div>
       
       
@@ -57,7 +58,7 @@ export default class AboutUs extends Component {
             <div className="col-12 container">
                 <h1 className="h1Landing align-middle">Tutero</h1>
                 
-                <Image src="/logo.jpeg"  circle className="profile-pic2"/>
+                <Image src="/logo.jpeg"  circle className="profile-pic2 img-fluid rounded-circle hoverable"/>
                 <br></br>
                 <br></br>
                 <br></br>
@@ -102,7 +103,7 @@ export default class AboutUs extends Component {
         </div>
       </div>
       
-      <Footer/>
+      <FooterLanding/>
       </div>
     )
   }

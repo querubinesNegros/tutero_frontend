@@ -7,6 +7,7 @@ import axios from 'axios';
 import $ from 'jquery'
 import {Link} from 'react-router-dom'
 import swal from 'sweetalert2';
+import FooterTutor from './FooterTutor'
 
 
 export default class TutoriasTutor extends Component {
@@ -201,6 +202,7 @@ export default class TutoriasTutor extends Component {
 						</table>
                         
                 </div>
+                <FooterTutor/>
       </div>
     )
   }

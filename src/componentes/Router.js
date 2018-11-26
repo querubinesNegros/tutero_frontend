@@ -23,7 +23,8 @@ import AboutUs from './AboutUs'
 import Footer from './Footer';
 import PerfilTutor from './PerfilTutor';
 import DisponibilidadTutor from './DisponibilidadTutor';
-import TutoriasTutor from './TutoriasTutor'
+import TutoriasTutor from './TutoriasTutor';
+import TutorEditarPerfil from './TutorEditarPerfil';
 
 
 
@@ -77,6 +78,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/tutor" component={PerfilTutor}/>
                 <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor}/>
                 <PrivateRoute exact path="/tutor/tutorias" component={TutoriasTutor}/>
+                <PrivateRoute exact path="/tutor/editarperfil" component={TutorEditarPerfil}/>
             </Switch>
             
         </div>

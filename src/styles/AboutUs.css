@@ -15,15 +15,7 @@
     background-color: rgba(0,0,255,0);
 }
 
-#menuAbout{
-    position: fixed;
-    top:0;
-    z-index: 99;
-    height: 75px !important;
-    padding-left: 0;
-    display: flex;
-    opacity: 1;
-}
+
 .navbar-toggler{
     height: 100%;
     background-color: white;

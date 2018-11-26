@@ -7,7 +7,7 @@ import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
-import Footer from './Footer';
+import FooterAdmin from './FooterAdmin';
 
 export default class CrearPost extends Component{
   constructor(){
@@ -187,7 +187,7 @@ export default class CrearPost extends Component{
       
     
 
-     <Footer/>
+     <FooterAdmin/>
 		</div>
     )
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Footer from './Footer';
+import FooterTutor from './FooterTutor';
 import '../styles/Schedule.css';
 import store from '../store';
 import baseURL from '../url';
@@ -220,7 +220,7 @@ class DisponibilidadTutor extends Component {
                
                
             </ul>
-            <Footer/>
+            <FooterTutor/>
         </div>
                         
         );
