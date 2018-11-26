@@ -3,10 +3,12 @@ import Menu2 from './Menu2';
 import Footer from './Footer';
 import axios from 'axios';
 import swal from 'sweetalert2';
+import baseURL from '../url';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 import '../styles/Historial.css';
 import { logPageView } from '../analytics';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import store from '../store';
 
 const products = [];
 
@@ -21,23 +23,44 @@ function addProducts(quantity) {
   for (let i = 0; i < quantity; i++) {
     const id = startId + i;
     products.push({
-      id: id,
+      Fecha: id,
       name: 'Problema ' + id,
       quality: i % 3
     });
   }
 }
 
-addProducts(5);
+addProducts(10);
 
 function enumFormatter(cell, row, enumObject) {
   return enumObject[cell];
 }
 
 export default class Historial extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         logPageView();
+        //${}
+        console.log()
+        this.state={
+            tutorias:[]
+        }
+       
+      
+    }
+    componentDidMount(){
+        var config = {
+            headers: {'Authorization': "bearer " + localStorage.getItem('jwtToken')}
+       };
+        
+        axios.get(`${baseURL}/users/${localStorage.getItem('id')}/student/tutorings`,config)
+        .then((response) => {
+            //console.log(response.data.tutorings);
+            this.setState({tutorias: response.data.tutorings});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     }
     onSubmit=(e)=>{
         e.preventDefault();
@@ -82,12 +105,13 @@ file:files[0]
             color:'black',
             padding: 25
           };
+          console.log(this.state.tutorias)
         return (
             <div>
                 <Menu2/>
 
                 <Grid>
-
+                    {console.log(this.state.tutorias)}
                     <p style={divStyle} className="h1"><strong>Historial Tutorias</strong></p>
                     
                     <BootstrapTable data={ products }>
@@ -96,7 +120,8 @@ file:files[0]
                         <TableHeaderColumn dataField='quality' filterFormatted dataFormat={ enumFormatter }
                             formatExtraData={ qualityType } filter={ { type: 'SelectFilter', options: qualityType, defaultValue: 1 } }>Solución</TableHeaderColumn>
                     </BootstrapTable>
-                
+                    {this.state.tutorias.map((tutoria)=>{return(<div key={tutoria.id}>{tutoria.id} {tutoria.type_t} {tutoria.date} {tutoria.topic.name}</div>)})}
+                    
                     <Row className="show-grid text-center">
                         <Col xs={6} sm={4}>
                         
@@ -114,7 +139,9 @@ file:files[0]
 
                     
                     </Row>
+                    
                 </Grid>
+                
                 <Footer/>
             </div>
 
