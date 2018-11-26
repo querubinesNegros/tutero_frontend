@@ -6,6 +6,33 @@ import swal from 'sweetalert2';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 import '../styles/Historial.css';
 import { logPageView } from '../analytics';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+
+const products = [];
+
+const qualityType = {
+  0: 'good',
+  1: 'bad',
+  2: 'unknown'
+};
+
+function addProducts(quantity) {
+  const startId = products.length;
+  for (let i = 0; i < quantity; i++) {
+    const id = startId + i;
+    products.push({
+      id: id,
+      name: 'Problema ' + id,
+      quality: i % 3
+    });
+  }
+}
+
+addProducts(5);
+
+function enumFormatter(cell, row, enumObject) {
+  return enumObject[cell];
+}
 
 export default class Historial extends Component{
     constructor(){
@@ -51,12 +78,25 @@ file:files[0]
 }
 
     render() {
-        
+        var divStyle = {
+            color:'black',
+            padding: 25
+          };
         return (
             <div>
                 <Menu2/>
 
                 <Grid>
+
+                    <p style={divStyle} className="h1"><strong>Historial Tutorias</strong></p>
+                    
+                    <BootstrapTable data={ products }>
+                        <TableHeaderColumn dataField='id' isKey>Fecha</TableHeaderColumn>
+                        <TableHeaderColumn dataField='name'>Problema</TableHeaderColumn>
+                        <TableHeaderColumn dataField='quality' filterFormatted dataFormat={ enumFormatter }
+                            formatExtraData={ qualityType } filter={ { type: 'SelectFilter', options: qualityType, defaultValue: 1 } }>Solución</TableHeaderColumn>
+                    </BootstrapTable>
+                
                     <Row className="show-grid text-center">
                         <Col xs={6} sm={4}>
                         

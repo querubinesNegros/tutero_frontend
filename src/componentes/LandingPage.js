@@ -5,6 +5,7 @@ import Menu from './Menu';
 import Registro from './Registro'
 import { Switch, Route } from 'react-router-dom';
 import { logPageView } from '../analytics';
+import Footer from './Footer';
 
 export default class LandingPage extends Component {
   constructor(){
@@ -17,6 +18,7 @@ export default class LandingPage extends Component {
       <div>
         <Menu/>
         <Header/>
+        <Footer/>
       </div>
     )
   }

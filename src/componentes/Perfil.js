@@ -44,7 +44,7 @@ export default class Perfil extends Component{
     
                            
                             <h3> <b>BIENVENIDO A</b> TU PERFIL <br /></h3> 
-                            <Image src={localStorage.getItem('picture')}  circle className="img-fluid rounded-circle hoverable"/>
+                            <Image src={localStorage.getItem('picture')} width= "250px" circle className="img-fluid rounded-circle hoverable"/>
                             <div className="form-group">
                                        
                             <h4 className="s-property-title">Nombre de usuario:</h4>

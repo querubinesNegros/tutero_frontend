@@ -7,6 +7,8 @@ import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
+import Footer from './Footer';
+
 export default class Admin extends Component{
 
   constructor(){
@@ -85,7 +87,7 @@ export default class Admin extends Component{
             
       		</div>
       
-    
+    <Footer/>
 
 
 		</div>
