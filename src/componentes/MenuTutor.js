@@ -40,6 +40,7 @@ handleSubmit = (e) =>{
                     <Link to='/tutor' className="nav-link">
                       <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                     </Link>
+
             </NavbarBrand>
             <NavbarToggler onClick={ this.onClick } />
             <Collapse isOpen = { this.state.collapse } navbar>
@@ -53,6 +54,9 @@ handleSubmit = (e) =>{
                 <NavItem>
                   <Link to='/tutor/tutorias' className="nav-link">Tutorias</Link>
                 </NavItem>
+                <NavItem>
+                  <Link to='/tutor/estudiantes' className="nav-link">Estudiantes</Link>
+                </NavItem>
               </NavbarNav>
               <NavbarNav right>
                   <Link  to="/tutor/editarperfil" className="nav-link icon" id="iconoPerfil">
@@ -64,7 +68,7 @@ handleSubmit = (e) =>{
               </NavbarNav>
             </Collapse>
           </Navbar>
-          
+
         </div>
 
     )
