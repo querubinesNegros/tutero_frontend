@@ -1,3 +1,3 @@
-const baseURLFront = 'http://localhost:3001'
+const baseURLFront = 'http://localhost:3000'
 
 export default baseURLFront
