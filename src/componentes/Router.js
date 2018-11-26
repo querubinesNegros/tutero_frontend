@@ -25,6 +25,7 @@ import PerfilTutor from './PerfilTutor';
 import DisponibilidadTutor from './DisponibilidadTutor';
 import TutoriasTutor from './TutoriasTutor';
 import TutorEditarPerfil from './TutorEditarPerfil';
+import CertificadosTutor from './CertificadosTutor'
 import Tutor_Estudiantes from './Tutor_Estudiantes'
 
 
@@ -80,6 +81,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor}/>
                 <PrivateRoute exact path="/tutor/tutorias" component={TutoriasTutor}/>
                 <PrivateRoute exact path="/tutor/editarperfil" component={TutorEditarPerfil}/>
+                <PrivateRoute exact path="/tutor/certificados" component={CertificadosTutor}/>
                 <PrivateRoute exact path="/tutor/estudiantes" component={Tutor_Estudiantes}/>
 
             </Switch>

@@ -9,7 +9,7 @@ import baseURLFront from '../urlFront';
 import { logPageView } from '../analytics';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import {Image} from 'react-bootstrap';
-import Footer from './Footer';
+import FooterLanding from './FooterLanding';
 
 
 export default class Registro extends Component {
@@ -239,7 +239,7 @@ export default class Registro extends Component {
     </div>
     </div>
     </div>
-    <Footer/>
+    <FooterLanding/>
     </div>
     )
   }
