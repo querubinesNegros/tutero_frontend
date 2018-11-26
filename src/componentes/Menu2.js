@@ -59,7 +59,8 @@ export default class Menu2 extends Component {
                 </NavItem>
               </NavbarNav>
               <NavbarNav right>
-                  <Link  to="/Perfil" className="nav-link icon" id="iconoPerfil">
+                  <Link  to="/Perfil" className="nav-link icon">
+                    <img src={localStorage.getItem('picture')} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                   </Link>
                   <NavItem>
                   </NavItem>
