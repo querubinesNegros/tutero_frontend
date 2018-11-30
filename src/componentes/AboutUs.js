@@ -24,7 +24,7 @@ export default class AboutUs extends Component {
     });
   }
   render() {
-    const bgPink = {backgroundColor: '#45526e'}
+    const bgPink = {backgroundColor: '#7433FF'}
     
     return (
       <div>

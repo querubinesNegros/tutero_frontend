@@ -19,7 +19,7 @@ export default class Menu extends Component {
   }
   
   render() {
-    const bgPink = {backgroundColor: '#45526e'}
+    const bgPink = {backgroundColor: '#7433FF'}
     return (
       <div  id="containerMenu">
         <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
