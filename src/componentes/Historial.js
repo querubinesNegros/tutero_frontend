@@ -1,40 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component,Fragment } from 'react'
 import Menu2 from './Menu2';
 import Footer from './Footer';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
-import { Jumbotron, Grid, Row, Col, Image, Button, Table } from 'react-bootstrap';
+import {  Jumbotron, Grid, Row, Col, Image, Button, Table } from 'react-bootstrap';
+import { MDBBtn } from "mdbreact";
 import '../styles/Historial.css';
 import { logPageView } from '../analytics';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import store from '../store';
+import {Link } from 'react-router-dom';
 
-const products = [];
 
-const qualityType = {
-  0: 'good',
-  1: 'Bad',
-  2: 'unknown'
-};
 
-function addProducts(quantity) {
-  const startId = products.length;
-  for (let i = 0; i < quantity; i++) {
-    const id = startId + i;
-    products.push({
-      id: id,
-      name: 'Item name ' + id,
-      quality: i % 3
-    });
-  }
-}
 
-addProducts(5);
-
-function enumFormatter(cell, row, enumObject) {
-    return enumObject[cell];
-  }  
 
 export default class Historial extends Component{
     constructor(props){
@@ -90,6 +70,11 @@ getPickerValue = (value) => {
     console.log(value);
 }
 
+botonVerNota = (e) =>{
+    
+}
+
+
 
 
 onChange=(e)=>{
@@ -106,9 +91,18 @@ file:files[0]
             padding: 25
           };
         const algo = this.state.tutorias;
-        
+
+        const ButtonPage = () => {
+            return (
+              <Fragment>
+               
+                <MDBBtn  onClick={this.botonVerNota} outline>Mostrar nota</MDBBtn>
+                
+              </Fragment>
+            );
+        }
         if(algo[0]!==undefined){
-            console.log(algo[0].id)
+            /*console.log(algo[0].id)*/
         
             return (
                 <div>
@@ -116,11 +110,11 @@ file:files[0]
 
                     <Grid>
                         
-                        {console.log(this.state.tutorias)}
-                        {console.log(algo[0].id)}
+                        {/*console.log(this.state.tutorias)*/}
+                        {/*console.log(algo[0].id)*/}
                         <p style={divStyle} className="h1"><strong>Historial Tutorias</strong></p>
                         
-                        <Table responsive>
+                      <Table responsive>
                             <thead>
                                 <tr>
                                 <th>#</th>
@@ -128,46 +122,28 @@ file:files[0]
                                 <th>Tipo</th>
                                 <th>Hora</th>
                                 <th>Tema</th>
+                                <th>Nota Estudiante</th>
+                                <th>Nota Tutor</th>
+                                <th>Calificación</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                <td>{algo[0].id}</td>
-                                <td>{algo[0].date}</td>
-                                <td>{algo[0].type_t}</td>
-                                <td>{algo[0].hour}</td>
-                                <td>{algo[0].topic.name}</td>
-
-                                </tr>
-                                <tr>
-                                <td>{algo[1].id}</td>
-                                <td>{algo[1].date}</td>
-                                <td>{algo[1].type_t}</td>
-                                <td>{algo[1].hour}</td>
-                                <td>{algo[1].topic.name}</td>
-
-                                </tr>
-                                
-                            </tbody>
-                            </Table>
                         {this.state.tutorias.map((tutoria)=>{
                             return(
-                                <div>
-                                    <div>{console.log(tutoria)}</div>
-
-                                    <BootstrapTable data={ products }>
-                                        <TableHeaderColumn dataField='id' isKey={ true }>Product ID</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='quality' filterFormatted dataFormat={ enumFormatter } formatExtraData={ qualityType }
-                                        filter={ { type: 'SelectFilter', options: qualityType } }>Product Quality</TableHeaderColumn>
-                                    </BootstrapTable>  
-                                 
-                                </div>  
                                 
-                        
+                                <tr key={tutoria.id}>
+                                {console.log(tutoria)}
+                                <td>{tutoria.id}</td>
+                                <td>{tutoria.date}</td>
+                                <td>{tutoria.type_t}</td>
+                                <td>{tutoria.hour}</td>
+                                <td>{tutoria.topic.name}</td>
+                                <td><Link to='/vernota'><ButtonPage id={tutoria.id}/></Link></td>
+                                </tr>                        
                             )})}
-                        
+                             </tbody>
+                            </Table>
 
                         <Row className="show-grid text-center">
                             <Col xs={6} sm={4}>
