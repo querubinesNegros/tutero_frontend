@@ -19,6 +19,7 @@ import GetUsers from './ObtenerUsers';
 import NuevoAdmin from './NuevoAdmin';
 import Servicio from './Servicio';
 import Estadisticas from './Estadisticas';
+import Carrera from './Carrera'
 import Footer from './Footer';
 
 
@@ -67,6 +68,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/admin/obtener_users" component={GetUsers}/>
                 <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
                 <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas}/>
+                <PrivateRoute exact path="/career" component={Carrera}/>
                 
                 
             </Switch>
