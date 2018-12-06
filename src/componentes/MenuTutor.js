@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import '../styles/Menu2.css';
 import swal from 'sweetalert2';
+import {Link} from 'react-router-dom';
 import { logPageView } from '../analytics';
 import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa } from 'mdbreact';
-import { BrowserRouter as Router,Link } from 'react-router-dom';
 
-export default class MenuAdmin extends Component {
-  
+export default class MenuTutor extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +19,7 @@ export default class MenuAdmin extends Component {
       collapse: !this.state.collapse,
     });
   }
-  
+
 handleSubmit = (e) =>{
         e.preventDefault();
         localStorage.removeItem('jwtToken')
@@ -31,13 +30,14 @@ handleSubmit = (e) =>{
     }
 
   render() {
+    
     const bgPink = {backgroundColor: '#45526e'}
     return (
         <div id="containerNav">  
         
-        <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
+            <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
-                    <Link to='/admin' className="nav-link">
+                    <Link to='/tutor' className="nav-link">
                       <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                     </Link>
             </NavbarBrand>
@@ -45,20 +45,24 @@ handleSubmit = (e) =>{
             <Collapse isOpen = { this.state.collapse } navbar>
               <NavbarNav left>
                 <NavItem>
-                  <Link to='/admin/crear_post' className="nav-link">Crear post</Link>
+                  <Link to='/tutor' className="nav-link">Perfil</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to='/admin/obtener_users' className="nav-link">Obtener usuarios</Link>
+                  <Link to='/tutor/disponibilidad' className="nav-link">Disponibilidad</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to='/admin/nuevo' className="nav-link">Agregar admin</Link>
+                  <Link to='/tutor/tutorias' className="nav-link">Tutorias</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to= {{pathname: '/admin/estadisticas' }}  className="nav-link">Estadisticas</Link>
+                  <Link to='/tutor/estudiantes' className="nav-link">Estudiantes</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to='/tutor/certificados' className="nav-link">Certificados</Link>
                 </NavItem>
               </NavbarNav>
               <NavbarNav right>
-                  <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Logout</button>
+                  <Link  to="/tutor/editarperfil" className="nav-link icon" id="iconoPerfil">
+                  </Link>
                   <NavItem>
                   </NavItem>
                   <NavItem>
@@ -66,8 +70,7 @@ handleSubmit = (e) =>{
               </NavbarNav>
             </Collapse>
           </Navbar>
-                  
-          
+
         </div>
 
     )

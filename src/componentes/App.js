@@ -47,19 +47,22 @@ obtenerDatos(loginParams){
 
 
   componentWillMount(){
-    console.log(this.state.s_users)
+   // console.log(this.state.s_users)
     if (localStorage.getItem('jwtToken')) {
       this.obtenerDatos(localStorage.getItem('jwtToken')).then((users) => {
         this.setState({ s_users: users })
       })      
       }
-    console.log(this.state.s_users)
+   // console.log(this.state.s_users)
   }
   render() {
 
     //Verifica que esté el token en el localstorage
     if (localStorage.getItem('jwtToken')) {
-      console.log(this.state.s_users)
+     /// console.log(this.state.s_users)
+     if(this.state.s_users.profile.id !== 0){
+     localStorage.setItem("id", this.state.s_users.profile.id);
+    }
         store.dispatch({
           type: "ADD_TO_STORE",
           career_id: this.state.s_users.career_id,

@@ -1,4 +1,10 @@
-body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+body#LoginForm{ 
+background-image:url("../recursos/registro.jpg");
+background-repeat:no-repeat; 
+background-position:center; 
+background-size:cover; 
+padding:10px;
+}
 
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
@@ -11,6 +17,15 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
   height: 50px;
   line-height: 50px;
 }
+
+#selectCareer{
+  width:200px;
+  height:30px;
+}
+
+#containerRegistro{
+  background-color: #33E0FF;
+}
 .main-div {
   background: #ffffff none repeat scroll 0 0;
   border-radius: 2px;
@@ -22,12 +37,16 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
 .login-form .form-group {
   margin-bottom:10px;
 }
+
 .login-form{ text-align:center;}
+
 .forgot a {
   color: #777777;
   font-size: 14px;
   text-decoration: underline;
+  background-color: black;
 }
+
 .login-form  .btn.btn-primary {
   background: #f0ad4e none repeat scroll 0 0;
   border-color: #f0ad4e;
@@ -38,18 +57,23 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
   line-height: 50px;
   padding: 0;
 }
+
 .forgot {
   text-align: left; margin-bottom:30px;
 }
+
 .botto-text {
   color: #ffffff;
   font-size: 14px;
   margin: auto;
 }
+
 .login-form .btn.btn-primary.reset {
   background: #ff9900 none repeat scroll 0 0;
 }
+
 .back { text-align: left; margin-top:10px;}
+
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 
 .h1Registro{

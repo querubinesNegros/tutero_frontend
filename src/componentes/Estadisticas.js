@@ -5,7 +5,8 @@ import baseURL from '../url';
 import baseURLFront from '../urlFront';
 import axios from 'axios';
 import {Chart} from 'chart.js'
-import $ from 'jquery'
+import $ from 'jquery';
+import FooterAdmin from './FooterAdmin';
 
 export default class Estadisticas extends Component {
   
@@ -311,7 +312,7 @@ export default class Estadisticas extends Component {
         <canvas id="myChart2" width="400" height="400"></canvas>
         <canvas id="myChart3" width="400" height="400"></canvas>
         <canvas id="myChart4" width="400" height="400"></canvas>
-        
+        <FooterAdmin/>
       </div>
       
     )

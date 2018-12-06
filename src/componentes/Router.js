@@ -20,7 +20,15 @@ import NuevoAdmin from './NuevoAdmin';
 import Servicio from './Servicio';
 import Estadisticas from './Estadisticas';
 import Carrera from './Carrera'
+import AboutUs from './AboutUs'
 import Footer from './Footer';
+import PerfilTutor from './PerfilTutor';
+import DisponibilidadTutor from './DisponibilidadTutor';
+import TutoriasTutor from './TutoriasTutor';
+import TutorEditarPerfil from './TutorEditarPerfil';
+import CertificadosTutor from './CertificadosTutor'
+import Tutor_Estudiantes from './Tutor_Estudiantes'
+
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -54,9 +62,10 @@ export default class Router extends Component {
             <Switch>
                 <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/registro" component={Registro}/>
-                <PrivateRoute   exact path="/estudiante" component={Estudiante}/>
+                <Route exact path="/aboutus" component={AboutUs}/>
+                <PrivateRoute exact path="/estudiante" component={Estudiante}/>
                 <PrivateRoute exact path="/servicios" component={Servicios}/>
-                <PrivateRoute  exact path="/disponibilidad/"   component={Disp}/>
+                <PrivateRoute exact path="/disponibilidad/"   component={Disp}/>
                 <PrivateRoute exact path="/historial" component={Historial}/>
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
@@ -70,7 +79,13 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas}/>
                 <PrivateRoute exact path="/career" component={Carrera}/>
                 
-                
+                <PrivateRoute exact path="/tutor" component={PerfilTutor}/>
+                <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor}/>
+                <PrivateRoute exact path="/tutor/tutorias" component={TutoriasTutor}/>
+                <PrivateRoute exact path="/tutor/editarperfil" component={TutorEditarPerfil}/>
+                <PrivateRoute exact path="/tutor/certificados" component={CertificadosTutor}/>
+                <PrivateRoute exact path="/tutor/estudiantes" component={Tutor_Estudiantes}/>
+
             </Switch>
             
         </div>

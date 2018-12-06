@@ -5,7 +5,6 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
 import baseURLFront from '../urlFront';
-import store from '../store';
 import firebase from 'firebase';
 import  { Fa,Button } from 'mdbreact';
 import { logPageView } from '../analytics';
@@ -187,27 +186,23 @@ export default class Login extends Component {
     return (
       <div id="LoginForm">
       <div className="container">
+
+      <h1 className="form-heading"><font size="40">login form  </font> </h1>
+
       
+
       <div className="login-form">
       <div className="main-div">
       <div className="panel">
       <h1 className="h1Login align-center">Tutero</h1>
       
-      
-      {/*<Dropdown>
-        <DropdownToggle caret color="default" onChange={this.cambiarEstado}>
-          Usuario
-        </DropdownToggle>
-        <DropdownMenu   >
-          <DropdownItem value="Student">Estudiante</DropdownItem>
-          <DropdownItem value="Tutor">Tutor</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>*/}
+
       <select id="basic" className="selectpicker show-tick form-control" onChange={this.cambiarEstado} >
                       <option value ="Student">Estudiante</option>
                       <option value ="Tutor">Tutor</option>
                       
                     </select>
+
       <br></br>
       
       <p>Please enter your email and password</p>

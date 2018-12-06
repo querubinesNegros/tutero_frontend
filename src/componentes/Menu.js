@@ -1,39 +1,45 @@
 import React, { Component } from 'react'
-import '../styles/Menu.css';
-import {Link} from 'react-router-dom'
+import '../styles/Menu2.css';
+import {Link} from 'react-router-dom';
+import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa } from 'mdbreact';
 
 export default class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        collapse: false,
+    };
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(){
+  this.setState({
+      collapse: !this.state.collapse,
+    });
+  }
+  
   render() {
+    const bgPink = {backgroundColor: '#45526e'}
     return (
       <div  id="containerMenu">
-
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <Link to={'/'}>
-                  <img src="/logo.jpeg" width= "50px" alt ="" className="img-circle"/>  
-                </Link>
-              </li>
-              <li className="nav-item active">
-                <Link to={'/'}>
-                  HOME
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={'/registro'}>
-                  REGISTRO
-                </Link>
-              </li>
-            </ul>
-            
-          </div>
-        </nav>
+        <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
+            <NavbarBrand>
+                    <Link to='/' className="nav-link">
+                      <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                    </Link>
+            </NavbarBrand>
+            <NavbarToggler onClick={ this.onClick } />
+            <Collapse isOpen = { this.state.collapse } navbar>
+              <NavbarNav left>
+                <NavItem>
+                  <Link to='/aboutus' className="nav-link">About Us</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to='/registro' className="nav-link">Registro</Link>
+                </NavItem>
+              </NavbarNav>
+            </Collapse>
+          </Navbar>
       </div>
     )
   }

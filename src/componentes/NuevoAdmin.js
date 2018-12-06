@@ -7,7 +7,8 @@ import baseURL from '../url';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
-import baseURLFront from '../urlFront'
+import baseURLFront from '../urlFront';
+import FooterAdmin from './FooterAdmin';
 
 export default class NuevoAdmin extends Component{
   constructor(){
@@ -221,6 +222,7 @@ export default class NuevoAdmin extends Component{
                 	</div>
                 </div>
             </div>
+          <FooterAdmin/>
 		</div>
     )
   }

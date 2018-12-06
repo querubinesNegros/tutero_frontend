@@ -3,6 +3,8 @@ import '../styles/Menu2.css';
 import swal from 'sweetalert2';
 import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa } from 'mdbreact';
 import { BrowserRouter as Router,Link } from 'react-router-dom';
+import {Image} from 'react-bootstrap';
+
 
 export default class Menu2 extends Component {
   constructor(props) {
@@ -29,7 +31,7 @@ export default class Menu2 extends Component {
   }
 */ 
   render() {
-    const bgPink = {backgroundColor: '#424242'}
+    const bgPink = {backgroundColor: '#45526e'}
     
     return (
         <div>
@@ -60,8 +62,8 @@ export default class Menu2 extends Component {
                 </NavItem>
               </NavbarNav>
               <NavbarNav right>
-                  <Link  to="/Perfil">
-                    <img src={localStorage.getItem('picture')} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/> 
+                  <Link  to="/Perfil" className="nav-link icon">
+                    <img src={localStorage.getItem('picture')} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                   </Link>
                   <NavItem>
                   </NavItem>
