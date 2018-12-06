@@ -6,6 +6,7 @@ import axios from 'axios';
 import baseURL from '../url';
 import store from '../store';
 import { Redirect } from 'react-router-dom'
+import Success from './Notificaciones/Success'
 const divStyle = {
     height: '20vh'
 
@@ -80,9 +81,7 @@ class Carrera extends Component {
         const not = this.state.notification;
         let content_not;
         if (not == true) {
-            content_not = <div class="alert alert-success" role="alert">
-                Cambios realizados con exito.
-</div>
+            content_not = <Success />
         } else {
             content_not = null
 
