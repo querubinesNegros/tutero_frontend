@@ -41,9 +41,8 @@ export default class Login extends Component {
 
         axios.post(`${baseURL}/users/type`,{email})
         .then(res => {
-          const type = res.data.data[0];
+          const type = res.data.data[0][0];
           console.log(type);
-
           swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
             swal.showLoading()
            }});
