@@ -10,8 +10,7 @@ import '../styles/Historial.css';
 import { logPageView } from '../analytics';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import store from '../store';
-import {Link } from 'react-router-dom';
-
+import VerNota from './VerNota';
 
 
 
@@ -23,7 +22,9 @@ export default class Historial extends Component{
         //${}
         console.log()
         this.state={
-            tutorias:[]
+            tutorias:[],
+            tutoria: null,
+            nota: null
         }
        
       
@@ -66,16 +67,12 @@ export default class Historial extends Component{
             });
 
 }
-getPickerValue = (value) => {
-    console.log(value);
-}
 
 botonVerNota = (e) =>{
-    
+    //console.log("Cliqueaste el botón")
+    console.log(e.target);
+    this.setState({tutoria: e.target.id, nota: e.target.notas});
 }
-
-
-
 
 onChange=(e)=>{
 let files = e.target.files
@@ -92,28 +89,55 @@ file:files[0]
           };
         const algo = this.state.tutorias;
 
-        const ButtonPage = () => {
-            return (
-              <Fragment>
-               
-                <MDBBtn  onClick={this.botonVerNota} outline>Mostrar nota</MDBBtn>
-                
-              </Fragment>
-            );
-        }
+      
         if(algo[0]!==undefined){
-            /*console.log(algo[0].id)*/
-        
-            return (
+            if(this.state.tutoria===null){
+                return (
+                    <div>
+                        <Menu2/>
+                        <Grid>
+                            <p style={divStyle} className="h1"><strong>Historial Tutorias</strong></p>
+                          <Table responsive>
+                                <thead>
+                                    <tr>
+                                    <th>#</th>
+                                    <th>Fecha</th>
+                                    <th>Tipo</th>
+                                    <th>Hora</th>
+                                    <th>Tema</th>
+                                    <th>Nota Estudiante</th>
+                                    <th>Nota Tutor</th>
+                                    <th>Calificación</th>
+    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                            {this.state.tutorias.map((tutoria)=>{
+                                return(
+                                    
+                                    <tr key={tutoria.id}>
+                                    {console.log(tutoria)}
+                                    <td>{tutoria.id}</td>
+                                    <td>{tutoria.date}</td>
+                                    <td>{tutoria.type_t}</td>
+                                    <td>{tutoria.hour}</td>
+                                    <td>{tutoria.topic.name}</td>
+                                    <td><Fragment>
+                <MDBBtn  onClick={this.botonVerNota}  id={tutoria.id} outline>Mostrar nota</MDBBtn>
+              </Fragment></td>
+                                    </tr>                        
+                                )})}
+                                 </tbody>
+                                </Table>
+                        </Grid>
+                        <Footer/>
+                    </div>
+                )
+            }else{return (
                 <div>
                     <Menu2/>
-
                     <Grid>
-                        
-                        {/*console.log(this.state.tutorias)*/}
-                        {/*console.log(algo[0].id)*/}
                         <p style={divStyle} className="h1"><strong>Historial Tutorias</strong></p>
-                        
                       <Table responsive>
                             <thead>
                                 <tr>
@@ -125,7 +149,6 @@ file:files[0]
                                 <th>Nota Estudiante</th>
                                 <th>Nota Tutor</th>
                                 <th>Calificación</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -139,37 +162,18 @@ file:files[0]
                                 <td>{tutoria.type_t}</td>
                                 <td>{tutoria.hour}</td>
                                 <td>{tutoria.topic.name}</td>
-                                <td><Link to='/vernota'><ButtonPage id={tutoria.id}/></Link></td>
+                                <td><Fragment>
+                <MDBBtn  onClick={this.botonVerNota} id={tutoria.id} outline>Mostrar nota</MDBBtn>
+              </Fragment></td>
                                 </tr>                        
                             )})}
                              </tbody>
                             </Table>
-
-                        <Row className="show-grid text-center">
-                            <Col xs={6} sm={4}>
-                            
-                            </Col>
-                            <Col xs={6} sm={4} className="person-wrapper">
-                                <h1 className="h1His">Registros</h1>
-
-                                <br></br>
-                                <input type="file" name ="file" onChange={this.onChange}/>  
-                                <br></br>
-                                <br></br>
-
-                                <button type="submit" className="btn btn-primary" onClick ={this.onSubmit}><i className="fa fa-envelope-o"  ></i> Crear recurso</button>
-                            </Col>
-
-                        
-                        </Row>
-                        
                     </Grid>
-                    
+                    <VerNota id={this.state.tutoria} nota={this.state.nota}/>
                     <Footer/>
                 </div>
-
-                
-            )
+            )}
         }else{
             return(<div></div>)
         }

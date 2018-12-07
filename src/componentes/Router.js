@@ -27,7 +27,6 @@ import TutoriasTutor from './TutoriasTutor';
 import TutorEditarPerfil from './TutorEditarPerfil';
 import CertificadosTutor from './CertificadosTutor';
 import Tutor_Estudiantes from './Tutor_Estudiantes';
-import VerNota from './VerNota';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -66,7 +65,6 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/servicios" component={Servicios}/>
                 <PrivateRoute exact path="/disponibilidad/"   component={Disp}/>
                 <PrivateRoute exact path="/historial" component={Historial}/>
-                <PrivateRoute exact path="/vernota" component={VerNota}/>
                 <PrivateRoute exact path="/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/perfil" component={Perfil}/>
                 <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil}/>
