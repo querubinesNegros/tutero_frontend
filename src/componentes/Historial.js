@@ -43,30 +43,7 @@ export default class Historial extends Component{
             console.log(error);
         });
     }
-    onSubmit=(e)=>{
-        e.preventDefault();
-    var bodyFormData = new FormData();
-    bodyFormData.append('path', this.state.file); 
 
-          axios({
-            method: 'post',
-            url: `http://localhost:3000/pdfs`,
-            data: bodyFormData,
-            config: { headers: {'Content-Type': 'multipart/form-data' }}
-            })
-            .then(function (response) {
-                //handle success
-                console.log(response);
-                swal({title:'Se ha subido correctamente', timer:1000, showConfirmButton:false, onOpen: () =>{
-                    swal.showLoading()
-                   }});
-            })
-            .catch(function (response) {
-                //handle error
-                console.log(response);
-            });
-
-}
 
 botonVerNota = (e) =>{
     //console.log("Cliqueaste el botón")
@@ -81,7 +58,28 @@ this.setState({
 file:files[0]
 });
 }
+votarEstrella=(e)=>{
+    console.log()
+    console.log()
+    var calificacion =e.target.id;
+    const tutoring ={
+        'score': calificacion
+    };
+    axios.patch(`${baseURL}/tutorings/${e.currentTarget.name}`, {tutoring})
+          .then(function (res) {
+            console.log(res.data);
+            swal({title:`Se ha calificado con ${calificacion} Estrellas`, timer:1000, showConfirmButton:false});
+           
+          })
+          .catch(function (error) {
+            console.log(error);
+    });
+ 
+    setTimeout(function(){ window.location.reload(1); }, 1000);
 
+
+
+}
     render() {
         var divStyle = {
             color:'black',
@@ -122,9 +120,21 @@ file:files[0]
                                     <td>{tutoria.type_t}</td>
                                     <td>{tutoria.hour}</td>
                                     <td>{tutoria.topic.name}</td>
-                                    <td><Fragment>
-                <MDBBtn  onClick={this.botonVerNota}  id={tutoria.id} outline>Mostrar nota</MDBBtn>
-              </Fragment></td>
+                                    <td>
+                                        <Fragment>
+                                            <MDBBtn  onClick={this.botonVerNota}  id={tutoria.id} outline>Seleccionar</MDBBtn>
+                                        </Fragment>
+                                    </td>
+                                    <td>{tutoria.topic.noteTutor}</td>
+                                    <td>
+                                    <div className="ec-stars-wrapper is-voted" >
+                                        <a id={1} title="Votar con 1 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
+                                        <a id={2} title="Votar con 2 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
+                                        <a id={3} title="Votar con 3 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
+                                        <a id={4} title="Votar con 4 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
+                                        <a id={5} title="Votar con 5 estrellas" name={tutoria.id}onClick={this.votarEstrella}>★</a>
+                                    </div>{tutoria.score}</td>
+                                  
                                     </tr>                        
                                 )})}
                                  </tbody>
@@ -163,8 +173,18 @@ file:files[0]
                                 <td>{tutoria.hour}</td>
                                 <td>{tutoria.topic.name}</td>
                                 <td><Fragment>
-                <MDBBtn  onClick={this.botonVerNota} id={tutoria.id} outline>Mostrar nota</MDBBtn>
-              </Fragment></td>
+                                        <MDBBtn  onClick={this.botonVerNota} id={tutoria.id} outline>Seleccionar</MDBBtn>
+                                    </Fragment>
+                                </td>
+                                <td>{tutoria.topic.noteTutor}</td>
+                                <td>
+                                <div className="ec-stars-wrapper is-voted" >
+                                <a id={1} title="Votar con 1 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
+                                        <a id={2} title="Votar con 2 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
+                                        <a id={3} title="Votar con 3 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
+                                        <a id={4} title="Votar con 4 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
+                                        <a id={5} title="Votar con 5 estrellas" name={tutoria.id}onClick={this.votarEstrella}>★</a>
+                                </div>{tutoria.score}</td>
                                 </tr>                        
                             )})}
                              </tbody>

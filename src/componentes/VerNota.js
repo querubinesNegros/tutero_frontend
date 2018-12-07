@@ -1,9 +1,9 @@
 import React, { Component,Fragment } from 'react'
 import { logPageView } from '../analytics';
-import { MDBBtn } from "mdbreact";
 import baseURL from '../url';
 import swal from 'sweetalert2';
 import axios from 'axios';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBContainer, MDBBtn, MDBCol } from "mdbreact";
 
 export default class VerNota extends Component {
     constructor(props){
@@ -30,7 +30,20 @@ export default class VerNota extends Component {
         console.log(this.state.comment)
         
     }
-
+    actualizarDatos=(e)=>{
+        var config = {
+            headers: {'Authorization': "bearer " + localStorage.getItem('jwtToken')}
+       };
+        axios.get(`${baseURL}/tutorings/${this.props.id}`,config)
+        .then((response) => {
+            this.setState({tutoria: response.data.tutoring});
+           
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+        console.log("hola")
+    }
     botonGuardar = (e)=>{
         console.log("Cliqueaste el botón")
         const tutoring ={
@@ -45,24 +58,39 @@ export default class VerNota extends Component {
           .catch(function (error) {
             console.log(error);
           });
+        this.setState({comment:""})
     }
     render(){
     
         var nota;
 
-    if(this.state.tutoria!==null){if(this.state.tutoria.noteStudent==null){console.log('sin nota')}else{console.log(this.state.tutoria.noteStudent)}}
+    if(this.state.tutoria!==null){if(this.state.tutoria.noteStudent==null){nota ='sin nota'}else{console.log(nota=this.state.tutoria.noteStudent)}}
     
         return(
-            <div>
-                <div>Esta es la tutoría {this.props.id} y la nota es: {nota}</div>
-                <h1>Agregar Nota</h1>
-                <div className="form-group">
-                    <label >Agregar nota:</label>
-                    <textarea className="form-control" onChange={(e)=>this.setField(e)} rows="5" id="comment"></textarea>
-                    <Fragment>
-                        <MDBBtn onClick={this.botonGuardar} color="info">Info</MDBBtn>    
-                    </Fragment>
-                </div>
+            <div className="shadow-box-example z-depth-5 center-block">
+                
+                <MDBContainer>
+                    <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+                        <MDBCard style={{ width: "50rem", marginTop: "1rem"}}>
+                            <MDBCardBody>
+                            <MDBCardTitle>Nota {this.props.id}</MDBCardTitle>
+                            <MDBCardText>
+                                {nota}
+                            </MDBCardText>
+                            <MDBBtn color="primary" onClick={this.actualizarDatos}>Cargar nota</MDBBtn>
+                            </MDBCardBody>
+                        </MDBCard>
+                    </div>
+                    
+                    <div className="form-group">
+                        <label >Agregar nota:</label>
+                        <textarea className="form-control" onChange={(e)=>this.setField(e)} rows="5" id="comment"></textarea>
+                        <Fragment>
+                            <MDBBtn onClick={this.botonGuardar} color="info">Editar Nota</MDBBtn>    
+                        </Fragment>
+                    </div>
+                    
+                </MDBContainer>
             </div>
         )
     }
