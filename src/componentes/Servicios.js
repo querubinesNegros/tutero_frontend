@@ -10,6 +10,7 @@ import Perfil from './Perfil'
 import baseURL from '../url';
 import axios from 'axios';
 import { logPageView } from '../analytics';
+import Paginacion from './Paginacion'
     
 
 
@@ -20,7 +21,9 @@ export default class Servicios extends Component{
     }
     state = {
         posts: [],
-        arr: []
+        arr: [], 
+        page: 1, //pagina en la que está en este instante
+        cantidad: 0
     }
     componentDidMount(){
         axios.get(`${baseURL}/posts/pages`)
@@ -32,7 +35,7 @@ export default class Servicios extends Component{
                 for (i = 1; i <= pages; i++) {
                     arr[i] = i;
                 }
-                this.setState({arr});
+                this.setState({arr , cantidad: pages });
             })
             .catch(error =>{
                 console.log(error);
@@ -66,21 +69,32 @@ export default class Servicios extends Component{
       
     }
 
+    changePage = (nowPage) => {
+       this.setState({page: nowPage})
+       axios.get(`${baseURL}/posts/page/${nowPage}`)
+      .then(res => {
+        const posts = res.data.posts;
+        console.log(res);
+        this.setState({posts});
+      })
+      .catch(error =>{
+      console.log(error);
+    });
+    }
+
     render() {
+        const cant = this.state.cantidad;
+        const page = this.state.page
         return (
             
             <div id="containerSer">
                 
                 <Menu2/>
-                
                 <Grid className="grid">
                     <Row className="show-grid text-center">
                         <h3> Escoge la página </h3>
-                            <select id="selectPage" onChange={(e)=>this.setField(e)}>
-                            {this.state.arr.map(home => 
-                                <option key={home} value={home}>{home}</option>
-                            )}
-                            </select>
+                        <Paginacion paginas = {cant} actual = {page} changePage = {this.changePage} />
+              
                     </Row>
                     <Row className="show-grid text-center" >
                         
