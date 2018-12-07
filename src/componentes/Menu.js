@@ -22,7 +22,7 @@ export default class Menu extends Component {
     const bgPink = {backgroundColor: '#7433FF'}
     return (
       <div  id="containerMenu">
-        <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
+        <Navbar id="sidebar" style={bgPink} dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/' className="nav-link">
                       <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>

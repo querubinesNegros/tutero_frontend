@@ -35,7 +35,7 @@ handleSubmit = (e) =>{
     return (
         <div id="containerNav">  
         
-        <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
+        <Navbar id="sidebarAdmin" style={bgPink} dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/admin' className="nav-link">
                       <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>

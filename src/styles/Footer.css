@@ -2,3 +2,18 @@
     background-image: url(../recursos/Nacho1.jpg);
     width:100%;
 }
+
+#footer{
+    background-image: url(../recursos/FondoEstudiante.jpg);
+    width:100%;
+}
+
+#footerAdmin{
+    background-image: url(../recursos/FondoAdmin.jpg);
+    width:100%;
+}
+
+#footerTutor{
+    background-image: url(../recursos/FondoTutor.jpg);
+    width:100%;
+}
