@@ -67,7 +67,7 @@ export default class VerNota extends Component {
     if(this.state.tutoria!==null){if(this.state.tutoria.noteStudent==null){nota ='sin nota'}else{console.log(nota=this.state.tutoria.noteStudent)}}
     
         return(
-            <div className="shadow-box-example z-depth-5 center-block">
+            <div className="shadow-box-example z-depth-5">
                 
                 <MDBContainer>
                     <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>

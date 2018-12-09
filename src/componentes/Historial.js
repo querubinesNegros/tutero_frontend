@@ -5,14 +5,12 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 import baseURL from '../url';
 import {  Jumbotron, Grid, Row, Col, Image, Button, Table } from 'react-bootstrap';
-import { MDBBtn } from "mdbreact";
+import { MDBBtn,Badge } from "mdbreact";
 import '../styles/Historial.css';
 import { logPageView } from '../analytics';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import store from '../store';
 import VerNota from './VerNota';
-
-
 
 
 export default class Historial extends Component{
@@ -133,7 +131,7 @@ votarEstrella=(e)=>{
                                         <a id={3} title="Votar con 3 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
                                         <a id={4} title="Votar con 4 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
                                         <a id={5} title="Votar con 5 estrellas" name={tutoria.id}onClick={this.votarEstrella}>★</a>
-                                    </div>{tutoria.score}</td>
+                                    </div><h5><Badge color="cyan darken-2">{tutoria.score}</Badge></h5> </td>
                                   
                                     </tr>                        
                                 )})}
@@ -184,7 +182,7 @@ votarEstrella=(e)=>{
                                         <a id={3} title="Votar con 3 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
                                         <a id={4} title="Votar con 4 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
                                         <a id={5} title="Votar con 5 estrellas" name={tutoria.id}onClick={this.votarEstrella}>★</a>
-                                </div>{tutoria.score}</td>
+                                </div><h5><Badge color="cyan darken-2">{tutoria.score}</Badge></h5>  </td>
                                 </tr>                        
                             )})}
                              </tbody>
