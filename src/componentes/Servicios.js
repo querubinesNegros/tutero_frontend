@@ -91,11 +91,13 @@ export default class Servicios extends Component{
                 
                 <Menu2/>
                 <Grid className="grid">
-                    <Row className="show-grid text-center">
-                        <h3> Escoge la página </h3>
-                        <Paginacion paginas = {cant} actual = {page} changePage = {this.changePage} />
-              
-                    </Row>
+                
+                <div className="row">
+                    <div className="col center-block">
+                        <Paginacion paginas={cant} actual={page} changePage={this.changePage} />
+                    </div>
+                </div>
+               
                     <Row className="show-grid text-center" >
                         
                     
