@@ -22,6 +22,7 @@ export default class Servicio extends Component{
             .then(res => {
                 const urls = res.data.fileps;
                 this.setState({urls});
+                console.log(res)
                 
             })
             .catch(error =>{
