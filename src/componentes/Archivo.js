@@ -2,22 +2,37 @@ import React, { Component } from 'react';
 
 
 class Archivo extends Component {
-    delete(param){
+    actionButton(param){
+        if( this.props.type == "delete"){
+            this.props.remove(param)
+        }else{
+            this.props.download(param)
+        }
         
-        this.props.remove(param)
     }
     
     render() {
         let clsname  = "";
-        if (this.props.ext == "pdf"){
+        let type_button = "";
+        let txt = "";
+        if (this.props.ext == "pdf" || this.props.ext == "Pdf" ){
             clsname = "fa fa-file-pdf-o fa-2x"
         }else{
             clsname = "fa fa-file-image-o fa-2x"
         }
+        if (this.props.type == "delete"){
+            type_button = "btn btn-danger btn-sm"
+            txt = "Borrar"
+        }else{
+            type_button = "btn btn-success btn-sm"
+            txt = "Descargar"
+        }
+        
+
         return (
             <div>
                   <i className={clsname}></i> <br/>{this.props.name} <br/>
-                  <button type="button"  className="btn btn-danger btn-sm" onClick = {this.delete.bind(this, this.props.id_r)}>Borrar</button>     
+                  <button type="button"  className={type_button} onClick = {this.actionButton.bind(this, this.props.id_r)}>{txt}</button>     
             </div>
         );
     }

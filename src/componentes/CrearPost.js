@@ -84,10 +84,10 @@ export default class CrearPost extends Component {
         const id = res.data.post.id;
 
         if (this.state.files.length > 0) {
-          
+
           for (var i = 0; i < this.state.files.length; i++) {
             var bodyFormData = new FormData();
-    
+
             bodyFormData.append('path', this.state.files[i]);
             bodyFormData.append('name', this.state.names[i]);
             bodyFormData.append('type', this.state.types[i]);
@@ -110,12 +110,12 @@ export default class CrearPost extends Component {
                 console.log("res2");
 
               })
- 
+
           }
 
         }
-        //swal({ title: 'Se ha creado el post', timer: 3000, showConfirmButton: false });
-       // setTimeout(function () { window.location.reload() }, 3000);
+        swal({ title: 'Se ha creado el post', timer: 3000, showConfirmButton: false });
+        setTimeout(function () { window.location.reload() }, 3000);
 
 
 
@@ -227,7 +227,7 @@ export default class CrearPost extends Component {
         </div>
         <div className="row container">
           {Object.keys(fp).map(key =>
-            <Archivo name={fp[key].name} key={key} id_r={key} remove={this.removeFile} ext={this.state.types[key]} />
+            <Archivo name={fp[key].name} key={key} id_r={key} remove={this.removeFile} ext={this.state.types[key]} type="delete" />
           )}
         </div>
 
