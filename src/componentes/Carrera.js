@@ -92,7 +92,7 @@ class Carrera extends Component {
                 <Menu2 />
                 {content_not}
                 <div style={divStyle}></div>
-                <div className="container ">
+                <div className="container  ">
                 
                     <h2>
                         Selecciona tu carrera antes de continuar
