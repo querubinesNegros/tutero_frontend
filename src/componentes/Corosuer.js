@@ -7,7 +7,12 @@ class Corosuer extends Component {
         this.viewImage = this.viewImage.bind(this);
     }
     viewImage(index) {
-        const urlToDownload = this.props.images[index].filepable.path.url;
+        var urlToDownload
+        if (this.props.type == 0){
+             urlToDownload = this.props.images[index].filepable.path.url;    
+        }else{
+            urlToDownload = this.props.images[index].path.url;
+        }
         console.log(urlToDownload);
         setTimeout(() => {
           const response = {
@@ -23,6 +28,7 @@ class Corosuer extends Component {
     render() {
 
         const targets = this.props.images.length;
+        var srcImage = "";
         var classIner = "";
         let targetHTML = [];
         let imageHTML = [];
@@ -37,11 +43,16 @@ class Corosuer extends Component {
             } else {
                 classIner = "carousel-item";
             }
+            if (this.props.type == 0){
+                srcImage = this.props.images[i].filepable.path.url;    
+           }else{
+              srcImage = this.props.images[i].path.url;
+           }
             imageHTML.push(
                 <div className={classIner}>
                     <img
                         className="d-block w-100"
-                        src={this.props.images[i].filepable.path.url}
+                        src={srcImage}
                         onClick = {this.viewImage.bind(this,i)}
                     />
                 </div>
