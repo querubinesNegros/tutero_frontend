@@ -6,6 +6,7 @@ import baseURLFront from '../urlFront';
 import axios from 'axios';
 import $ from 'jquery'
 import {Link} from 'react-router-dom'
+import FooterTutor from './FooterTutor'
 
 
 export default class CertificadosTutor extends Component {
@@ -71,7 +72,8 @@ export default class CertificadosTutor extends Component {
                     
                     : null }                    
 
-                </div>   
+                </div>  
+          <FooterTutor/> 
         </div>
 
         
