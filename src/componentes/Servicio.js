@@ -64,7 +64,7 @@ export default class Servicio extends Component {
           <p>{this.props.location.state.description}</p>
           <div className="row justify-content-md-center">
             <div className="col-md-8 mb-3">
-              <Corosuer images={this.state.images} />
+              <Corosuer images={this.state.images} type = {0} />
             </div>
           </div>
         </Grid>
