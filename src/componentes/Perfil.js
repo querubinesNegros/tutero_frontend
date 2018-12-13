@@ -21,6 +21,8 @@ export default class Perfil extends Component{
     handleSubmit = (e) =>{
         e.preventDefault();
         localStorage.removeItem('jwtToken')
+        localStorage.removeItem('id')
+        localStorage.removeItem('picture')
         swal({title:'Vuelve pronto...', timer:1000, showConfirmButton:false, onOpen: () =>{
            swal.showLoading()
          }});
