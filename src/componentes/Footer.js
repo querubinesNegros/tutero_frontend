@@ -26,19 +26,19 @@ class FooterPagePro extends React.Component {
                 <Link to='/estudiante'>Inicio</Link>
               </p>
               <p>
-                <Link to='/recreacion'>Recreación</Link>
+                <Link to='/estudiante/recreacion'>Recreación</Link>
               </p>
               <p>
-                <Link to='/historial'>Historial</Link>
+                <Link to='/estudiante/historial'>Historial</Link>
               </p>
               <p>
-                <Link to='/servicios'>Servicios</Link>
+                <Link to='/estudiante/servicios'>Servicios</Link>
               </p>
               <p>
-                <Link to= {{pathname: '/disponibilidad/' }}>Disponibilidad</Link>
+                <Link to= {{pathname: '/estudiante/disponibilidad/' }}>Disponibilidad</Link>
               </p>
               <p>
-                <Link  to="/Perfil">Perfil</Link>
+                <Link  to="/estudiante/perfil">Perfil</Link>
               </p>
             </Col>
             <hr className="w-100 clearfix d-md-none" />
