@@ -94,9 +94,6 @@ export default class CrearPost extends Component {
             console.log("se hizo bodyformdata");
             console.log(bodyFormData);
             console.log(info_files);
-            alert("here")
-
-            alert("here2")
             console.log("se hizo bodyformdata en axios");
             axios({
               method: 'post',

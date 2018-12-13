@@ -24,7 +24,7 @@ class Archivo extends Component {
             type_button = "btn btn-danger btn-sm"
             txt = "Borrar"
         }else{
-            type_button = "btn btn-success btn-sm"
+            type_button = "btn btn-default btn-sm"
             txt = "Descargar"
         }
         
