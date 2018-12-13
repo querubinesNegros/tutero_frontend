@@ -90,8 +90,6 @@ export default class CrearRecreacion extends Component {
       <div>
         <MenuAdmin />
 
-        <p>ESTAS EN CREAR RECREACION</p>
-
         <div className="row justify-content-md-center">
           <div className="col-md-8 mb-3">
             <Corosuer images={this.state.recreations} type={1} />
