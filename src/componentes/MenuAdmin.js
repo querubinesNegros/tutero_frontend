@@ -48,6 +48,9 @@ handleSubmit = (e) =>{
                   <Link to='/admin/crear_post' className="nav-link">Crear post</Link>
                 </NavItem>
                 <NavItem>
+                  <Link to='/admin/crear_recreacion' className="nav-link">Crear Recreación</Link>
+                </NavItem>
+                <NavItem>
                   <Link to='/admin/obtener_users' className="nav-link">Obtener usuarios</Link>
                 </NavItem>
                 <NavItem>

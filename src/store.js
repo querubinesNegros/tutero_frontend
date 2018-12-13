@@ -13,10 +13,11 @@ const reducer = (state,action) => {
             userable_type: action.userable_type,
             userable_id: action.userable_id,
             pict: action.pict,
-            aut: true
+            aut: true,
+            autstudent: action.autstudent
         }
     }
     return state;
 };
 
-export default createStore(reducer, {id: "sinnada",name: "sinnadas",email: "",lastname: "",cellphone: "",career_id:"",userable_type:"",userable_id:"",pict:"",aut: false});
+export default createStore(reducer, {id: "sinnada",name: "sinnadas",email: "",lastname: "",cellphone: "",career_id:"",userable_type:"",userable_id:"",pict:"",aut: false,autstudent:false});

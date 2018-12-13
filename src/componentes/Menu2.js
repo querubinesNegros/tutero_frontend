@@ -46,21 +46,21 @@ export default class Menu2 extends Component {
             <Collapse isOpen = { this.state.collapse } navbar>
               <NavbarNav left>
                 <NavItem>
-                  <Link to='/recreacion' className="nav-link">Recreación</Link>
+                  <Link to='/estudiante/recreacion' className="nav-link">Recreación</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to='/historial' className="nav-link">Historial</Link>
+                  <Link to='/estudiante/historial' className="nav-link">Historial</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to='/servicios' className="nav-link">Servicios</Link>
+                  <Link to='/estudiante/servicios' className="nav-link">Servicios</Link>
                 </NavItem>
                 
                 <NavItem>
-                  <Link to= {{pathname: '/disponibilidad/' }}  className="nav-link">Disponibilidad</Link>
+                  <Link to= {{pathname: '/estudiante/disponibilidad/' }}  className="nav-link">Disponibilidad</Link>
                 </NavItem>
               </NavbarNav>
               <NavbarNav right>
-                  <Link  to="/Perfil" className="nav-link icon">
+                  <Link  to="/estudiante/perfil" className="nav-link icon">
                     <img src={localStorage.getItem('picture')} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                   </Link>
                   <NavItem>
