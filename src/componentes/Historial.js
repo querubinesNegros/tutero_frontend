@@ -123,7 +123,7 @@ export default class Historial extends Component {
                                                         <MDBBtn onClick={this.botonVerNota} id={tutoria.id} outline>Seleccionar</MDBBtn>
                                                     </Fragment>
                                                 </td>
-                                                <td>{tutoria.topic.noteTutor}</td>
+                                                <td>{tutoria.noteTutor}</td>
                                                 <td>
                                                     <div className="ec-stars-wrapper is-voted" >
                                                         <a id={1} title="Votar con 1 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>
@@ -176,7 +176,7 @@ export default class Historial extends Component {
                                                     <MDBBtn onClick={this.botonVerNota} id={tutoria.id} outline>Seleccionar</MDBBtn>
                                                 </Fragment>
                                                 </td>
-                                                <td>{tutoria.topic.noteTutor}</td>
+                                                <td>{tutoria.noteTutor}</td>
                                                 <td>
                                                     <div className="ec-stars-wrapper is-voted" >
                                                         <a id={1} title="Votar con 1 estrellas" name={tutoria.id} onClick={this.votarEstrella}>★</a>

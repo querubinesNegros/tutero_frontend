@@ -13,9 +13,36 @@ import { logPageView } from '../analytics';
 
 export default class Perfil extends Component {
 
+    state = {user:{}}
     constructor() {
         super();
         logPageView();
+        //this.componentDidMount1()
+    }
+    componentDidMount(){
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+        axios.get(`${baseURL}/users/${store.getState().id}/student`)
+            .then(response => {
+                const user = response.data.student
+                this.setState({user})
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        
+    }
+    
+    componentDidUpdate(){
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+        axios.get(`${baseURL}/users/${store.getState().id}/student`)
+            .then(response => {
+                const user = response.data.student
+                this.setState({user})
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        
     }
 
     handleSubmit = (e) => {
@@ -32,8 +59,6 @@ export default class Perfil extends Component {
     }
 
     render() {
-        console.log(store.getState())
-
         return (
             <div>
                 <Menu2 />
@@ -57,6 +82,21 @@ export default class Perfil extends Component {
                     <div className="form-group">
                         <h4 className="s-property-title">Celular:</h4>
                         <label>{store.getState().cellphone}</label>
+
+                    </div>
+                    <div className="form-group">
+                        <h4 className="s-property-title">Edad:</h4>
+                        <label>{this.state.user.age}</label>
+
+                    </div>
+                    <div className="form-group">
+                        <h4 className="s-property-title">Estrato:</h4>
+                        <label>{this.state.user.stratus}</label>
+
+                    </div>
+                    <div className="form-group">
+                        <h4 className="s-property-title">PBM:</h4>
+                        <label>{this.state.user.pbm}</label>
 
                     </div>
 
