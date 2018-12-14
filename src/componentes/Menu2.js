@@ -55,7 +55,7 @@ export default class Menu2 extends Component {
                   <Link to='/estudiante/servicios' className="nav-link">Servicios</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to='/consultas' className="nav-link">Consultas</Link>
+                  <Link to='/estudiante/consultas' className="nav-link">Consultas</Link>
                 </NavItem>                
                 <NavItem>
                   <Link to= {{pathname: '/estudiante/disponibilidad/' }}  className="nav-link">Disponibilidad</Link>
