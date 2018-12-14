@@ -97,7 +97,7 @@ export default class TutorEditarPerfil extends Component{
             });
 
 
-        setTimeout(function(){window.location = `${baseURLFront}/perfil`;}, 3000); 
+        setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 3000); 
     
     }
     setField (e) {
@@ -174,7 +174,7 @@ export default class TutorEditarPerfil extends Component{
                             </div>
                             <div className="form-group">
                                 <div className="form-group">
-                                <Link to='/perfil' className="btn btn-default">Cancelar</Link>
+                                <Link to='/tutor' className="btn btn-default">Cancelar</Link>
                                 <button type="submit" className="btn btn-default" id="submit" onClick={this.handleSubmit}>Guardar</button>
 
                                 </div>
