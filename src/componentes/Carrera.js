@@ -92,16 +92,15 @@ class Carrera extends Component {
                 <Menu2 />
                 {content_not}
                 <div style={divStyle}></div>
-                <div className="row ">
+                <div className="container  ">
+                
                     <h2>
                         Selecciona tu carrera antes de continuar
                      </h2>
                     <div className="row">
                         <div className="col-md-6 col-md-offset-3 center-block" />
                         <select className="form-control" ref={this.career}>
-
                             {this.state.careers.map(home => <option key={home.id} value={home.id}>{home.name}</option>)}
-
                         </select>
                     </div>
                     <div className="row">

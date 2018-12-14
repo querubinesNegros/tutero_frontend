@@ -9,6 +9,8 @@
 
 .show-grid{
     flex: 10;
+    grid-columns:25% 50% 75%; 
+    grid-rows: 50px;
 }
 
 #textServ{
@@ -36,4 +38,8 @@
     padding: 0px;
     block-size: 15%;
     
+}
+
+.card{
+    background-color: #55DCC5;
 }

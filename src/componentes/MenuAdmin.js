@@ -3,35 +3,37 @@ import '../styles/Menu2.css';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
 import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa } from 'mdbreact';
-import { BrowserRouter as Router,Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 export default class MenuAdmin extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
-        collapse: false,
+      collapse: false,
     };
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick(){
-  this.setState({
+  onClick() {
+    this.setState({
       collapse: !this.state.collapse,
     });
   }
-  
-handleSubmit = (e) =>{
-        e.preventDefault();
-        localStorage.removeItem('jwtToken')
-        swal({title:'Vuelve pronto...', timer:1000, showConfirmButton:false, onOpen: () =>{
-           swal.showLoading()
-         }});
-        setTimeout(function(){window.location.reload()},1000);
-    }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('jwtToken')
+    swal({
+      title: 'Vuelve pronto...', timer: 1000, showConfirmButton: false, onOpen: () => {
+        swal.showLoading()
+      }
+    });
+    setTimeout(function () { window.location.reload() }, 1000);
+  }
 
   render() {
-    const bgPink = {backgroundColor: '#45526e'}
+    const bgPink = { backgroundColor: '#45526e' }
     return (
         <div id="containerNav">  
         

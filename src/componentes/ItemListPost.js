@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import '../styles/Servicios.css'
 class ItemListPost extends Component {
     subStringDescription(text){
         var sub_s = ""

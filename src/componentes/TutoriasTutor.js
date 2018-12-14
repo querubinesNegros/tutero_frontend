@@ -8,6 +8,7 @@ import $ from 'jquery'
 import {Link} from 'react-router-dom'
 import swal from 'sweetalert2';
 import FooterTutor from './FooterTutor'
+import '../styles/tutoriasTutor.css'
 
 
 export default class TutoriasTutor extends Component {
@@ -44,6 +45,8 @@ export default class TutoriasTutor extends Component {
             .catch(function (error) {
                 console.log(error);
             });
+        $('#note').hide();
+        
     }
 
     showSchedules = (e) =>{
@@ -149,10 +152,10 @@ export default class TutoriasTutor extends Component {
     
     handleSubmit = (e) =>{
         const option = this.state.addTutoring;
-        const tutoring = {topic_id:this.state.addTopic,type_t:this.state.addType,
-                        student_id:this.state.addStudent,hour:this.state.addHour,
-                        date:this.state.addDate};
-        
+        const tutoring = {topic_id:$('#selectTopic').val(),type_t:$('#selectType').val(),
+                        student_id:$('#selectStudent').val(),hour:$('#selectHour').val(),
+                        date:$('#selectFechaTutoria').val()};
+        console.log(tutoring)
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.post(`${baseURL}/users/${store.getState().id}/tutor/tutorings`,tutoring)
             .then((res)=> {
@@ -178,6 +181,24 @@ export default class TutoriasTutor extends Component {
             })
     }
 
+    addNote(){
+        $('#note').show();
+
+    }
+    handleSubmitAddNote(){
+        const tutoring_id=$('#liTutoring').val()
+        const tutoring = {noteTutor:$('#note textarea').val()}
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+        axios.patch(`${baseURL}/tutorings/${tutoring_id}`,tutoring)
+            .then((res)=> {
+                swal({title:'Se agregó la nota', timer:3000, showConfirmButton:false});
+                setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 3000); 
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+    }
+
     render() {
     return (
       <div>
@@ -195,7 +216,7 @@ export default class TutoriasTutor extends Component {
                         </div>
                     </div>
                 </div>    
-                <div class="container mt-3" id="showTutorings">
+                <div className="container mt-3" id="showTutorings">
                     <h2>Estos son tus tutorías.</h2>
 
 
@@ -210,9 +231,21 @@ export default class TutoriasTutor extends Component {
                                     <p className="card-text">Correo Estudiante: {home.student.user.email}</p>
                                     <p className="card-text">Nota del tutor: {home.noteTutor}</p>
                                     <p className="card-text">Calificación: {home.score}</p>
+                                    <li value={home.id} id="liTutoring"></li>
                                 </div>
+                                    <div id="addNote">
+                                        <button type="button" onClick={this.addNote} id="btnAddNote">Agrega una nota</button>
+                                        <div id="note">
+                                            <textarea placeholder="Escribe una nota"></textarea>
+                                            <div>
+                                                <Link to='/tutor' className="btn btn-default">Cancelar</Link>
+                                                <button type="submit" className="btn btn-default" id="submitNote" onClick={this.handleSubmitAddNote}>Guardar</button>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
                                 </div> 
-                            
+                                
 						    	)}
                     
                 </div>
@@ -226,7 +259,7 @@ export default class TutoriasTutor extends Component {
                     <h2>Escoge el tema</h2>
                     <select id="selectTopic" onChange={(e)=>this.setField(e)}>
                     	{this.state.topics.map(home => 
-						    <option value={home.id}>{home.name}</option>
+						    <option value={home.id} key={home.id}>{home.name}</option>
 						)}
 					</select>
                     <h2>Escoge el tipo</h2>

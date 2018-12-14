@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../styles/Menu2.css';
 import swal from 'sweetalert2';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { logPageView } from '../analytics';
 import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa } from 'mdbreact';
 
@@ -9,29 +9,31 @@ export default class MenuTutor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        collapse: false,
+      collapse: false,
     };
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick(){
-  this.setState({
+  onClick() {
+    this.setState({
       collapse: !this.state.collapse,
     });
   }
 
-handleSubmit = (e) =>{
-        e.preventDefault();
-        localStorage.removeItem('jwtToken')
-        swal({title:'Vuelve pronto...', timer:1000, showConfirmButton:false, onOpen: () =>{
-           swal.showLoading()
-         }});
-        setTimeout(function(){window.location.reload()},1000);
-    }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('jwtToken')
+    swal({
+      title: 'Vuelve pronto...', timer: 1000, showConfirmButton: false, onOpen: () => {
+        swal.showLoading()
+      }
+    });
+    setTimeout(function () { window.location.reload() }, 1000);
+  }
 
   render() {
-    
-    const bgPink = {backgroundColor: '#45526e'}
+
+    const bgPink = { backgroundColor: '#45526e' }
     return (
         <div id="containerNav">  
         
@@ -71,7 +73,7 @@ handleSubmit = (e) =>{
             </Collapse>
           </Navbar>
 
-        </div>
+      </div>
 
     )
   }
