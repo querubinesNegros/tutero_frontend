@@ -216,7 +216,7 @@ export default class TutoriasTutor extends Component {
                         </div>
                     </div>
                 </div>    
-                <div class="container mt-3" id="showTutorings">
+                <div className="container mt-3" id="showTutorings">
                     <h2>Estos son tus tutorías.</h2>
 
 
@@ -259,7 +259,7 @@ export default class TutoriasTutor extends Component {
                     <h2>Escoge el tema</h2>
                     <select id="selectTopic" onChange={(e)=>this.setField(e)}>
                     	{this.state.topics.map(home => 
-						    <option value={home.id}>{home.name}</option>
+						    <option value={home.id} key={home.id}>{home.name}</option>
 						)}
 					</select>
                     <h2>Escoge el tipo</h2>

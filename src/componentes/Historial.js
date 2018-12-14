@@ -205,7 +205,8 @@ export default class Historial extends Component {
                         <div className="col-md-6">
                             <div style={{ height: 400, justifyContent: 'center', align: 'center' }}>
                             <br/>
-                                <h1 >Aún no Tienes tutorias</h1>
+                                <h1 >Aún no tienes tutorias</h1>
+                                
                             </div>
                         </div>
                         <div className="col-md-3"></div>
