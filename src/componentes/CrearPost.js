@@ -160,7 +160,7 @@ export default class CrearPost extends Component {
     var extension, name;
     extension = files[0].name.split(".")[1]
     name = files[0].name.split(".")[0]
-    if (extension == "png" || extension == "pdf" || extension == "jpg") {
+    if (extension == "png" || extension == "pdf" || extension == "jpeg" || extension == "jpg" || extension == "svg") {
       this.state.files.push(files[0])
       this.state.types.push(extension)
       this.state.names.push(name)
