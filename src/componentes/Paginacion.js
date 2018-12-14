@@ -35,7 +35,7 @@ class Paginacion extends Component {
         return (
             <div>
                 <nav aria-label="Page navigation example">
-                    <ul className="pagination pg-blue">
+                    <ul className="pagination pg-blue justify-content-center">
                         {pages}   
                     </ul>
                 </nav>

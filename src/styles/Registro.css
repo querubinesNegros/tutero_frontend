@@ -1,5 +1,6 @@
-body#LoginForm{ 
-background-image:url("../recursos/registro.jpg");
+body
+#RegistroForm{ 
+background-image:url("../recursos/Fondo.jpg");
 background-repeat:no-repeat; 
 background-position:center; 
 background-size:cover; 
@@ -24,11 +25,11 @@ padding:10px;
 }
 
 #containerRegistro{
-  background-color: #33E0FF;
+  background-color: none;
 }
 .main-div {
   background: #ffffff none repeat scroll 0 0;
-  border-radius: 2px;
+  border-radius: 2rem;
   margin: 10px auto 30px;
   max-width: 38%;
   padding: 50px 70px 70px 71px;

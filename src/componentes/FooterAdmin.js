@@ -1,10 +1,12 @@
 import React from "react";
 import { Col, Container, Row, Footer } from "mdbreact";
 import {Link } from 'react-router-dom';
+import '../styles/Footer.css'
+
 class FooterPagePro extends React.Component {
   render() {
     return (
-      <Footer color="mdb-color " className="font-small pt-4 mt-4">
+      <Footer id="footerAdmin" color="mdb-color " className="font-small pt-4 mt-4">
         <Container className="text-center text-md-left">
           <Row className="text-center text-md-left mt-3 pb-3">
             <Col md="3" lg="3" xl="3" className="mx-auto mt-3">

@@ -1,10 +1,12 @@
 import React from "react";
 import { Col, Container, Row, Footer } from "mdbreact";
 import {Link } from 'react-router-dom';
+import '../styles/Footer.css';
+
 class FooterPagePro extends React.Component {
   render() {
     return (
-      <Footer color="mdb-color " className="font-small pt-4 mt-4">
+      <Footer id="footer" color="mdb-color " className="font-small pt-4 mt-4">
         <Container className="text-center text-md-left">
           <Row className="text-center text-md-left mt-3 pb-3">
             <Col md="3" lg="3" xl="3" className="mx-auto mt-3">
@@ -26,19 +28,19 @@ class FooterPagePro extends React.Component {
                 <Link to='/estudiante'>Inicio</Link>
               </p>
               <p>
-                <Link to='/recreacion'>Recreación</Link>
+                <Link to='/estudiante/recreacion'>Recreación</Link>
               </p>
               <p>
-                <Link to='/historial'>Historial</Link>
+                <Link to='/estudiante/historial'>Historial</Link>
               </p>
               <p>
-                <Link to='/servicios'>Servicios</Link>
+                <Link to='/estudiante/servicios'>Servicios</Link>
               </p>
               <p>
-                <Link to= {{pathname: '/disponibilidad/' }}>Disponibilidad</Link>
+                <Link to= {{pathname: '/estudiante/disponibilidad/' }}>Disponibilidad</Link>
               </p>
               <p>
-                <Link  to="/Perfil">Perfil</Link>
+                <Link  to="/estudiante/perfil">Perfil</Link>
               </p>
             </Col>
             <hr className="w-100 clearfix d-md-none" />

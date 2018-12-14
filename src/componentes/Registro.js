@@ -53,7 +53,7 @@ export default class Registro extends Component {
             'password': this.state.password,
             'password_confirmation':this.state.confirmPassword,
             'career_id':this.state.career,
-            'userable_type': 'Student'
+            'userable_type': this.state.value
         };
         
         console.log(user);
@@ -163,28 +163,30 @@ export default class Registro extends Component {
     }
 
 
-
+    cambiarEstado = (e) => {
+      if (e.target.id === "basic") {
+        console.log(e.target.value)
+        this.setState({ value: e.target.value });
+      }
+  
+    }
   render() {
     return (
-      <div id="LoginForm">
+      <div id="RegistroForm">
       <Menu/>
       <div className="container" id="containerRegistro">
-      <h1 className="form-heading">login Form</h1>
       <div className="login-form">
       <div className="main-div">
       <div className="panel">
       <h1 className="h1Registro align-center">Tutero</h1>
+      <h1 className="align-center">Por favor llena el siguiente formulario:</h1>
       
       
-      <Dropdown>
-        <DropdownToggle caret color="default">
-          Usuario
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem href="#">Estudiante</DropdownItem>
-          <DropdownItem href="#">Tutor</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+                <select id="basic" className="selectpicker show-tick form-control" onChange={this.cambiarEstado} >
+                  <option value="Student">Estudiante</option>
+                  <option value="Tutor">Tutor</option>
+
+                </select>
       <br></br>          
                                                 
                 <div className="form-group">
