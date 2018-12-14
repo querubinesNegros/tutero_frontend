@@ -5,6 +5,9 @@
     height: 20%;
     font-family: sans-serif;
     color: white;
+    border: 2px solid;
+    border-color: white;
+    border-radius: 3rem;
 }
 
 #containerCab{

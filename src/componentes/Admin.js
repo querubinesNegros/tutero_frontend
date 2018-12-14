@@ -76,16 +76,30 @@ export default class Admin extends Component{
     return (
       	<div>
       		<MenuAdmin/>
-      		<div>
-      			Desde perfil de admin
-      			<div className="col-md-8" id="divChangeType">
+          
+      		<div className="container" style={{padding:70}}>
 
-      			</div>
-      			<div className="col-md-8" id="divAddAdmin">
 
-      			</div>
-            
-      		</div>
+          <h1 className="page-title">Bienvenido  <span className="h1">{store.getState().name}</span></h1>
+
+
+
+          <h3> Eres un {store.getState().userable_type}  <br /></h3>
+          
+          <Image src={localStorage.getItem('picture')} width="250px" circle className="img-fluid rounded-circle hoverable" />
+          <div className="form-group">
+
+            <h4 className="s-property-title">Nombre de usuario:</h4>
+            <label>{store.getState().name} {store.getState().lastname}</label>
+
+          </div>
+          <div className="form-group">
+            <h4 className="s-property-title">Correo electronico:</h4>
+            <label>{store.getState().email}</label>
+
+
+          </div>
+        </div>
       
     <FooterAdmin/>
 

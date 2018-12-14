@@ -36,7 +36,7 @@ export default class Menu2 extends Component {
     return (
         <div>
           
-          <Navbar style={bgPink} dark expand="md" scrolling fixed="top: 0">
+          <Navbar id="sidebarEstudiante" style={bgPink} dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/estudiante' className="nav-link">
                       <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>

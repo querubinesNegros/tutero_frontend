@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import '../styles/Servicios.css'
 class ItemListPost extends Component {
     subStringDescription(text){
         var sub_s = ""
@@ -16,7 +17,7 @@ class ItemListPost extends Component {
         
         return (
             <div>
-                <div className="card border-dark">
+                <div className="slideitem card">
                     <div className="card-body">
                         <h5 className="card-title">{this.props.home.name}</h5>
                         <p className="card-text">{this.subStringDescription(this.props.home.description)}</p>

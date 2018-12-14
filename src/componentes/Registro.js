@@ -172,14 +172,14 @@ export default class Registro extends Component {
     }
   render() {
     return (
-      <div id="LoginForm">
+      <div id="RegistroForm">
       <Menu/>
       <div className="container" id="containerRegistro">
-      <h1 className="form-heading">login Form</h1>
       <div className="login-form">
       <div className="main-div">
       <div className="panel">
       <h1 className="h1Registro align-center">Tutero</h1>
+      <h1 className="align-center">Por favor llena el siguiente formulario:</h1>
       
       
                 <select id="basic" className="selectpicker show-tick form-control" onChange={this.cambiarEstado} >
