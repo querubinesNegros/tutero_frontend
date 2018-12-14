@@ -59,6 +59,9 @@ export default class MenuAdmin extends Component {
                   <Link to='/admin/nuevo' className="nav-link">Agregar admin</Link>
                 </NavItem>
                 <NavItem>
+                  <Link to='/admin/tutores' className="nav-link">Listado de tutores</Link>
+                </NavItem>
+                <NavItem>
                   <Link to= {{pathname: '/admin/estadisticas' }}  className="nav-link">Estadisticas</Link>
                 </NavItem>
               </NavbarNav>

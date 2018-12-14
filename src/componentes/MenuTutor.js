@@ -62,13 +62,13 @@ export default class MenuTutor extends Component {
                   <Link to='/tutor/certificados' className="nav-link">Certificados</Link>
                 </NavItem>
               </NavbarNav>
+              
               <NavbarNav right>
                   <Link  to="/tutor/editarperfil" className="nav-link icon" id="iconoPerfil">
                   </Link>
-                  <NavItem>
-                  </NavItem>
-                  <NavItem>
-                  </NavItem>
+              </NavbarNav>
+              <NavbarNav right>
+                  <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Logout</button>
               </NavbarNav>
             </Collapse>
           </Navbar>

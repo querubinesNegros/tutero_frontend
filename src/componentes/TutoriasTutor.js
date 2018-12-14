@@ -234,7 +234,7 @@ export default class TutoriasTutor extends Component {
                                     <li value={home.id} id="liTutoring"></li>
                                 </div>
                                     <div id="addNote">
-                                        <button type="button" onClick={this.addNote} id="btnAddNote">Agrega una nota</button>
+                                        <button type="button" onClick={this.addNote} id="btnAddNote">Edita la nota de la tutoría</button>
                                         <div id="note">
                                             <textarea placeholder="Escribe una nota"></textarea>
                                             <div>
