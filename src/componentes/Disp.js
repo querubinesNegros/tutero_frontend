@@ -6,6 +6,7 @@ import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
 import Menu2 from './Menu2';
+import Success from './Notificaciones/Success'
 
 class Disp extends Component {
     constructor(){
@@ -17,7 +18,8 @@ class Disp extends Component {
             hov : "active",
             day : "",
             hour: "",
-            schedules: []
+            schedules: [],
+            notification : ""
         };
         
     }
@@ -51,6 +53,14 @@ class Disp extends Component {
             const schedulesdata = response.data.schedules;
             this.setState({schedules: schedulesdata});
             console.log(response.data.schedules);
+
+            if (response.status == 201)  this.setState({notification: "created"});
+            if (response.status == 422)  this.setState({notification: "fail-created"});
+
+            setTimeout(() => {
+                this.setState({ notification: "" });
+              }, 6000);
+
         })
         .catch(function (error) {
             console.log(error);
@@ -136,6 +146,7 @@ class Disp extends Component {
         const hover_background =[];
         const name_day = this.state.day;
         let hour;
+        let content_not;
         var i, j, k;
         if(this.state.hour == 0){
             hour = "";
@@ -148,6 +159,16 @@ class Disp extends Component {
             hour = this.state.hour-12 + ":00 pm" ;
         }
 
+        if (this.state.notification == ""){
+            content_not = null;
+        }
+
+        if (this.state.notification == "created"){
+            content_not =  <Success />;
+        }
+        if (this.state.notification == "created"){
+            content_not =  <Success />;
+        }
        
         for (i = 0; i < 97; i++) hover_background[i] = this.state.hover[i];
         
@@ -164,6 +185,7 @@ class Disp extends Component {
         return (
         <div>
             <Menu2/>
+            {content_not}
             <div  className =  "month">
             <button  className="btn btn-default sbutton"   onClick={this.setSchedule.bind(this)}>REALIZAR CAMBIOS</button>   
             <button  className="btn btn-default sbutton"   onClick = {this.getSchedule.bind(this)}>MOSTRAR</button>

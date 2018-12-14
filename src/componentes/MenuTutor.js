@@ -59,6 +59,9 @@ handleSubmit = (e) =>{
                 <NavItem>
                   <Link to='/tutor/certificados' className="nav-link">Certificados</Link>
                 </NavItem>
+                <NavItem>
+                  <Link to='/tutor/consultas' className="nav-link">Consultas</Link>
+                </NavItem>
               </NavbarNav>
               <NavbarNav right>
                   <Link  to="/tutor/editarperfil" className="nav-link icon" id="iconoPerfil">

@@ -41,9 +41,8 @@ export default class Login extends Component {
 
         axios.post(`${baseURL}/users/type`,{email})
         .then(res => {
-          const type = res.data.data[0];
+          const type = res.data.data[0][0];
           console.log(type);
-
           swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
             swal.showLoading()
            }});
@@ -130,13 +129,17 @@ export default class Login extends Component {
         email: result.additionalUserInfo.profile.email
       })
         .then(res => {
-          const type = res.data.data[0];
-          console.log(type);
+          const type = res.data.data[0][0];
+          const id = res.data.data[0][1];
+
 
           swal({title:'Cargando...', timer:1000, showConfirmButton:false, onOpen: () =>{
             swal.showLoading()
           }});
-          if (type === "Tutor") {
+
+          if (id === null){
+             setTimeout(function(){window.location = `${baseURLFront}/career`;}, 1000);
+          }else if (type === "Tutor") {
             setTimeout(function(){window.location = `${baseURLFront}/tutor`;}, 1000); 
           }else if(type === "Admin"){
             setTimeout(function(){window.location = `${baseURLFront}/admin`;}, 1000); 
