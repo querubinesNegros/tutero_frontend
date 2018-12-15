@@ -24,48 +24,85 @@ export default class EstudianteEditarPerfil extends Component {
     handleSubmit = (e) => {
 
         e.preventDefault();
-        var user = {};
-        var aux = { id: store.getState().id, password: this.state.passActual };
+        var user = {cellphone:""};
+        var student = {pbm:0,stratus:0}
 
-        if ($('#cellphoneEditDiv').css('display') == 'none' && $('#passEditDiv').css('display') == 'none') {
+        user.cellphone = $('#cellphoneEdit').val();
+        if($('#pbmEdit').val()==""){
+            student.pbm = 0;
+        }
+        else{
+            student.pbm = parseInt($('#pbmEdit').val());
+        }
+        if($('#stratusEdit').val()==""){
+            student.stratus = 0;
+        }
+        else{
+            student.stratus = parseInt($('#stratusEdit').val());
+        }
+
+        console.log(user)
+        console.log(student)
+        if (user.cellphone=="" && student.pbm==0 && student.age==0 && student.stratus==0) {
             swal("No se puede procesar la petición. Llene alguno de los campos.");
             return;
         }
 
-
-        if ($('#cellphoneEditDiv').css('display') != 'none') {
-
-            if (this.state.cellphone == null || this.state.cellphone == "") {
-
-                swal("No se puede procesar la petición. Ingrese su nuevo celular");
-                return;
+        if(user.cellphone==""){
+            if(student.pbm==0){
+                student = {stratus:parseInt($('#stratusEdit').val())}
             }
-            user.cellphone = this.state.cellphone;
-        }
-
-
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
-        axios.patch(`${baseURL}/users/${store.getState().id}`, { user })
+            if(student.stratus==0){
+                student = {pbm:parseInt($('#pbmEdit').val())}
+            }
+            axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+            axios.patch(`${baseURL}/users/${store.getState().id}/student`, { student })
             .then((response) => {
-                swal("Se actualizó la información satisfactoriamente");
+                swal("Se actualizó la información satisfactoriamente1");
                 setTimeout(function () { window.location = `${baseURLFront}/estudiante/perfil`; }, 1000);
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-
-
-
-    }
-    setField(e) {
-
-        if (e.target.id === 'cellphoneEdit') {
-            this.setState({
-                cellphone: e.target.value
-            })
         }
-
+        else if(student.pbm==0 && student.stratus==0){
+            axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+            axios.patch(`${baseURL}/users/${store.getState().id}`, { user })
+            .then((response) => {
+                swal("Se actualizó la información satisfactoriamente2");
+                setTimeout(function () { window.location = `${baseURLFront}/estudiante/perfil`; }, 1000);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        else{
+            if(student.pbm==0){
+                student = {stratus:parseInt($('#stratusEdit').val())}
+                console.log(student)
+            }
+            if(student.stratus==0){
+                student = {pbm:parseInt($('#pbmEdit').val())}
+                console.log(student)
+            }
+            console.log(student)
+            axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+            axios.patch(`${baseURL}/users/${store.getState().id}`, { user })
+            .then((response) => {
+                axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+                axios.patch(`${baseURL}/users/${store.getState().id}/student`, { student })
+                .then((response) => {
+                    swal("Se actualizó la información satisfactoriamente3");
+                    setTimeout(function () { window.location = `${baseURLFront}/estudiante/perfil`; }, 1000);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 
     render() {
@@ -89,10 +126,25 @@ export default class EstudianteEditarPerfil extends Component {
 
 
                     <br></br>
-                    <h3>Edita tu celular:</h3>
-                    <div id="cellphoneEditDiv">
+                    
+                    <div>
+                        <h3>Edita tu celular:</h3>
                         <div className="form-group">
-                            <input type="text" id="cellphoneEdit" onChange={(e) => this.setField(e)} placeholder={store.getState().cellphone}></input>
+                            <input type="text" id="cellphoneEdit" placeholder={store.getState().cellphone}></input>
+
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Edita tu PBM:</h3>
+                        <div className="form-group">
+                            <input type="text" id="pbmEdit" ></input>
+
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Edita tu estrato:</h3>
+                        <div className="form-group">
+                            <input type="text" id="stratusEdit" ></input>
 
                         </div>
                     </div>

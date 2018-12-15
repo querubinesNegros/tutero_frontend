@@ -29,6 +29,9 @@ import TutoriasTutor from './TutoriasTutor';
 import TutorEditarPerfil from './TutorEditarPerfil';
 import CertificadosTutor from './CertificadosTutor';
 import Tutor_Estudiantes from './Tutor_Estudiantes';
+import ConsultasAdmin from './ConsultasAdmin';
+import ConsultasTutor from './ConsultasTutor';
+import ConsultasEst from './ConsultasEst';
 import AdminTutores from './AdminTutores';
 import Steps from './Steps/Steps'
 
@@ -81,6 +84,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/estudiante/recreacion" component={Recreacion}/>
                 <PrivateRoute exact path="/estudiante/perfil" component={Perfil}/>
                 <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil}/>
+                <PrivateRoute exact path="/estudiante/consultas" component={ConsultasEst}/>
                 <PrivateRoute path="/servicio/:id" component={Servicio}/>
 
                 <PrivateRoute exact path="/admin" component={Admin}/>
@@ -89,6 +93,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/admin/obtener_users" component={GetUsers}/>
                 <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
                 <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas}/>
+                <PrivateRoute exact path="/admin/consultas" component={ConsultasAdmin}/>
                 <PrivateRoute exact path="/admin/tutores" component={AdminTutores}/>
                 <PrivateRoute exact path="/career" component={Steps}/>
 
@@ -100,6 +105,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/tutor/editarperfil" component={TutorEditarPerfil}/>
                 <PrivateRoute exact path="/tutor/certificados" component={CertificadosTutor}/>
                 <PrivateRoute exact path="/tutor/estudiantes" component={Tutor_Estudiantes}/>
+                <PrivateRoute exact path="/tutor/consultas" component={ConsultasTutor}/>
 
             </Switch>
             

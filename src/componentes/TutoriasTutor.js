@@ -46,7 +46,10 @@ export default class TutoriasTutor extends Component {
                 console.log(error);
             });
         $('#note').hide();
-        
+        var hoy = new Date();
+        var str = hoy.getFullYear()+"-"+(hoy.getMonth()+1)+"-"+hoy.getDate();
+        console.log(str)
+        document.getElementById("selectFechaTutoria").min = str;
     }
 
     showSchedules = (e) =>{

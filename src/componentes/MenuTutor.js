@@ -61,6 +61,9 @@ export default class MenuTutor extends Component {
                 <NavItem>
                   <Link to='/tutor/certificados' className="nav-link">Certificados</Link>
                 </NavItem>
+                <NavItem>
+                  <Link to='/tutor/consultas' className="nav-link">Consultas</Link>
+                </NavItem>
               </NavbarNav>
               
               <NavbarNav right>
