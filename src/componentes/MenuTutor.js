@@ -47,9 +47,6 @@ export default class MenuTutor extends Component {
             <Collapse isOpen = { this.state.collapse } navbar>
               <NavbarNav left>
                 <NavItem>
-                  <Link to='/tutor' className="nav-link">Perfil</Link>
-                </NavItem>
-                <NavItem>
                   <Link to='/tutor/disponibilidad' className="nav-link">Disponibilidad</Link>
                 </NavItem>
                 <NavItem>
@@ -65,11 +62,7 @@ export default class MenuTutor extends Component {
                   <Link to='/tutor/consultas' className="nav-link">Consultas</Link>
                 </NavItem>
               </NavbarNav>
-              
-              <NavbarNav right>
-                  <Link  to="/tutor/editarperfil" className="nav-link icon" id="iconoPerfil">
-                  </Link>
-              </NavbarNav>
+            
               <NavbarNav right>
                   <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Logout</button>
               </NavbarNav>

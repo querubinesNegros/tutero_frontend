@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import MenuAdmin from "./MenuAdmin";
+import FooterAdmin from './FooterAdmin';
+
 import {
   MDBContainer,
   MDBRow,
@@ -145,6 +147,7 @@ export default class CrearRecreacion extends Component {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
+        <FooterAdmin/>
       </div>
     );
   }
