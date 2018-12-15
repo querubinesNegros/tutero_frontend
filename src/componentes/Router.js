@@ -20,7 +20,7 @@ import GetUsers from './ObtenerUsers';
 import NuevoAdmin from './NuevoAdmin';
 import Servicio from './Servicio';
 import Estadisticas from './Estadisticas';
-import Carrera from './Carrera'
+import Carrera from './Steps/Carrera'
 import AboutUs from './AboutUs'
 import Footer from './Footer';
 import PerfilTutor from './PerfilTutor';
@@ -30,6 +30,7 @@ import TutorEditarPerfil from './TutorEditarPerfil';
 import CertificadosTutor from './CertificadosTutor';
 import Tutor_Estudiantes from './Tutor_Estudiantes';
 import AdminTutores from './AdminTutores';
+import Steps from './Steps/Steps'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -89,7 +90,9 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
                 <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas}/>
                 <PrivateRoute exact path="/admin/tutores" component={AdminTutores}/>
-                <PrivateRoute exact path="/career" component={Carrera}/>
+                <PrivateRoute exact path="/career" component={Steps}/>
+
+                 <PrivateRoute exact path="/pasos" component={Steps}/>
                 
                 <PrivateRoute exact path="/tutor" component={PerfilTutor}/>
                 <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor}/>

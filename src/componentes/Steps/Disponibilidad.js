@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Footer from './Footer';
-import '../styles/Schedule.css';
-import store from '../store';
-import baseURL from '../url';
+
+import '../../styles/Schedule.css';
+import baseURL from '../../url';
 import axios from 'axios';
-import Menu2 from './Menu2';
-import Success from './Notificaciones/Success'
+import Success from '../Notificaciones/Success'
 
 class Disp extends Component {
     constructor(){
@@ -45,46 +43,7 @@ class Disp extends Component {
         this.setState({hov: "tSte"});
         console.log(this.state.schedules)
     }
-    setSchedule(e){
-         
-        const ids ={schedule_ids: this.state.schedules}
-        axios.defaults.headers.common['Authorization'] =  localStorage.getItem('jwtToken');
-        axios.post(`${baseURL}/users/${store.getState().id}/student/schedules` , {ids}).then((response) => {
-            const schedulesdata = response.data.schedules;
-            this.setState({schedules: schedulesdata});
-            console.log(response.data.schedules);
-
-            if (response.status == 201)  this.setState({notification: "created"});
-            if (response.status == 422)  this.setState({notification: "fail-created"});
-
-            setTimeout(() => {
-                this.setState({ notification: "" });
-              }, 6000);
-
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
-    }
-    getTutor(e ){
-        axios.defaults.headers.common['Authorization'] =  localStorage.getItem('jwtToken');
-        axios.get(`${baseURL}/users/${store.getState().id}/student/get_tutors`)
-            .then((response) => {
-                console.log("response")
-                console.log(response.data.profiles)
-                const schedulesdata = response.data.schedules;           
-                this.setState({hov: "tSte"});
-                this.setState({hov: "tSte"});
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        
-        this.setState({hov: "tSte"});
-        
-
-    }
+    
     getSchedule ( e ){
          var i;
          var item;
@@ -95,10 +54,10 @@ class Disp extends Component {
         }
         this.state.schedules = [];
         this.setState({hov: "tSte"});
-        
-        console.log(`${baseURL}/users/${store.getState().id}/student/schedules`)
+        const id = this.props.tutor_id
+        console.log(`${baseURL}/users/${id}/student/schedules`)
         axios.defaults.headers.common['Authorization'] =  localStorage.getItem('jwtToken');
-        axios.get(`${baseURL}/users/${store.getState().id}/student/schedules`)
+        axios.get(`${baseURL}/users/${id}/student/schedules`)
             .then((response) => {
                 const schedulesdata = response.data.schedules;
            
@@ -124,6 +83,9 @@ class Disp extends Component {
         
         
         
+    }
+    step(){
+        this.props.prevPage(2);
     }
     onHoverHourEnter(param, e){
         const days = ["Lunes", "Martes", "Miercoles", "Jueves" , "Viernes" , "Sabado"] ;
@@ -158,6 +120,10 @@ class Disp extends Component {
         }
         this.state.text[param] = texts;
         this.setState({hov: "passive",  day: "", hour: 0}) 
+    }
+    setTutor(){
+        this.props.setTutor(this.props.tutor_id, this.props.skey)
+
     }
     render() {
         let hour_html_array= [];
@@ -202,12 +168,11 @@ class Disp extends Component {
         
         return (
         <div>
-            <Menu2/>
             {content_not}
             <div  className =  "month">
-            <button  className="btn btn-default sbutton"   onClick={this.setSchedule.bind(this)}>REALIZAR CAMBIOS</button>   
+            <button  className="btn btn btn-elegant sbutton"   onClick={this.setTutor.bind(this)}>Escoger este tutor</button>   
             <button  className="btn btn-default sbutton"   onClick = {this.getSchedule.bind(this)}>MOSTRAR</button>
-            
+            <button  className="btn btn-default sbutton"   onClick = {this.step.bind(this)}>IR ATRAS</button> 
                  <ul>
                     <li>Dia - Hora </li>
                     <li>{name_day} - {hour} </li>
@@ -261,7 +226,7 @@ class Disp extends Component {
                
                
             </ul>
-            <Footer/>
+          
         </div>
                         
         );
