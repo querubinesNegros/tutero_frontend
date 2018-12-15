@@ -73,12 +73,12 @@ export default class TutorEditarPerfil extends Component {
 
 
         return (
-            <div>
+            <div id="vistaTutor">
                 <MenuTutor />
 
 
 
-                <div className="container">
+                <div id="perfTutor" className="container">
 
 
                     <h1 className="page-title">Edita tu perfil <span className="h1">{store.getState().name}</span></h1>

@@ -7,6 +7,7 @@ import axios from "axios";
 import { logPageView } from "../analytics";
 import Archivo from "./Archivo";
 import Corosuer from "./Corosuer";
+import Footer from './Footer';
 
 export default class Servicio extends Component {
   constructor() {
@@ -57,7 +58,7 @@ export default class Servicio extends Component {
   render() {
     let fp = this.state.pdfs;
     return (
-      <div id="containerSer">
+      <div id="vistaTutor">
         <Menu2 />
         <Grid>
           <h1>{this.props.location.state.name}</h1>
@@ -80,6 +81,7 @@ export default class Servicio extends Component {
             />
           ))}
         </div>
+        <Footer/>
       </div>
     );
   }

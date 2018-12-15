@@ -179,9 +179,9 @@ export default class CrearPost extends Component {
     const fp = this.state.files;
 
     return (
-      <div >
+      <div id="vistaTutor">
         <MenuAdmin />
-        <div className="row col-md-6 mr-auto ml-auto ">
+        <div id="perfTutor" className="row col-md-6 mr-auto ml-auto ">
 
           <div className="col-md-12 text-center" id="divCreatePost">
 

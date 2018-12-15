@@ -89,7 +89,7 @@ export default class Historial extends Component {
         if (algo[0] !== undefined) {
             if (this.state.tutoria === null) {
                 return (
-                    <div>
+                    <div id="vistaTutor">
                         <Menu2 />
                         <Grid>
                             <p style={divStyle} className="h1"><strong>Historial Tutorias</strong></p>
@@ -144,7 +144,7 @@ export default class Historial extends Component {
                 )
             } else {
                 return (
-                    <div>
+                    <div id="vistaTutor">
                         <Menu2 />
                         <Grid>
                             <p style={divStyle} className="h1"><strong>Historial Tutorias</strong></p>
@@ -197,9 +197,9 @@ export default class Historial extends Component {
                 )
             }
         } else {
-            return (<div>
+            return (<div id="vistaTutor">
                 <Menu2 />
-                <div className="container">
+                <div id="perfTutor" className="container">
                     <div className="row">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">

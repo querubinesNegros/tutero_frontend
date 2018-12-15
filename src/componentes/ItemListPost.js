@@ -17,7 +17,7 @@ class ItemListPost extends Component {
         
         return (
             <div>
-                <div className="slideitem card">
+                <div id="tarjetaSer">
                     <div className="card-body">
                         <h5 className="card-title">{this.props.home.name}</h5>
                         <p className="card-text">{this.subStringDescription(this.props.home.description)}</p>

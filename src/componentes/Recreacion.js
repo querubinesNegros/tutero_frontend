@@ -35,7 +35,7 @@ export default class Recreacion extends Component {
 
     render() {
         return (
-            <div>
+            <div id="vistaTutor">
                 <Menu2 />
                 <div className="row justify-content-md-center">
                     <div className="col-md-8 mb-3">

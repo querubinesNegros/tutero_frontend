@@ -204,7 +204,7 @@ export default class TutoriasTutor extends Component {
 
     render() {
     return (
-      <div>
+      <div id="vistaTutor">
         <MenuTutor/>
         <div className="container mt-3">
                     <div className="row">

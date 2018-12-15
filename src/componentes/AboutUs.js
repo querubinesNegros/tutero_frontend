@@ -69,9 +69,14 @@ export default class AboutUs extends Component {
           <div className="col-6">
           <div className="col-12 container">
             <div id="cajasT">
-                <div classname="align-center"> MISION
+                <div classname="align-center"> NUESTRO EQUIPO
+                <br></br><br></br>
+                Pedro Alexander Higuera
                 <br></br>
-                Nuestra mision es transformar la experiencia de cada estudiante nuevo dentro de la institucion en la mejor posible, teniendo en cuenta variables como la vida academica, economica y social del usuario en cuestion.
+                Sergio Ivan Sanchez<br></br>
+                Nicolas Parra Ramos<br></br>
+                Johnathan Leon<br></br>
+                David Leon<br></br>
                 </div>
                 
             
@@ -80,9 +85,9 @@ export default class AboutUs extends Component {
             <br></br>
             
             <div id="cajasT">
-                <div classname="align-center"> VISION
-                <br></br>
-                Nuestra mision es transformar la experiencia de cada estudiante nuevo dentro de la institucion en la mejor posible, teniendo en cuenta variables como la vida academica, economica y social del usuario en cuestion.
+                <div classname="align-center"> ACERCA DE TUTERO
+                <br></br><br></br>
+                Nuestra aplicación nace al ver la necesidad de los estudiantes por tener una guia mas cercana de todo lo que implica hacer parte de una Universidad, que mejor que se cree una red de amistad y compañerismo entre estudiantes, para que la tasa de deserción desde que se implemente nuestra red en adelante sea muy inferior a la actual.
                 </div>
             
                 
@@ -91,12 +96,6 @@ export default class AboutUs extends Component {
             <br></br>
             <br></br>
             
-            <div id="cajasT">
-                <div classname="align-center"> OBJETIVO</div>
-                
-            
-            </div>
-      
       
          </div>
         </div>

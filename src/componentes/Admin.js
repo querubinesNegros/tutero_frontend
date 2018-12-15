@@ -74,10 +74,10 @@ export default class Admin extends Component{
 
   render() {
     return (
-      	<div>
+      	<div id ="vistaTutor">
       		<MenuAdmin/>
           
-      		<div className="container" style={{padding:70}}>
+      		<div id="perfTutor" className="container" style={{padding:70}}>
 
 
           <h1 className="page-title">Bienvenido  <span className="h1">{store.getState().name}</span></h1>

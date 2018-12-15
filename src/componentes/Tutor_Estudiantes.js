@@ -7,7 +7,7 @@ import axios from 'axios';
 import $ from 'jquery'
 import { Link } from 'react-router-dom'
 import swal from 'sweetalert2';
-
+import FooterTutor from './FooterTutor'
 export default class Tutor_Estudiantes extends Component {
 
     constructor() {
@@ -31,7 +31,7 @@ export default class Tutor_Estudiantes extends Component {
     render() {
 
         return (
-            <div>
+            <div id="vistaTutor">
                 <MenuTutor />
                 {this.state.students.map(home =>
 
@@ -46,6 +46,7 @@ export default class Tutor_Estudiantes extends Component {
                     </div>
 
                 )}
+                <FooterTutor/>
             </div>
         )
     }

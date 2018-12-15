@@ -5,6 +5,7 @@ import store from '../store';
 import { logPageView } from '../analytics';
 import { Link } from 'react-router-dom'
 import { Image } from 'react-bootstrap';
+import '../styles/PerfilTutor.css'
 
 export default class PerfilTutor extends Component {
   constructor() {
@@ -14,9 +15,9 @@ export default class PerfilTutor extends Component {
   render() {
     console.log(store.getState().userable_type)
     return (
-      <div>
+      <div id="vistaTutor">
         <MenuTutor />
-        <div className="container">
+        <div  id="perfTutor"className="container">
 
 
           <h1 className="page-title">Bienvenido  <span className="h1">{store.getState().name}</span></h1>

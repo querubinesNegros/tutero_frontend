@@ -166,9 +166,9 @@ export default class NuevoAdmin extends Component{
 
   render() {
     return (
-      	<div>
+      	<div id="vistaTutor">
       		<MenuAdmin/>
-          	<div className="container">
+          	<div id="perfTutor" className="container">
                             
                                                             
                 <h1 className="page-title">Agrega un nuevo admin </h1>               

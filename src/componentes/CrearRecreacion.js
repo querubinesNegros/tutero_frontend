@@ -16,6 +16,7 @@ import { logPageView } from "../analytics";
 import "../styles/Gallery.css";
 import Corosuer from "./Corosuer";
 import { Carousel } from "react-responsive-carousel";
+import FooterAdmin from './FooterAdmin'
 
 export default class CrearRecreacion extends Component {
   constructor(props) {
@@ -87,7 +88,7 @@ export default class CrearRecreacion extends Component {
 
   render() {
     return (
-      <div>
+      <div id="vistaTutor">
         <MenuAdmin />
 
         <div className="row justify-content-md-center">
@@ -102,7 +103,7 @@ export default class CrearRecreacion extends Component {
             alignItems: "center"
           }}
         >
-          <MDBRow>
+          <MDBRow id="perfTutor">
             <MDBCol md="12">
               <form>
                 <p className="h4 text-center py-4">Agregar Recreación</p>
@@ -145,7 +146,8 @@ export default class CrearRecreacion extends Component {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
-      </div>
+        <FooterAdmin/>
+        </div>
     );
   }
 }

@@ -60,10 +60,10 @@ export default class Perfil extends Component {
 
     render() {
         return (
-            <div>
+            <div id="vistaTutor">
                 <Menu2 />
 
-                <div className="container">
+                <div id="perfTutor" className="container">
 
                     <h1 className="page-title">Bienvenido  <span className="h1">{store.getState().name} a tu perfil</span></h1>
 

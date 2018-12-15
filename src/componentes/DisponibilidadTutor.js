@@ -162,7 +162,7 @@ class DisponibilidadTutor extends Component {
         
         
         return (
-        <div>
+        <div id ="vistaTutor">
             <MenuTutor/>
             <div  className =  "month">
             <button  className="btn btn-default sbutton"   onClick={this.setSchedule.bind(this)}>REALIZAR CAMBIOS</button>   

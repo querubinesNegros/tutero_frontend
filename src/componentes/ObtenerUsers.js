@@ -71,9 +71,9 @@ export default class ObtenerUsers extends Component{
   render() {
   	console.log(this.state);
     return (
-      	<div>
+      	<div id="vistaTutor">
       		<MenuAdmin/>
-          	<div className="container mt-3">
+          	<div className="container mt-3 dark-border">
           		<div className="row">
 					
 					<div className="col-md-12 text-center">
@@ -100,7 +100,7 @@ export default class ObtenerUsers extends Component{
 						       
 						    </tr>
 						  </thead>
-						  <tbody>
+						  <tbody bgcolor="#F7F2E0">
 						    
 						      {this.state.tutor.map(home => 
 						    	<tr><th scope="row">{home.id}</th>

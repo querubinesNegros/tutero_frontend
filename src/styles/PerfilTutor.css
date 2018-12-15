@@ -1,0 +1,10 @@
+#vistaTutor{
+    background-image:url("../recursos/Fondo.jpg");
+}
+
+#perfTutor{
+    background-color: white;
+    border-radius: .3rem;
+    width:60%;
+    margin-top:  10px;
+}

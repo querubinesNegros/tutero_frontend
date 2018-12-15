@@ -40,9 +40,9 @@ export default class Estudiante extends Component{
     render() {
         
         return (
-            <div>
+            <div id="vistaTutor">
                 <Menu2/>
-                <div className="container">
+                <div id="perfTutor" className="container">
                     <div className="d-flex justify-content-center">
                         <div className="col-md-3"></div>
                         <div className="col-md-6">

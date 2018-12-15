@@ -9,7 +9,7 @@ export default class CertificadosTutor extends Component {
   
   render() {
     return (
-      <div>
+      <div id="vistaTutor">
         <MenuAdmin/>
         <Consultas/>          
         <FooterAdmin/> 

@@ -288,7 +288,7 @@ export default class Estadisticas extends Component {
     render() {
         console.log(this.state);
     return (
-      <div>
+      <div id="vistaTutor">
       <MenuAdmin/>
       <div class="container mt-3">
         <div class="row">

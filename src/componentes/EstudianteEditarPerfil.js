@@ -109,7 +109,7 @@ export default class EstudianteEditarPerfil extends Component {
 
 
         return (
-            <div>
+            <div id="vistaTutor">
                 <Menu2 />
 
 

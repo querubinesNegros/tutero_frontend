@@ -201,7 +201,7 @@ class Disp extends Component {
         
         
         return (
-        <div>
+        <div id="vistaTutor">
             <Menu2/>
             {content_not}
             <div  className =  "month">

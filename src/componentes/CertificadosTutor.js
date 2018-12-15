@@ -44,7 +44,7 @@ export default class CertificadosTutor extends Component {
 
   render() {
     return (
-      <div>
+      <div id="vistaTutor">
         <MenuTutor/>
 
         <div className="container mt-3">
