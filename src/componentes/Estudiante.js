@@ -16,7 +16,7 @@ export default class Estudiante extends Component{
     constructor() {
         super();
         this.state = {
-            tutor : { name: "Sin", lastname: "Tutor asignado"}
+            tutor : { name: "Sin", lastname: "Tutor asignado", pict: null }
         };
         logPageView();
       }
@@ -27,7 +27,7 @@ export default class Estudiante extends Component{
     axios.get(`${baseURL}/users/mytutor`)
       .then(res => {
         const tutor = res.data.data[0];
-        console.log(tutor);
+        console.log(res);
         if(res.data.data[0]!== undefined)
         this.setState({tutor});
 
@@ -38,6 +38,14 @@ export default class Estudiante extends Component{
   }
     
     render() {
+        const image = this.state.pict
+        let show;
+        if(image != null){
+            show = this.state.pict
+            
+        }else{
+            show = "/person-1.jpg"
+        }
         
         return (
             <div>
@@ -47,13 +55,15 @@ export default class Estudiante extends Component{
                         <div className="col-md-3"></div>
                         <div className="col-md-6">
                             <h1 className="h1Est">Su Tutor Es:</h1>
+                            {console.log(this.state.tutor)}
                             <Animation type="tada">
-                                <Image src="/person-1.jpg" circle className="img-fluid rounded-circle hoverable"/>
+                                <Image src={show} circle className="img-fluid rounded-circle hoverable"/>
                             </Animation>
                             <h3>{this.state.tutor.name} {this.state.tutor.lastname}</h3>
                             <h3>Correo: {this.state.tutor.email}</h3>
                             <h3>Cel: {this.state.tutor.cellphone} </h3>
-                            <h3>El estudiante es :{store.getState().name} </h3>
+
+                            
                         </div>
                             
                         <div className="col-md-3"></div>

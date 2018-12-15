@@ -191,9 +191,9 @@ $('.dot').on('click', function(){
                             <Paginacion paginas={cant} actual={page} changePage={this.changePage} />
                         </div>
                     </div>
-                    <Row id="slideshow" >
-                        {this.state.posts.map(home => <Col xs={1} sm={12}>
-                            <ItemListPost className="slideitem current" home = {home} /> 
+                    <Row className="show-grid text-center" >
+                        {this.state.posts.map(home => <Col xs={12} sm={4}>
+                            <ItemListPost home = {home} /> 
                         </Col>
                         )}
                     </Row>
