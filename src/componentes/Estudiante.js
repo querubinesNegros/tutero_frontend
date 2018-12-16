@@ -30,7 +30,7 @@ export default class Estudiante extends Component{
         const tutor = res.data.data[0];
         console.log(res);
         if(res.data.data[0]!== undefined)
-        this.setState({tutor});
+        this.setState({tutor, pict: tutor.pict});
 
       })
       .catch(function (error) {
@@ -48,7 +48,7 @@ export default class Estudiante extends Component{
         const image = this.state.pict
         let show;
         if(image != null){
-            show = this.state.pict
+            show = image
             
         }else{
             show = "/person-1.jpg"
