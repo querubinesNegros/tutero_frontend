@@ -6,6 +6,7 @@ import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
 import MenuTutor from './MenuTutor';
+import { logPageView } from '../analytics';
 
 class DisponibilidadTutor extends Component {
     constructor(){
@@ -19,6 +20,7 @@ class DisponibilidadTutor extends Component {
             hour: "",
             schedules: []
         };
+        logPageView();
         
     }
     

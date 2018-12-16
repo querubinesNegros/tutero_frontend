@@ -50,6 +50,7 @@ export default class Perfil extends Component {
         localStorage.removeItem('jwtToken')
         localStorage.removeItem('id')
         localStorage.removeItem('picture')
+        localStorage.removeItem('type')  
         swal({
             title: 'Vuelve pronto...', timer: 1000, showConfirmButton: false, onOpen: () => {
                 swal.showLoading()
@@ -84,11 +85,7 @@ export default class Perfil extends Component {
                         <label>{store.getState().cellphone}</label>
 
                     </div>
-                    <div className="form-group">
-                        <h4 className="s-property-title">Edad:</h4>
-                        <label>{this.state.user.age}</label>
 
-                    </div>
                     <div className="form-group">
                         <h4 className="s-property-title">Estrato:</h4>
                         <label>{this.state.user.stratus}</label>

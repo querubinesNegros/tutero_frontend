@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {BrowserRouter,Route, Switch,Redirect} from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Menu from './Menu'
 import LandingPage from './LandingPage';
 import Registro from './Registro';
@@ -38,88 +38,80 @@ import Carrera from './Carrera'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-  
-  <Route {...rest} render={(props) => (
-     
-    (store.getState().aut === true)
-    
-      ? <Component {...props} />
-      : <Redirect to='/' />
-  )} />
-)
-// Ruta privada para Admin 
-const PrivateRouteAdmin = ({ component: Component, ...rest }) => (
 
   <Route {...rest} render={(props) => (
-     
-    store.getState().aut === true && store.getState().type === "Admin"
+
+    (store.getState().aut === true)
+
       ? <Component {...props} />
       : <Redirect to='/' />
   )} />
 )
-function getUrl(type){
+
+function getUrl(type) {
   if (type == "Admin") return "admin"
   if (type == "Tutor") return "tutor"
-  return "/estudiante"
+  if (type == "Student") return "estudiante"
+  return "/"
 }
 
 const Privatelogin = ({ component: Component, ...rest }) => (
 
   <Route {...rest} render={(props) => (
-     
+
     !localStorage.getItem('jwtToken') && localStorage.getItem('type') !== "Student"
-      ? <Component {...props}   />
-      : <Redirect to =  {getUrl(localStorage.getItem('type'))} />
+      ? <Component {...props} />
+      : <Redirect to={getUrl(localStorage.getItem('type'))} />
   )} />
 )
 export default class Router extends Component {
   state = {
     type: null
   }
-  
-    render() {
-      //console.log(store.getState())
+
+  render() {
+    //console.log(store.getState())
     return (
       <BrowserRouter>
         <div>
-            <Switch>
-                <Privatelogin exact path="/" component={LandingPage}/>
-                <Route exact path="/registro" component={Registro}/>
-                <Route exact path="/aboutus" component={AboutUs}/>
-                <PrivateRoute exact path="/estudiante" component={Estudiante}/>
-                <PrivateRoute exact path="/estudiante/servicios" component={Servicios}/>
-                <PrivateRoute exact path="/estudiante/disponibilidad/"component={Disp}/>
-                <PrivateRoute exact path="/estudiante/historial" component={Historial}/>
-                <PrivateRoute exact path="/estudiante/recreacion" component={Recreacion}/>
-                <PrivateRoute exact path="/estudiante/perfil" component={Perfil}/>
-                <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil}/>
-                <PrivateRoute exact path="/estudiante/consultas" component={ConsultasEst}/>
-                <PrivateRoute path="/servicio/:id" component={Servicio}/>
+          <Switch>
+            <Privatelogin exact path="/" component={LandingPage} />
+            <Route exact path="/registro" component={Registro} />
+            <Route exact path="/aboutus" component={AboutUs} />
+            <PrivateRoute exact path="/estudiante" component={Estudiante} />
+            <PrivateRoute exact path="/estudiante/servicios" component={Servicios} />
+            <PrivateRoute exact path="/estudiante/disponibilidad/" component={Disp} />
+            <PrivateRoute exact path="/estudiante/historial" component={Historial} />
+            <PrivateRoute exact path="/estudiante/recreacion" component={Recreacion} />
+            <PrivateRoute exact path="/estudiante/perfil" component={Perfil} />
+            <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil} />
+            <PrivateRoute exact path="/estudiante/consultas" component={ConsultasEst} />
+            <PrivateRoute path="/servicio/:id" component={Servicio} />
 
-                <PrivateRoute exact path="/admin" component={Admin}/>
-                <PrivateRoute exact path="/admin/crear_post" component={CrearPost}/>
-                <PrivateRoute exact path="/admin/crear_recreacion" component={CrearRecreacion}/>
-                <PrivateRoute exact path="/admin/obtener_users" component={GetUsers}/>
-                <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin}/>
-                <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas}/>
-                <PrivateRoute exact path="/admin/consultas" component={ConsultasAdmin}/>
-                <PrivateRoute exact path="/admin/tutores" component={AdminTutores}/>
-                <PrivateRoute exact path="/career" component={Carrera}/>
+            <PrivateRoute exact path="/admin" component={Admin} />
+            <PrivateRoute exact path="/admin/crear_post" component={CrearPost} />
+            <PrivateRoute exact path="/admin/crear_recreacion" component={CrearRecreacion} />
+            <PrivateRoute exact path="/admin/obtener_users" component={GetUsers} />
+            <PrivateRoute exact path="/admin/nuevo" component={NuevoAdmin} />
+            <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas} />
+            <PrivateRoute exact path="/admin/consultas" component={ConsultasAdmin} />
+            <PrivateRoute exact path="/admin/tutores" component={AdminTutores} />
+            <PrivateRoute exact path="/career" component={Carrera} />
 
-                 <PrivateRoute exact path="/pasos" component={Steps}/>
-                
-                <PrivateRoute exact path="/tutor" component={PerfilTutor}/>
-                <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor}/>
-                <PrivateRoute exact path="/tutor/tutorias" component={TutoriasTutor}/>
-                <PrivateRoute exact path="/tutor/editarperfil" component={TutorEditarPerfil}/>
-                <PrivateRoute exact path="/tutor/certificados" component={CertificadosTutor}/>
-                <PrivateRoute exact path="/tutor/estudiantes" component={Tutor_Estudiantes}/>
-                <PrivateRoute exact path="/tutor/consultas" component={ConsultasTutor}/>
+            <PrivateRoute exact path="/pasos" component={Steps} />
 
-            </Switch>
-            
+            <PrivateRoute exact path="/tutor" component={PerfilTutor} />
+            <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor} />
+            <PrivateRoute exact path="/tutor/tutorias" component={TutoriasTutor} />
+            <PrivateRoute exact path="/tutor/editarperfil" component={TutorEditarPerfil} />
+            <PrivateRoute exact path="/tutor/certificados" component={CertificadosTutor} />
+            <PrivateRoute exact path="/tutor/estudiantes" component={Tutor_Estudiantes} />
+            <PrivateRoute exact path="/tutor/consultas" component={ConsultasTutor} />
+
+          </Switch>
+
         </div>
-        
+
       </BrowserRouter>
     )
   }

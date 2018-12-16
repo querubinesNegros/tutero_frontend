@@ -7,9 +7,14 @@ import axios from 'axios';
 import {Chart} from 'chart.js'
 import $ from 'jquery';
 import FooterAdmin from './FooterAdmin';
+import { logPageView } from '../analytics';
 
 export default class Estadisticas extends Component {
-  
+    constructor() {
+        super();
+
+        logPageView();
+      }
     state = {}
     
     componentDidMount(){
@@ -22,6 +27,7 @@ export default class Estadisticas extends Component {
         .catch(function (error) {
             console.log(error);
         });
+        
     }
     
     

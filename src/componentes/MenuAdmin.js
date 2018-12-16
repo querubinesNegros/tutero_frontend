@@ -24,6 +24,9 @@ export default class MenuAdmin extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     localStorage.removeItem('jwtToken')
+    localStorage.removeItem('id')
+    localStorage.removeItem('picture')
+    localStorage.removeItem('type')  
     swal({
       title: 'Vuelve pronto...', timer: 1000, showConfirmButton: false, onOpen: () => {
         swal.showLoading()
