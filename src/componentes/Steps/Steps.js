@@ -7,6 +7,7 @@ import axios from 'axios'
 import baseURL from '../../url';
 import baseURLFront from '../../urlFront';
 import Disponibilidad from './Disponibilidad'
+
 class Steps extends Component {
     constructor() {
         super();
@@ -92,7 +93,12 @@ class Steps extends Component {
 
         return (
             <div>
+                
                 <Menu2 />
+                
+
+
+                <div class="loader"></div>
                 <div className="row">
                     <div className="col-md-12">
                         <ul className="stepper stepper-horizontal">
@@ -118,11 +124,13 @@ class Steps extends Component {
                                 </a>
                             </li>
                         </ul>
-                        <div classNameName="col-md-12">
+                        <div class="loader"></div>
+                        <div className="col-md-12">
                             {show}
                         </div>
                     </div>
                 </div>
+                
             </div>
         );
     }

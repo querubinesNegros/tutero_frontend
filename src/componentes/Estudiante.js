@@ -10,6 +10,7 @@ import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
 import { logPageView } from '../analytics';
+import {Redirect} from 'react-router-dom';
 
 
 export default class Estudiante extends Component{
@@ -35,9 +36,15 @@ export default class Estudiante extends Component{
       .catch(function (error) {
       console.log(error);
     });
+     
   }
     
     render() {
+        const type = localStorage.getItem('type')
+        if (type != "Student"){
+            alert("Acceso no autorizado")
+            return  <Redirect push to = '/' />
+        }
         const image = this.state.pict
         let show;
         if(image != null){

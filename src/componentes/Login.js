@@ -43,6 +43,7 @@ export default class Login extends Component {
           .then(res => {
             const type = res.data.data[0][0];
             console.log(type);
+            localStorage.setItem("type", type);
             swal({
               title: 'Cargando...', timer: 1000, showConfirmButton: false, onOpen: () => {
                 swal.showLoading()
@@ -120,7 +121,9 @@ export default class Login extends Component {
         axios.post(`${baseURL}/socials`, body)
           .then(function (res) {
             console.log(res.data.jwt);
+
             localStorage.setItem("jwtToken", res.data.jwt);
+            
 
             var str = result.additionalUserInfo.profile.email;
             var res1 = str.split(".");
@@ -133,7 +136,7 @@ export default class Login extends Component {
               .then(res => {
                 const type = res.data.data[0][0];
                 const id = res.data.data[0][1];
-
+                localStorage.setItem("type", type);
 
                 swal({
                   title: 'Cargando...', timer: 1000, showConfirmButton: false, onOpen: () => {
@@ -141,8 +144,12 @@ export default class Login extends Component {
                   }
                 });
 
-                if (id === null) {
+                if (id === null && type === "Student" ) {
+
+                  setTimeout(function () { window.location = `${baseURLFront}/pasos`; }, 1000);
+                }else if ( id === null){
                   setTimeout(function () { window.location = `${baseURLFront}/career`; }, 1000);
+
                 } else if (type === "Tutor") {
                   setTimeout(function () { window.location = `${baseURLFront}/tutor`; }, 1000);
                 } else if (type === "Admin") {

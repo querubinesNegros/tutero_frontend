@@ -20,7 +20,6 @@ import GetUsers from './ObtenerUsers';
 import NuevoAdmin from './NuevoAdmin';
 import Servicio from './Servicio';
 import Estadisticas from './Estadisticas';
-import Carrera from './Steps/Carrera'
 import AboutUs from './AboutUs'
 import Footer from './Footer';
 import PerfilTutor from './PerfilTutor';
@@ -34,6 +33,8 @@ import ConsultasTutor from './ConsultasTutor';
 import ConsultasEst from './ConsultasEst';
 import AdminTutores from './AdminTutores';
 import Steps from './Steps/Steps'
+import Carrera from './Carrera'
+
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -56,17 +57,25 @@ const PrivateRouteAdmin = ({ component: Component, ...rest }) => (
       : <Redirect to='/' />
   )} />
 )
+function getUrl(type){
+  if (type == "Admin") return "admin"
+  if (type == "Tutor") return "tutor"
+  return "/estudiante"
+}
 
 const Privatelogin = ({ component: Component, ...rest }) => (
 
   <Route {...rest} render={(props) => (
      
-    !localStorage.getItem('jwtToken') && store.getState().type !== "Student"
-      ? <Component {...props} />
-      : <Redirect to='/estudiante' />
+    !localStorage.getItem('jwtToken') && localStorage.getItem('type') !== "Student"
+      ? <Component {...props}   />
+      : <Redirect to =  {getUrl(localStorage.getItem('type'))} />
   )} />
 )
 export default class Router extends Component {
+  state = {
+    type: null
+  }
   
     render() {
       //console.log(store.getState())
@@ -95,7 +104,7 @@ export default class Router extends Component {
                 <PrivateRoute exact path="/admin/estadisticas" component={Estadisticas}/>
                 <PrivateRoute exact path="/admin/consultas" component={ConsultasAdmin}/>
                 <PrivateRoute exact path="/admin/tutores" component={AdminTutores}/>
-                <PrivateRoute exact path="/career" component={Steps}/>
+                <PrivateRoute exact path="/career" component={Carrera}/>
 
                  <PrivateRoute exact path="/pasos" component={Steps}/>
                 

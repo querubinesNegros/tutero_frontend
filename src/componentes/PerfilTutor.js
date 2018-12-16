@@ -5,6 +5,7 @@ import store from '../store';
 import { logPageView } from '../analytics';
 import { Link } from 'react-router-dom'
 import { Image } from 'react-bootstrap';
+import {Redirect} from 'react-router-dom';
 
 export default class PerfilTutor extends Component {
   constructor() {
@@ -13,6 +14,12 @@ export default class PerfilTutor extends Component {
   }
   render() {
     console.log(store.getState().userable_type)
+    const type = localStorage.getItem('type')
+        if (type != "Tutor"){
+            alert("Acceso no autorizado")
+            return  <Redirect push to = '/' />
+        }
+    
     return (
       <div>
         <MenuTutor />

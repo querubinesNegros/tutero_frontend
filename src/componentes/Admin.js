@@ -8,6 +8,7 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
 import FooterAdmin from './FooterAdmin';
+import {Redirect} from 'react-router-dom';
 
 export default class Admin extends Component{
 
@@ -73,6 +74,11 @@ export default class Admin extends Component{
 
 
   render() {
+    const type = localStorage.getItem('type')
+    if (type != "Admin"){
+      alert("Acceso no autorizado")
+      return  <Redirect push to = '/' />
+  }
     return (
       	<div>
       		<MenuAdmin/>
