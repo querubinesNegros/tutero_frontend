@@ -39,6 +39,8 @@ export default class Recreacion extends Component {
                 <Menu2 />
                 <div className="row justify-content-md-center">
                     <div className="col-md-8 mb-3">
+                    <br/>
+                    <br/>
                         <Corosuer images={this.state.recreations} type={1} />
                     </div>
                 </div>

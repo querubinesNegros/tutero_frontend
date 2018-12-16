@@ -24,13 +24,13 @@ export default class AboutUs extends Component {
     });
   }
   render() {
-    const bgPink = {backgroundColor: '#7433FF'}
+    
     
     return (
       <div>
-        <div  id="menuAbout">
+        <div  id="sidebarAbout">
         
-        <Navbar id="sidebarAbout"style={bgPink} dark expand="md" scrolling fixed="top: 0">
+        <Navbar id="sidebarAbout" dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/' className="nav-link">
                       <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
@@ -56,7 +56,7 @@ export default class AboutUs extends Component {
           <div className ="col-6">
             
             <div className="col-12 container">
-                <h1 className="h1Landing align-middle">Tutero</h1>
+                <h1 className="h1Landing ">Tutero</h1>
                 
                 <Image src="/logo.jpeg"  circle className="profile-pic2 img-fluid rounded-circle hoverable"/>
                 <br></br>
@@ -68,10 +68,21 @@ export default class AboutUs extends Component {
           </div> 
           <div className="col-6">
           <div className="col-12 container">
-            <div id="cajasT">
-                <div classname="align-center"> MISION
+          <br></br>
                 <br></br>
-                Nuestra mision es transformar la experiencia de cada estudiante nuevo dentro de la institucion en la mejor posible, teniendo en cuenta variables como la vida academica, economica y social del usuario en cuestion.
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+            <div id="cajasT">
+                <div classname="align-center"> NUESTRO EQUIPO
+                <br></br><br></br>
+                Pedro Alexander Higuera
+                <br></br>
+                Sergio Ivan Sanchez<br></br>
+                Nicolas Parra Ramos<br></br>
+                Johnathan Leon<br></br>
+                David Leon<br></br>
                 </div>
                 
             
@@ -80,9 +91,9 @@ export default class AboutUs extends Component {
             <br></br>
             
             <div id="cajasT">
-                <div classname="align-center"> VISION
-                <br></br>
-                Nuestra mision es transformar la experiencia de cada estudiante nuevo dentro de la institucion en la mejor posible, teniendo en cuenta variables como la vida academica, economica y social del usuario en cuestion.
+                <div classname="align-center"> ACERCA DE TUTERO
+                <br></br><br></br>
+                Nuestra aplicación nace al ver la necesidad de los estudiantes por tener una guia mas cercana de todo lo que implica hacer parte de una Universidad, que mejor que se cree una red de amistad y compañerismo entre estudiantes, para que la tasa de deserción desde que se implemente nuestra red en adelante sea muy inferior a la actual.
                 </div>
             
                 
@@ -91,12 +102,6 @@ export default class AboutUs extends Component {
             <br></br>
             <br></br>
             
-            <div id="cajasT">
-                <div classname="align-center"> OBJETIVO</div>
-                
-            
-            </div>
-      
       
          </div>
         </div>

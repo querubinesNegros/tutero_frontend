@@ -94,6 +94,8 @@ export default class CrearRecreacion extends Component {
 
         <div className="row justify-content-md-center">
           <div className="col-md-8 mb-3">
+            <br/>
+            <br/>
             <Corosuer images={this.state.recreations} type={1} />
           </div>
         </div>

@@ -19,7 +19,7 @@ export default class Header extends Component {
       }
      
     return (
-      <div id="containerHeader">
+      <div id="containerHeader" style={{height:900}}>
         <div className="row">
           <div className ="col-6">
             

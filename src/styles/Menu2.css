@@ -23,6 +23,9 @@
 }
 
 #sidebar, #sidebarEstudiante, #sidebarAbout, #sidebarAdmin, #sidebarTutor{
-    background-image: url(../recursos/fondoSidebar.jpg);
+    background-color:  #2e3951;
+    
+    /*background-image: url(../recursos/fondoSidebar.jpg);*/
+    
     width:100%;
 }

@@ -232,7 +232,7 @@ export default class Registro extends Component {
                 
                 <div className="form-group">
                     <div className="form-group">
-                      <Link to='/perfil' className="btn btn-default">Cancelar</Link>
+                      <Link to='/' className="btn btn-default">Cancelar</Link>
                       <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Guardar</button>
 
                   </div>
