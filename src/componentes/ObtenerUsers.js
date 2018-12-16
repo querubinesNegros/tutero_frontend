@@ -16,6 +16,7 @@ export default class ObtenerUsers extends Component {
     super();
     logPageView();
     this.changeToTutor = this.changeToTutor.bind(this)
+    this.changeToStudent = this.changeToStudent.bind(this)
   }
 
   state = {
@@ -120,6 +121,42 @@ export default class ObtenerUsers extends Component {
     })
 
   }
+  changeToStudent(rol, id){
+    Swal({
+      title: 'Quieres volver este tutor un estudiante?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, deseo cambiar el rol',
+      cancelButtonText: 'No, me he equivocado'
+    }).then((result) => {
+      if (result.value) {
+        Swal(
+          'Se esta cambiando de rol',
+          'Espera mientras que se procesa la solicitud.'
+        )
+        const info = {
+          rol: "Student"
+        }
+        axios.defaults.headers.common['Authorization'] =  localStorage.getItem('jwtToken');
+        axios.patch(`${baseURL}/users/${id}/rol`,info)
+        .then((res)=> {
+          console.log.res
+             
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+        
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal(
+          'Cancelado',
+          'No se cambiara nada'
+        )
+      }
+
+    })
+
+  }
 
   changeRol(str, id) {
     var tutorButtons = []
@@ -127,7 +164,7 @@ export default class ObtenerUsers extends Component {
       return <button type="button" class="btn btn-elegant btn-sm" onClick = {this.changeToTutor.bind(this,str, id)}>Cambiar a tutor</button>
     } else if (str == "Tutor")  {
       tutorButtons.push(<button type="button" class="btn btn-elegant btn-sm">Cambiar a Admin</button> )
-      tutorButtons.push(<button type="button" class="btn btn-elegant btn-sm" >Cambiar a estudiante</button>)
+      tutorButtons.push(<button type="button" class="btn btn-elegant btn-sm" onClick = {this.changeToStudent.bind(this,str, id)} >Cambiar a estudiante</button>)
       return tutorButtons  
     }
   }
@@ -165,6 +202,7 @@ export default class ObtenerUsers extends Component {
                     <th scope="col">Apellido</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Tipo</th>
+                    <th scope="col">Id del rol</th>
                     <th scope="col">Accion</th>
                   </tr>
                 </thead>
@@ -176,6 +214,7 @@ export default class ObtenerUsers extends Component {
                       <td>{home.lastname}</td>
                       <td>{home.email}</td>
                       <td>{home.userable_type}</td>
+                      <td>{home.userable_id}</td>
                       <td>{this.changeRol(home.userable_type, home.id)}</td>
                     </tr>)}
 
