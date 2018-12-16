@@ -164,15 +164,20 @@ class Disp extends Component {
                 //console.log(k + " , " + i  + " , "  + j  )
             }
         }
-        
+        let mybuttons = [];
+        if (this.props.isSet == false ){
+            mybuttons = null
+        }else{
+            mybuttons.push(<button  className="btn btn btn-elegant sbutton"   onClick={this.setTutor.bind(this)}>Escoger este tutor</button>)
+            mybuttons.push(<button  className="btn btn-default sbutton"   onClick = {this.step.bind(this)}>IR ATRAS</button> )
+        }
         
         return (
         <div>
             {content_not}
             <div  className =  "month">
-            <button  className="btn btn btn-elegant sbutton"   onClick={this.setTutor.bind(this)}>Escoger este tutor</button>   
+            {mybuttons} 
             <button  className="btn btn-default sbutton"   onClick = {this.getSchedule.bind(this)}>MOSTRAR</button>
-            <button  className="btn btn-default sbutton"   onClick = {this.step.bind(this)}>IR ATRAS</button> 
                  <ul>
                     <li>Dia - Hora </li>
                     <li>{name_day} - {hour} </li>

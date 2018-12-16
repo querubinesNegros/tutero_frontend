@@ -86,7 +86,7 @@ class Steps extends Component {
         }else if (this.state.now == 2 ){
             show = <ListaTutores tutors = {this.state.tutors} nextStep={this.step}/>
         }else if(this.state.now == 3){
-           show =  <Disponibilidad tutor_id = {this.state.tutor_id} prevPage = {this.prev}  setTutor = {this.setTutor} skey = {this.setState.index}/>
+           show =  <Disponibilidad tutor_id = {this.state.tutor_id} prevPage = {this.prev}  setTutor = {this.setTutor} skey = {this.setState.index} isSet = {true}/>
         }
 
 
