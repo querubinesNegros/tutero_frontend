@@ -8,12 +8,14 @@ import axios from 'axios';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
 import FooterAdmin from './FooterAdmin';
-import Paginacion from './Paginacion'
+import Paginacion from './Paginacion';
+import Swal from 'sweetalert2'
 export default class ObtenerUsers extends Component {
 
   constructor() {
     super();
     logPageView();
+    this.changeToTutor = this.changeToTutor.bind(this)
   }
 
   state = {
@@ -71,18 +73,64 @@ export default class ObtenerUsers extends Component {
 
   }
   changePage = (nowPage) => {
+    this.setState({ page: nowPage })
     axios.get(`${baseURL}/users/page/${nowPage}`)
-    .then(res => {
-      const tutor = res.data.profiles;
-      console.log(res);
-      this.setState({ tutor });
-    })
-    .catch(error => {
-      console.log(error);
-    });
-}
-  
+      .then(res => {
+        const tutor = res.data.profiles;
+        console.log(res);
+        this.setState({ tutor });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  changeToTutor(rol, id){
+    Swal({
+      title: 'Quieres volver este estudiante un tutor?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, deseo cambiar el rol',
+      cancelButtonText: 'No, me he equivocado'
+    }).then((result) => {
+      if (result.value) {
+        Swal(
+          'Se esta cambiando de rol',
+          'Espera mientras que se procesa la solicitud.'
+        )
+        const info = {
+          rol: "Tutor"
+        }
+        axios.defaults.headers.common['Authorization'] =  localStorage.getItem('jwtToken');
+        axios.patch(`${baseURL}/users/${id}/rol`,info)
+        .then((res)=> {
+          console.log.res
+             
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+        
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal(
+          'Cancelado',
+          'No se cambiara nada'
+        )
+      }
 
+    })
+
+  }
+
+  changeRol(str, id) {
+    var tutorButtons = []
+    if (str == "Student") {
+      return <button type="button" class="btn btn-elegant btn-sm" onClick = {this.changeToTutor.bind(this,str, id)}>Cambiar a tutor</button>
+    } else if (str == "Tutor")  {
+      tutorButtons.push(<button type="button" class="btn btn-elegant btn-sm">Cambiar a Admin</button> )
+      tutorButtons.push(<button type="button" class="btn btn-elegant btn-sm" >Cambiar a estudiante</button>)
+      return tutorButtons  
+    }
+  }
 
 
   render() {
@@ -92,20 +140,20 @@ export default class ObtenerUsers extends Component {
     return (
       <div>
         <MenuAdmin />
-         <div className="row">
+        <div className="row">
 
-            <div className="col center-block">
+          <div className="col center-block">
             <h3> Escoge la página </h3>
 
-              <Paginacion paginas={cant} actual={page} changePage={this.changePage} />
-            </div>
+            <Paginacion paginas={cant} actual={page} changePage={this.changePage} />
           </div>
+        </div>
         <div className="container mt-3">
-         
+
           <div className="row">
 
 
-          
+
 
             <div className="col-md-12 mt-3">
 
@@ -117,7 +165,7 @@ export default class ObtenerUsers extends Component {
                     <th scope="col">Apellido</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Tipo</th>
-
+                    <th scope="col">Accion</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -128,7 +176,7 @@ export default class ObtenerUsers extends Component {
                       <td>{home.lastname}</td>
                       <td>{home.email}</td>
                       <td>{home.userable_type}</td>
-
+                      <td>{this.changeRol(home.userable_type, home.id)}</td>
                     </tr>)}
 
 
