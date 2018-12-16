@@ -4,7 +4,7 @@ import Footer from './Footer';
 import {Link} from 'react-router-dom'
 import '../styles/estudiante.css';
 import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
-import {Animation} from 'mdbreact';
+import {Animation, MDBIcon, MDBContainer, MDBCard, MDBCardTitle,MDBCardText} from 'mdbreact';
 import Disponibilidad from './Steps/Disponibilidad'
 
 import store from '../store';
@@ -74,7 +74,7 @@ export default class Estudiante extends Component{
         } 
         return (
             <div>
-                <Menu2/>
+                <Menu2 pict= {this.state.pict}/>
                 <div className="container">
                     <div className="d-flex justify-content-center">
                         <div className="col-md-3"></div>
@@ -86,7 +86,18 @@ export default class Estudiante extends Component{
                             </Animation>
                             <h3>{this.state.tutor.name} {this.state.tutor.lastname}</h3>
                             <h3>Correo: {this.state.tutor.email}</h3>
-                            <h3>Cel: {this.state.tutor.cellphone} </h3>
+                            
+                            <MDBContainer style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+                                <MDBCard className="card-body" style={{ width: "22rem", marginTop: "1rem" }}>
+                                    <MDBCardTitle>Solicita una tutoria al:</MDBCardTitle>
+                                    <MDBCardText>
+                                    <h3><MDBIcon icon="whatsapp wh " size="lg" className="green-text pr-3" /> {this.state.tutor.cellphone} </h3>
+
+                                    </MDBCardText>
+                                    
+                                </MDBCard>
+                            </MDBContainer>
+                            <br/>
                             <button type="button" class="btn btn-elegant btn-sm" onClick = {this.changeView} >{str} </button>
 
                         </div>

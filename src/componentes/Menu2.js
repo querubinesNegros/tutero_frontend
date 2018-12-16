@@ -32,7 +32,17 @@ export default class Menu2 extends Component {
 */ 
   render() {
     const bgPink = {backgroundColor: '#45526e'}
-    
+    console.log(localStorage.getItem('picture'))
+
+    const icon = localStorage.getItem('picture')
+    let show;
+    if(icon != null){
+        show = icon
+        
+    }else{
+        show = "/person-1.jpg"
+    }
+
     return (
         <div>
           
@@ -63,7 +73,7 @@ export default class Menu2 extends Component {
               </NavbarNav>
               <NavbarNav right>
                   <Link  to="/estudiante/perfil" className="nav-link icon">
-                    <img src={localStorage.getItem('picture')} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                    <img src={icon} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                   </Link>
                   <NavItem>
                   </NavItem>
