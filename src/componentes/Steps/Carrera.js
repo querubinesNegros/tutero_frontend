@@ -21,7 +21,9 @@ class Carrera extends Component {
         notification: false,
         redirect: false,
         rol: "",
-        my_caerer: null
+        my_caerer: null,
+        button: true
+
     };
     getCareers = () => {
         axios
@@ -48,27 +50,28 @@ class Carrera extends Component {
             "jwtToken"
         );
         if (this._isMounted) {
-        
-        axios
-            .patch(`${baseURL}/users/${store.getState().id}`, { user: info })
-            .then(response => {
-                const schedulesdata = response.data.schedules;
-                this.setState({ schedules: schedulesdata });
-                console.log(response.data.schedules);
-                if (response.status == 200) {
-                    this.setState({ notification: true });
-                    setTimeout(() => {
-                        this.props.nextStep(2, this.career.current.value);
-                        this.setState({
-                            redirect: true,
-                            rol: store.getState().userable_type
-                        });
-                    }, 2000);
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+
+            axios
+                .patch(`${baseURL}/users/${store.getState().id}`, { user: info })
+                .then(response => {
+                    const schedulesdata = response.data.schedules;
+                    this.setState({ schedules: schedulesdata });
+                    console.log(response.data.schedules);
+                    if (response.status == 200) {
+                        this.setState({ notification: true, button: false });
+
+                        setTimeout(() => {
+                            this.props.nextStep(2, this.career.current.value);
+                            this.setState({
+                                redirect: true,
+                                rol: store.getState().userable_type
+                            });
+                        }, 2000);
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     };
     componentDidMount() {
@@ -81,11 +84,24 @@ class Carrera extends Component {
         //if (this.state.rol =="Tutor" ) return <Redirect push to="/tutor" />;
         const not = this.state.notification;
         let content_not;
+        let showButton
+        if (this.state.button) {
+            showButton = <button
+                className="btn  btn-raised btn-primary"
+                onClick={this.doChange}
+            >
+                Realizar cambios
+            </button>
+        }else{
+            showButton = null
+        }
         if (not == true) {
             content_not = <Success />;
         } else {
             content_not = null;
         }
+        const btn = this.state.button
+
         return (
             <div>
                 {content_not}
@@ -104,12 +120,8 @@ class Carrera extends Component {
                     </div>
                     <div className="row">
                         <div className="col center-block">
-                            <button
-                                className="btn  btn-raised btn-primary"
-                                onClick={this.doChange}
-                            >
-                                Realizar cambios
-              </button>
+                            {showButton}
+                        
                         </div>
                     </div>
                 </div>
