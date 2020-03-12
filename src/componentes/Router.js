@@ -34,7 +34,8 @@ import ConsultasEst from './ConsultasEst';
 import AdminTutores from './AdminTutores';
 import Steps from './Steps/Steps'
 import Carrera from './Carrera'
-import Encuestas from './Encuestas'
+import EncuestaTutor from './EncuestaTutor'
+import EncuestaEst from './EncuestaEst'
 
 
 
@@ -87,6 +88,7 @@ export default class Router extends Component {
             <PrivateRoute exact path="/estudiante/perfil" component={Perfil} />
             <PrivateRoute exact path="/estudiante/editarperfil" component={EdPerfil} />
             <PrivateRoute exact path="/estudiante/consultas" component={ConsultasEst} />
+            <PrivateRoute exact path="/estudiante/encuestas" component={EncuestaEst} />
             <PrivateRoute path="/servicio/:id" component={Servicio} />
 
             <PrivateRoute exact path="/admin" component={Admin} />
@@ -104,7 +106,7 @@ export default class Router extends Component {
             <PrivateRoute exact path="/tutor" component={PerfilTutor} />
             <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor} />
             <PrivateRoute exact path="/tutor/tutorias" component={TutoriasTutor} />
-            <PrivateRoute exact path="/tutor/encuestas" component={Encuestas} />
+            <PrivateRoute exact path="/tutor/encuestas" component={EncuestaTutor} />
             <PrivateRoute exact path="/tutor/editarperfil" component={TutorEditarPerfil} />
             <PrivateRoute exact path="/tutor/certificados" component={CertificadosTutor} />
             <PrivateRoute exact path="/tutor/estudiantes" component={Tutor_Estudiantes} />

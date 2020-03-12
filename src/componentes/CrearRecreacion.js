@@ -9,7 +9,7 @@ import {
   MDBBtn,
   MDBIcon,
   View,
-  MDBView
+  MDBView, MDBCarousel, MDBCarouselInner, MDBCarouselItem
 } from "mdbreact";
 import axios from "axios";
 import swal from "sweetalert2";
@@ -91,14 +91,46 @@ export default class CrearRecreacion extends Component {
     return (
       <div>
         <MenuAdmin />
-
-        <div className="row justify-content-md-center">
-          <div className="col-md-8 mb-3">
-            <br/>
-            <br/>
-            <Corosuer images={this.state.recreations} type={1} />
-          </div>
-        </div>
+        <br></br>
+        <MDBContainer>
+            <MDBCarousel
+                activeItem={1}
+                length={3}
+                showControls={true}
+                showIndicators={true}
+                className="z-depth-1"
+            >
+                <MDBCarouselInner>
+                <MDBCarouselItem itemId="1">
+                    <MDBView>
+                    <img
+                        className="d-block w-100"
+                        src="https://www.ucundinamarca.edu.co/images/bienestar/ampliacion-programas-se.jpg"
+                        alt="First slide"
+                    />
+                    </MDBView>
+                </MDBCarouselItem>
+                <MDBCarouselItem itemId="2">
+                    <MDBView>
+                    <img
+                        className="d-block w-100"
+                        src="https://www.ucundinamarca.edu.co/images/facultades/bienestar.jpg"
+                        alt="Second slide"
+                    />
+                    </MDBView>
+                </MDBCarouselItem>
+                <MDBCarouselItem itemId="3">
+                    <MDBView>
+                    <img
+                        className="d-block w-100"
+                        src="https://www.ucundinamarca.edu.co/images/biblioteca/2019/alianzas.jpg"
+                        alt="Third slide"
+                    />
+                    </MDBView>
+                </MDBCarouselItem>
+                </MDBCarouselInner>
+            </MDBCarousel>
+        </MDBContainer>
         <MDBContainer
           style={{
             display: "flex",
