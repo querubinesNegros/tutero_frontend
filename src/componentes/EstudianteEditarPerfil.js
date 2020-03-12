@@ -150,8 +150,8 @@ export default class EstudianteEditarPerfil extends Component {
                     </div>
                     <div className="form-group">
                         <div className="form-group">
-                            <Link to='/estudiante/perfil' className="btn btn-default">Cancelar</Link>
-                            <button type="submit" className="btn btn-default" id="submit" onClick={this.handleSubmit}>Guardar</button>
+                            <Link to='/estudiante/perfil' className="btn btn-dark-green">Cancelar</Link>
+                            <button type="submit" className="btn btn-dark-green" id="submit" onClick={this.handleSubmit}>Guardar</button>
 
                         </div>
                     </div>

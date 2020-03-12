@@ -6,7 +6,7 @@
     padding: 0; 
     position: relative; 
     left: 50%;
-    
+
 }
 .item{
     float: left;
@@ -23,7 +23,7 @@
 }
 
 #sidebar, #sidebarEstudiante, #sidebarAbout, #sidebarAdmin, #sidebarTutor{
-    background-color:  #2e3951;
+    background-color:  #00482B;
     
     /*background-image: url(../recursos/fondoSidebar.jpg);*/
     

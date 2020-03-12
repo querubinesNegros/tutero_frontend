@@ -98,7 +98,7 @@ export default class Estudiante extends Component{
                                 </MDBCard>
                             </MDBContainer>
                             <br/>
-                            <button type="button" class="btn btn-elegant btn-sm" onClick = {this.changeView} >{str} </button>
+                            <button type="button" class="btn btn-dark-green btn-sm" onClick = {this.changeView} >{str} </button>
 
                         </div>
                             

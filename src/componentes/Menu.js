@@ -25,7 +25,7 @@ export default class Menu extends Component {
         <Navbar id="sidebar"  dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/' className="nav-link">
-                      <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                      <img src="/udec1.jpg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                     </Link>
             </NavbarBrand>
             <NavbarToggler onClick={ this.onClick } />

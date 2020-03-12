@@ -51,7 +51,7 @@ export default class PerfilTutor extends Component {
 
           <div className="form-group">
             <div className="form-group">
-              <Link to='/tutor/editarperfil' className="btn btn-default">Editar perfil</Link>
+              <Link to='/tutor/editarperfil' className="btn btn-dark-green">Editar perfil</Link>
 
 
             </div>

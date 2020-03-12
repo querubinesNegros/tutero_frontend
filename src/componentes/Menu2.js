@@ -31,7 +31,7 @@ export default class Menu2 extends Component {
   }
 */ 
   render() {
-    const bgPink = {backgroundColor: '#45526e'}
+    const bgPink = {backgroundColor: '#00482B'}
     console.log(localStorage.getItem('picture'))
 
     const icon = localStorage.getItem('picture')
@@ -49,7 +49,7 @@ export default class Menu2 extends Component {
           <Navbar id="sidebarEstudiante" style={bgPink} dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/estudiante' className="nav-link">
-                      <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                      <img src="/udec1.jpg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                     </Link>
             </NavbarBrand>
             <NavbarToggler onClick={ this.onClick } />
@@ -73,7 +73,7 @@ export default class Menu2 extends Component {
               </NavbarNav>
               <NavbarNav right>
                   <Link  to="/estudiante/perfil" className="nav-link icon">
-                    <img src={icon} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                    <img src={'/person-1.jpg'} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                   </Link>
                   <NavItem>
                   </NavItem>

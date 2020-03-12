@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import Menu2 from './Menu2';
 import Footer from './Footer';
 import '../styles/Recreacion.css';
-import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
 import { logPageView } from '../analytics';
-import { Carousel, CarouselInner, CarouselItem } from "mdbreact";
+import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from "mdbreact";
 import axios from "axios";
-import Corosuer from "./Corosuer";
+//import Corosuer from "./Corosuer";
 import baseURL from "../url";
 
 export default class Recreacion extends Component {
@@ -37,13 +36,47 @@ export default class Recreacion extends Component {
         return (
             <div>
                 <Menu2 />
-                <div className="row justify-content-md-center">
-                    <div className="col-md-8 mb-3">
-                    <br/>
-                    <br/>
-                        <Corosuer images={this.state.recreations} type={1} />
-                    </div>
-                </div>
+                <br></br>
+
+                <MDBContainer>
+                    <MDBCarousel
+                        activeItem={1}
+                        length={3}
+                        showControls={true}
+                        showIndicators={true}
+                        className="z-depth-1"
+                    >
+                        <MDBCarouselInner>
+                        <MDBCarouselItem itemId="1">
+                            <MDBView>
+                            <img
+                                className="d-block w-100"
+                                src="https://www.ucundinamarca.edu.co/images/bienestar/ampliacion-programas-se.jpg"
+                                alt="First slide"
+                            />
+                            </MDBView>
+                        </MDBCarouselItem>
+                        <MDBCarouselItem itemId="2">
+                            <MDBView>
+                            <img
+                                className="d-block w-100"
+                                src="https://www.ucundinamarca.edu.co/images/facultades/bienestar.jpg"
+                                alt="Second slide"
+                            />
+                            </MDBView>
+                        </MDBCarouselItem>
+                        <MDBCarouselItem itemId="3">
+                            <MDBView>
+                            <img
+                                className="d-block w-100"
+                                src="https://www.ucundinamarca.edu.co/images/biblioteca/2019/alianzas.jpg"
+                                alt="Third slide"
+                            />
+                            </MDBView>
+                        </MDBCarouselItem>
+                        </MDBCarouselInner>
+                    </MDBCarousel>
+                </MDBContainer>
                 <Footer />
             </div>
         )

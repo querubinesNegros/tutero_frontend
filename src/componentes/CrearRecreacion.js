@@ -137,7 +137,7 @@ export default class CrearRecreacion extends Component {
                 />
                 <div className="text-center py-4 mt-3">
                   <MDBBtn
-                    className="btn btn-outline-purple"
+                    color="dark-green"
                     type="submit"
                     onClick={this.onSubmit}
                   >

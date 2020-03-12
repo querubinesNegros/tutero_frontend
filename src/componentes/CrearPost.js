@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MenuAdmin from './MenuAdmin';
 import { Link } from 'react-router-dom'
-import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
+import { MDBBtn } from 'mdbreact';
 import store from '../store';
 import baseURL from '../url';
 import axios from 'axios';
@@ -214,7 +214,7 @@ export default class CrearPost extends Component {
             <div className="form-group">
               <div className="form-group">
                 <Link to='/admin' className="btn btn-default">Cancelar</Link>
-                <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Guardar</button>
+                <MDBBtn color="dark-green" type="submit" onClick={this.handleSubmit}>Guardar</MDBBtn>
 
               </div>
 

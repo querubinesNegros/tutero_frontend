@@ -14,8 +14,8 @@ export default class Header extends Component {
   
       var styles = {
         margin: '20px',
-        width: '150px',
-        height: '150px',
+        width: '200px',
+        height: '200px',
       }
      
     return (
@@ -24,12 +24,12 @@ export default class Header extends Component {
           <div className ="col-6">
             
             <div className="col-12 container">
-                <h1 className="h1Landing align-middle">Tutero</h1>
+                <h1 className="h1Landing align-middle">Universidad de Cundinamarca</h1>
                 
-                <Image src="/logo.jpeg" style={styles} circle className="img-fluid rounded-circle hoverable"/>
+                <Image src="/udec1.jpg" style={styles} circle className="img-fluid"/>
                 <br></br>
                 <br></br>
-                <Link to={'/registro'} className="btn btn-primary btnLanding" > Regístrate </Link>
+                <Link to={'/registro'} className="btn btn-yellow btnLanding" > Regístrate </Link>
                 <br></br>
                 <br></br>
 

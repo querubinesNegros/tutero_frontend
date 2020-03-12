@@ -52,7 +52,7 @@ export default class CertificadosTutor extends Component {
                         <div className="col-md-4">                            
                         </div>
                         <div className="col-md-4">
-                            <button type="button" className="btn btn-default" onClick={this.generarCertificado} id="btnGenerarCertificado">Generar Certificado</button>
+                            <button type="button" className="btn btn-dark-green" onClick={this.generarCertificado} id="btnGenerarCertificado">Generar Certificado</button>
                         </div>
                         <div className="col-md-4">                            
                         </div>

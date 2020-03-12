@@ -36,14 +36,14 @@ export default class MenuTutor extends Component {
 
   render() {
 
-    const bgPink = { backgroundColor: '#45526e' }
+    const bgPink = { backgroundColor: '#00482B' }
     return (
         <div id="containerNav">  
         
             <Navbar id="sidebarTutor"style={bgPink} dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/tutor' className="nav-link">
-                      <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                      <img src="/udec1.jpg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                     </Link>
             </NavbarBrand>
             <NavbarToggler onClick={ this.onClick } />
@@ -54,6 +54,9 @@ export default class MenuTutor extends Component {
                 </NavItem>
                 <NavItem>
                   <Link to='/tutor/tutorias' className="nav-link">Tutorias</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to='/tutor/encuestas' className="nav-link">Encuestas</Link>
                 </NavItem>
                 <NavItem>
                   <Link to='/tutor/estudiantes' className="nav-link">Estudiantes</Link>

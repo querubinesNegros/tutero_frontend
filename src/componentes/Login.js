@@ -200,7 +200,7 @@ export default class Login extends Component {
           <div className="login-form">
             <div className="main-div">
               <div className="panel">
-                <h1 className="h1Login align-center">Tutero</h1>
+                <h1 className="Login align-center">Ingresa</h1>
 
 
                 <select id="basic" className="selectpicker show-tick form-control" onChange={this.cambiarEstado} >
@@ -227,7 +227,7 @@ export default class Login extends Component {
                 <div className="forgot">
                   <a href="reset.html">Forgot password?</a>
                 </div>
-                <button type="submit" onClick={this.handleSubmit} className="btn btn-primary hola"> Log in</button>
+                <button type="submit" onClick={this.handleSubmit} className="btn btn-dark-green hola"> Log in</button>
                 <Button onClick={this.googleResponse} social="gplus"><Fa icon="google-plus" className="pr-1" /> Gmail</Button>
               </form>
             </div>

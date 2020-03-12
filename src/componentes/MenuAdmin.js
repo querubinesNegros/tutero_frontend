@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../styles/Menu2.css';
 import swal from 'sweetalert2';
 import { logPageView } from '../analytics';
-import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa } from 'mdbreact';
+import { Container, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Fa, MDBBtn } from 'mdbreact';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 export default class MenuAdmin extends Component {
@@ -36,14 +36,14 @@ export default class MenuAdmin extends Component {
   }
 
   render() {
-    const bgPink = { backgroundColor: '#45526e' }
+    const bgPink = { backgroundColor: '#00482B' }
     return (
         <div id="containerNav">  
         
         <Navbar id="sidebarAdmin" style={bgPink} dark expand="md" scrolling fixed="top: 0">
             <NavbarBrand>
                     <Link to='/admin' className="nav-link">
-                      <img src="/logo.jpeg" width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                      <img src="/udec1.jpg" width= "70px" alt ="" className="img-fluid rounded-circle zoom"/>
                     </Link>
             </NavbarBrand>
             <NavbarToggler onClick={ this.onClick } />
@@ -72,7 +72,7 @@ export default class MenuAdmin extends Component {
                 </NavItem>
               </NavbarNav>
               <NavbarNav right>
-                  <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Logout</button>
+                  <MDBBtn color="yellow" type="submit" onClick={this.handleSubmit}>Logout</MDBBtn>
                   <NavItem>
                   </NavItem>
                   <NavItem>

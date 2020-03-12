@@ -10,7 +10,7 @@
     "analytics.js": "^2.9.1",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
-    "firebase": "^5.5.5",
+    "firebase": "^6.0.2",
     "fs": "0.0.1-security",
     "googleapis": "^27.0.0",
     "jquery": "^3.3.1",
