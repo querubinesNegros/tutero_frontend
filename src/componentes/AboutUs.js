@@ -40,7 +40,7 @@ export default class AboutUs extends Component {
             <Collapse isOpen = { this.state.collapse } navbar>
               <NavbarNav left>
                 <NavItem>
-                  <Link to='/' className="nav-link">Home</Link>
+                  <Link to='/' className="nav-link">Inicio</Link>
                 </NavItem>
                 <NavItem>
                   <Link to='/registro' className="nav-link">Registro</Link>
@@ -56,11 +56,14 @@ export default class AboutUs extends Component {
           <div className ="col-6">
             
             <div className="col-12 container">
-                <h1 className="h1Landing ">Tutero</h1>
-                
-                <Image src="/logo.jpeg"  circle className="profile-pic2 img-fluid rounded-circle hoverable"/>
                 <br></br>
                 <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <Image src="/udec1.jpg" width= "250px" circle className="profile-pic2 img-fluid"/>
+
                 <br></br>
                 <br></br>
             </div>
@@ -71,18 +74,18 @@ export default class AboutUs extends Component {
           <br></br>
                 <br></br>
                 <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
+
             <div id="cajasT">
-                <div classname="align-center"> NUESTRO EQUIPO
+                <div classname="align-center">
+                <br></br>
+                 NUESTRO EQUIPO
                 <br></br><br></br>
                 Pedro Alexander Higuera
                 <br></br>
                 Sergio Ivan Sanchez<br></br>
                 Nicolas Parra Ramos<br></br>
                 Johnathan Leon<br></br>
-                David Leon<br></br>
+                <br></br>
                 </div>
                 
             
@@ -91,9 +94,9 @@ export default class AboutUs extends Component {
             <br></br>
             
             <div id="cajasT">
-                <div classname="align-center"> ACERCA DE TUTERO
+                <div classname="align-center"> ACERCA DE
                 <br></br><br></br>
-                Nuestra aplicación nace al ver la necesidad de los estudiantes por tener una guia mas cercana de todo lo que implica hacer parte de una Universidad, que mejor que se cree una red de amistad y compañerismo entre estudiantes, para que la tasa de deserción desde que se implemente nuestra red en adelante sea muy inferior a la actual.
+                
                 </div>
             
                 

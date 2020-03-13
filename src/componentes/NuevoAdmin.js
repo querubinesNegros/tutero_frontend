@@ -216,7 +216,7 @@ export default class NuevoAdmin extends Component{
                 
                 <div className="form-group">
                     <div className="form-group">
-                    	<Link to='/perfil' className="btn btn-default">Cancelar</Link>
+                    	<Link to='/perfil' className="btn btn-dark-green">Cancelar</Link>
                       <MDBBtn color="dark-green" type="submit" onClick={this.handleSubmit}>Guardar</MDBBtn>
                 	</div>
                 </div>

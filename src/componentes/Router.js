@@ -101,7 +101,7 @@ export default class Router extends Component {
             <PrivateRoute exact path="/admin/tutores" component={AdminTutores} />
             <PrivateRoute exact path="/career" component={Carrera} />
 
-            <PrivateRoute exact path="/pasos" component={Steps} />
+            <Route exact path="/pasos" component={Steps} />
 
             <PrivateRoute exact path="/tutor" component={PerfilTutor} />
             <PrivateRoute exact path="/tutor/disponibilidad" component={DisponibilidadTutor} />

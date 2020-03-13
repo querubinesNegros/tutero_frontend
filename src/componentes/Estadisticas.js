@@ -139,7 +139,7 @@ export default class Estadisticas extends Component {
           datasets: [
             {
               label: '% de estudiantes',
-              data: [22, 33, 55, 12, 86, 23, 14],
+              data: [22, 33, 55, 12, 100],
               fill: false,
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -175,7 +175,8 @@ export default class Estadisticas extends Component {
               label: "% de estudiantes",
               backgroundColor: "rgba(71, 225, 167, 0.5)",
               borderColor: "rgb(71, 225, 167)",
-              data: [28, 48, 40, 19]
+              data: [28, 48, 20, 19],
+
             }
           ]
         }
@@ -189,7 +190,7 @@ export default class Estadisticas extends Component {
           datasets: [
             {
               label: "% de estudiates",
-              data: [12, 19, 3, 5, 100],
+              data: [15, 13, 20, 5, 100],
               backgroundColor: [
                 "rgba(255, 134,159,0.4)",
                 "rgba(98,  182, 239,0.4)",
@@ -253,7 +254,7 @@ export default class Estadisticas extends Component {
                         onClick={this.toggleCollapse("basicCollapse")}
                         style={{ marginBottom: "1rem" }}
                     >
-                    deserción por causal socio-económica
+                    Deserción por causal socio-económica
                 </MDBBtn>
                 </div>
                 <div class="col-md-3">
@@ -262,7 +263,7 @@ export default class Estadisticas extends Component {
                     onClick={this.toggleCollapse("basicCollapse1")}
                     style={{ marginBottom: "1rem" }}
                     >
-                    deserción por causal académica
+                    Deserción por causal académica
                 </MDBBtn>
                 </div>
                 <div class="col-md-3">
@@ -271,7 +272,7 @@ export default class Estadisticas extends Component {
                     onClick={this.toggleCollapse("basicCollapse2")}
                     style={{ marginBottom: "1rem" }}
                     >
-                    deserción por causal salud, física y/o mental
+                    Deserción por causal salud, física y/o mental
                 </MDBBtn>
                 </div>
                 <div class="col-md-3">
@@ -280,22 +281,21 @@ export default class Estadisticas extends Component {
                     onClick={this.toggleCollapse("basicCollapse3")}
                     style={{ marginBottom: "1rem" }}
                     >
-                    deserción por causal crítica(suicidio,embarazo...)
+                    Deserción por causal crítica(suicidio,embarazo...)
                 </MDBBtn>
                 </div>
         </div>
         <MDBCollapse id="basicCollapse" isOpen={this.state.collapseID}>
                     <MDBContainer>
-                        <h3 className="mt-5">Bar chart</h3>
+                        <h3 className="mt-5">Deserción por causal socio-económica</h3>
                         <Bar data={this.state2.dataBar} options={this.state2.barChartOptions} />
                     </MDBContainer>
         </MDBCollapse>  
         
         <MDBCollapse id="basicCollapse1" isOpen={this.state.collapseID}>
                     <MDBContainer>
-                        <h1>deserción por causal académica</h1>
                         <MDBContainer>
-                            <h3 className='mt-5'>deserción por causal socio-económica</h3>
+                            <h3 className='mt-5'>Deserción por causal académica</h3>
                             <HorizontalBar
                             data={this.state3.dataHorizontal}
                             options={{ responsive: true }}
@@ -305,16 +305,15 @@ export default class Estadisticas extends Component {
         </MDBCollapse>
         <MDBCollapse id="basicCollapse2" isOpen={this.state.collapseID}>
                     <MDBContainer>
-                        <h1>deserción por causal salud, física y/o mental</h1>
                         <MDBContainer>
-                            <h3 className="mt-5">Radar chart</h3>
+                            <h3 className="mt-5">Deserción por causal salud, física y/o mental</h3>
                             <Radar data={this.state4.dataRadar} options={{ responsive: true }} />
                         </MDBContainer>
                     </MDBContainer>
         </MDBCollapse>  
         <MDBCollapse id="basicCollapse3" isOpen={this.state.collapseID}>
                     <MDBContainer>
-                        <h1>deserción por causal crítica(suicidio,embarazo...)</h1>
+                        <h3>Deserción por causal crítica(suicidio,embarazo...)</h3>
                         <Bar data={this.state5.dataBar} options={this.state5.barChartOptions} />
                     </MDBContainer>
         </MDBCollapse>    

@@ -213,7 +213,7 @@ export default class CrearPost extends Component {
 
             <div className="form-group">
               <div className="form-group">
-                <Link to='/admin' className="btn btn-default">Cancelar</Link>
+                <Link to='/admin' className="btn btn-dark-green">Cancelar</Link>
                 <MDBBtn color="dark-green" type="submit" onClick={this.handleSubmit}>Guardar</MDBBtn>
 
               </div>
@@ -227,7 +227,6 @@ export default class CrearPost extends Component {
             <Archivo name={fp[key].name} key={key} id_r={key} remove={this.removeFile} ext={this.state.types[key]} type="delete" />
           )}
         </div>
-
         <FooterAdmin />
       </div>
     )

@@ -91,11 +91,6 @@ export default class Perfil extends Component {
                         <label>{this.state.user.stratus}</label>
 
                     </div>
-                    <div className="form-group">
-                        <h4 className="s-property-title">PBM:</h4>
-                        <label>{this.state.user.pbm}</label>
-
-                    </div>
 
                     <div className="form-group">
                         <div className="form-group">

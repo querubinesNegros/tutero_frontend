@@ -178,7 +178,6 @@ export default class Registro extends Component {
       <div className="login-form">
       <div className="main-div">
       <div className="panel">
-      <h1 className="h1Registro align-center">Tutero</h1>
       <h1 className="align-center">Por favor llena el siguiente formulario:</h1>
       
       
@@ -232,8 +231,8 @@ export default class Registro extends Component {
                 
                 <div className="form-group">
                     <div className="form-group">
-                      <Link to='/' className="btn btn-default">Cancelar</Link>
-                      <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Guardar</button>
+                      <Link to='/' className="btn btn-dark-green">Cancelar</Link>
+                      <button type="submit" className="btn btn-dark-green" onClick={this.handleSubmit}>Guardar</button>
 
                   </div>
                 </div>

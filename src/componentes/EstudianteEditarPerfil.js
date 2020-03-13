@@ -134,13 +134,7 @@ export default class EstudianteEditarPerfil extends Component {
 
                         </div>
                     </div>
-                    <div>
-                        <h3>Edita tu PBM:</h3>
-                        <div className="form-group">
-                            <input type="text" id="pbmEdit" ></input>
 
-                        </div>
-                    </div>
                     <div>
                         <h3>Edita tu estrato:</h3>
                         <div className="form-group">
