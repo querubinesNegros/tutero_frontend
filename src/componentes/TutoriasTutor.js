@@ -85,7 +85,7 @@ export default class TutoriasTutor extends Component {
         
         axios.get(`${baseURL}/topics`)
             .then((response) => {
-                console.log(response)
+                //console.log(response.data.topics)
                 const topics = response.data.topics;
                 this.setState({topics});  
             })

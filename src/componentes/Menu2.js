@@ -37,10 +37,9 @@ export default class Menu2 extends Component {
     const icon = localStorage.getItem('picture')
     let show;
     if(icon != null){
-        show = icon
-        
+        show = icon      
     }else{
-        show = "/person-1.jpg"
+        show = "/student.png"
     }
 
     return (
@@ -76,7 +75,7 @@ export default class Menu2 extends Component {
               </NavbarNav>
               <NavbarNav right>
                   <Link  to="/estudiante/perfil" className="nav-link icon">
-                    <img src={'/person-1.jpg'} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
+                    <img src={'/student.png'} width= "70px" alt ="" className="img-fluid rounded-circle hoverable"/>
                   </Link>
                   <NavItem>
                   </NavItem>
